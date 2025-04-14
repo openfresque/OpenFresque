@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   end
 
   # Production dependencies:
-  spec.add_dependency "rails", "7.0.8.7"
+  spec.add_dependency "rails", "7.0.8.1"
   spec.add_dependency "puma"
   spec.add_dependency "pg"
   spec.add_dependency "sprockets-rails"

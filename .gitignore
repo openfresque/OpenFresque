@@ -1,10 +1,60 @@
-/.bundle/
-/doc/
-/log/*.log
-/pkg/
-/tmp/
-/test/dummy/log/*.log
-/test/dummy/storage/
-/test/dummy/tmp/
+# Bundler configuration and caches
+.bundle/
+vendor/bundle/
 
+# Ignore built gem packages and packaging directories
+*.gem
+pkg/
+
+# Log and temp files from Rails
+log/*
+!log/.keep
+tmp/*
+!tmp/.keep
+
+# Compiled assets and precompiled files
+public/assets
+public/packs
+public/packs-test
+public/system
+public/uploads
+
+# Node.js dependencies and Yarn files (if you are using these)
+node_modules/
+yarn-error.log*
+.yarn-integrity
+
+# Build and distribution directories
+build/
+dist/
+
+# OS-specific files
 .DS_Store
+Thumbs.db
+
+# Editor and IDE temporary files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.iml
+
+# Test and coverage artifacts
+coverage/
+spec/reports/
+.rspec
+
+# Debug and byebug history
+.byebug_history
+
+# Sensitive configuration files (do not commit credentials or master key)
+config/master.key
+config/credentials.yml.enc
+
+# Environment files (used by dotenv or similar gems)
+.env
+.env.*
+
+# Other miscellaneous temporary files
+*.rbc
