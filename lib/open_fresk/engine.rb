@@ -10,5 +10,15 @@ module OpenFresk
         end
       end
     end
+
+    initializer "open_fresk.add_autoload_paths", before: :set_autoload_paths do |app|
+      # Reassign autoload and eager load paths rather than mutating a frozen array.
+      config.autoload_paths = config.autoload_paths + [root.join("app", "classes")]
+      config.eager_load_paths = config.eager_load_paths + [root.join("app", "classes")]
+    end
+
+    initializer "open_fresk.assets.precompile" do |app|
+      app.config.assets.precompile += %w( open_fresk/application.css )
+    end
   end
 end
