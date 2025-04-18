@@ -27,5 +27,12 @@ module OpenFresk
         ::String.include OpenFresk::CoreExtensions::String
       end
     end
+
+    # Make engine views available for all controllers of the host app
+    initializer "open_fresk.append_view_paths", after: :load_config_initializers do
+      ActiveSupport.on_load(:action_controller) do
+        append_view_path OpenFresk::Engine.root.join("app/views")
+      end
+    end
   end
 end
