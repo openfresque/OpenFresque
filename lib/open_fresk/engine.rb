@@ -34,5 +34,12 @@ module OpenFresk
         append_view_path OpenFresk::Engine.root.join("app/views")
       end
     end
+
+    # After the Rails app has finished loading
+    config.to_prepare do
+      # Always include HeaderHelper (the stub) in any controller’s view context
+      ::ApplicationController.helper(::HeaderHelper)
+      ::ApplicationController.helper(::PlateformAccess::RightsHelper)
+    end
   end
 end
