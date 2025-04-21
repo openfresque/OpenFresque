@@ -25,9 +25,21 @@ module OpenFresk
       config.eager_load_paths += [helpers_path]
     end
 
-    # Precompile engine assets
-    initializer "open_fresk.assets.precompile" do |app|
-      app.config.assets.precompile += %w[ open_fresk/application.css ]
+    # Make engine Javascript available via Sprockets
+    initializer "open_fresk.assets.paths", before: :append_assets_path do |app|
+      # engine’s JS:
+      app.config.assets.paths << root.join("app", "javascript")
+      # host’s JS:
+      app.config.assets.paths << app.root.join("app", "javascript")
+    end
+
+    # Precompile engine assets (CSS & JS)
+    initializer "open_fresk.assets.precompile", after: :assets do |app|
+      app.config.assets.precompile += %w[
+        open_fresk/application.css
+        open_fresk/application.js
+        controllers/*.js
+      ]
     end
 
     # Load core extensions
@@ -46,13 +58,19 @@ module OpenFresk
 
     # Include shared helpers after load
     config.to_prepare do
-      # Engine and host controllers share these
       ::ApplicationController.helper(::HeaderHelper)
       ::ApplicationController.helper(::PlateformAccess::RightsHelper)
 
-      # FontAwesome icon helper
       ::ApplicationController.helper(FontAwesome5::Rails::IconHelper)
       OpenFresk::ApplicationController.helper(FontAwesome5::Rails::IconHelper)
+    end
+
+    # Pin importmap entries for engine
+    initializer "open_fresk.importmap", after: "importmap.setup" do |app|
+      app.config.importmap.draw do
+        pin "open_fresk/application", to: asset_path("open_fresk/application.js"), preload: true
+        pin_all_from "#{root}/app/javascript/open_fresk/controllers", under: "controllers"
+      end
     end
   end
 end
