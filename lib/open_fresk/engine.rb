@@ -25,9 +25,26 @@ module OpenFresk
       config.eager_load_paths += [helpers_path]
     end
 
-    # Precompile engine assets
-    initializer "open_fresk.assets.precompile" do |app|
-      app.config.assets.precompile += %w[ open_fresk/application.css ]
+    # Make app/javascript discoverable by Sprockets (so importmap assets are served)
+    initializer "open_fresk.assets.paths", group: :all do |app|
+      app.config.assets.paths << root.join("app/javascript")
+    end
+
+    # Precompile our JS entrypoint so it shows up under /assets/open_fresk.js
+    initializer "open_fresk.assets.precompile", group: :all do |app|
+      app.config.assets.precompile += %w[
+        open_fresk/application.css
+        open_fresk.js
+      ]
+    end
+
+    # Precompile each controller under app/javascript/open_fresk/controllers
+    initializer "open_fresk.assets.precompile_controllers", group: :all do |app|
+      Dir[root.join("app/javascript/open_fresk/controllers/*.js")].each do |full_path|
+        logical_path = Pathname.new(full_path).relative_path_from(root.join("app/javascript")).to_s
+        # => "open_fresk/controllers/hello_controller.js"
+        app.config.assets.precompile << logical_path
+      end
     end
 
     # Load core extensions
@@ -42,6 +59,11 @@ module OpenFresk
       ActiveSupport.on_load(:action_controller) do
         append_view_path OpenFresk::Engine.root.join("app/views")
       end
+    end
+
+    # Tell importmap-rails about our engine’s own importmap.rb
+    initializer "open_fresk.importmap", before: "importmap" do |app|
+      app.config.importmap.paths << root.join("config/importmap.rb")
     end
 
     # Include shared helpers after load
