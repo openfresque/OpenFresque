@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Open fresk</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-
-  <%= stylesheet_link_tag    "open_fresk/application", media: "all" %>
+  <title>OpenFresk</title>
+  <%= render "layouts/open_fresk/include" %>
+  <%= render "layouts/open_fresk/meta" %>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="<%= controller_name %> <%= action_name %> flex-column h-100 my-0">
+<%= render "layouts/open_fresk/header" %>
+<div class="container mb-3">
+  <div class="mx-auto col-lg-6">
+    <%= render "layouts/open_fresk/alert" %>
+  </div>
+  <%= yield %>
+</div>
+<%= render "layouts/open_fresk/footer" %>
 </body>
 </html>

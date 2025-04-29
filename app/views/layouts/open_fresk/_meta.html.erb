@@ -1,0 +1,10 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff"/>
+
+<%#— defaults you can override in the host via I18n keys or by shadowing this partial —%>
+<meta name="og:title"       content="<%= t('open_fresk.meta.title',   default: t('open_fresk.default_title')) %>" />
+<meta name="og:type"        content="website" />
+<meta name="og:url"         content="<%= request.original_url %>" />
+<meta name="og:image"       content="<%= image_url('favicon.png', host: request.base_url) %>" />
+<meta name="og:site_name"   content="<%= t('open_fresk.meta.site_name',default: t('open_fresk.default_site_name')) %>" />
+<meta name="og:description" content="<%= t('open_fresk.meta.description',default: t('open_fresk.default_description')) %>" />
