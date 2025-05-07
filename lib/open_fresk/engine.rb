@@ -72,6 +72,7 @@ module OpenFresk
       #::ApplicationController.helper(::PlateformAccess::RightsHelper)
 
       ::ApplicationController.helper :all
+      OpenFresk::ApplicationController.helper :all
 
       # FontAwesome icon helper
       ::ApplicationController.helper(FontAwesome5::Rails::IconHelper)
