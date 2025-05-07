@@ -42,7 +42,6 @@ module OpenFresk
     initializer "open_fresk.assets.precompile_controllers", group: :all do |app|
       Dir[root.join("app/javascript/open_fresk/controllers/*.js")].each do |full_path|
         logical_path = Pathname.new(full_path).relative_path_from(root.join("app/javascript")).to_s
-        # => "open_fresk/controllers/hello_controller.js"
         app.config.assets.precompile << logical_path
       end
     end
@@ -69,8 +68,10 @@ module OpenFresk
     # Include shared helpers after load
     config.to_prepare do
       # Engine and host controllers share these
-      ::ApplicationController.helper(::HeaderHelper)
-      ::ApplicationController.helper(::PlateformAccess::RightsHelper)
+      #::ApplicationController.helper(::HeaderHelper)
+      #::ApplicationController.helper(::PlateformAccess::RightsHelper)
+
+      ::ApplicationController.helper :all
 
       # FontAwesome icon helper
       ::ApplicationController.helper(FontAwesome5::Rails::IconHelper)
