@@ -10,6 +10,11 @@
 <div class="container mb-3">
   <div class="mx-auto col-lg-6">
     <%= render "layouts/open_fresk/alert" %>
+
+    <%#— hook for host‑only partials —%>
+    <% if lookup_context.template_exists?("layouts/open_fresk/container_extras", [], true) %>
+      <%= render partial: "layouts/open_fresk/container_extras" %>
+    <% end %>
   </div>
   <%= yield %>
 </div>
