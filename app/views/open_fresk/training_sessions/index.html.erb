@@ -1,0 +1,23 @@
+<div class="col-lg-6 mx-auto mb-3">
+  <div class="fs-5 fw-bold my-2" id="welcome_message">
+    <%= t("hello_name", name: current_user.firstname&.titleize_with_dashes) %>
+  </div>
+  <nav class="nav nav-pills">
+    <a class="flex-fill text-center nav-link" href="#my_sessions" data-bs-toggle="pill" data-bs-target="#my_sessions">
+      <%= t("training_sessions.my_sessions") %>
+      <span class="small">(<%= @my_training_sessions&.count %>)</span>
+    </a>
+  </nav>
+  <div class="tab-content">
+    <div class="tab-pane fade mt-3" id="my_sessions">
+      <div>
+        <span class='btn text-primary border-primary rounded-pill'><%= t("training_sessions.to_come") %></span>
+        <%= link_to t("training_sessions.past"),
+                    user_path(current_user), class: "btn link-secondary" %>
+      </div>
+      <% @my_training_sessions&.each do |my_training_session| %>
+        <%= render "card", training_session: my_training_session %>
+      <% end %>
+    </div>
+  </div>
+</div>
