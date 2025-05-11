@@ -10,7 +10,9 @@
         data-turbo-track="reload"></script>
 <%= javascript_importmap_tags %>
 
-<%= javascript_import_module_tag "open_fresk" %>
+<script type="module">
+  import "/assets/open_fresk/application.js"
+</script>
 
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>

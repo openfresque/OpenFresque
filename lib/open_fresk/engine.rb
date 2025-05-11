@@ -1,3 +1,4 @@
+require "sprockets/rails"
 require "font_awesome5_rails"
 
 module OpenFresk
@@ -60,10 +61,10 @@ module OpenFresk
       end
     end
 
-    # Tell importmap-rails about our engine’s own importmap.rb
-    initializer "open_fresk.importmap", before: "importmap" do |app|
-      app.config.importmap.paths << root.join("config/importmap.rb")
-    end
+    # # Tell importmap-rails about our engine’s own importmap.rb
+    # initializer "open_fresk.importmap", after: "importmap" do |app|
+    #   app.config.importmap.paths << root.join("config/importmap.rb")
+    # end
 
     # Include shared helpers after load
     config.to_prepare do
