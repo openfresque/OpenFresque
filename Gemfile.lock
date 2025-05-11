@@ -4,7 +4,6 @@ PATH
     open_fresk (0.1.1)
       concurrent-ruby (= 1.3.4)
       font_awesome5_rails (= 1.5.0)
-      importmap-rails (= 2.1.0)
       pg
       puma
       rails (= 7.0.8.1)
@@ -92,10 +91,6 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    importmap-rails (2.1.0)
-      actionpack (>= 6.0.0)
-      activesupport (>= 6.0.0)
-      railties (>= 6.0.0)
     json (2.11.3)
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)

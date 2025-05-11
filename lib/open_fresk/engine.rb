@@ -1,4 +1,3 @@
-require "sprockets/rails"
 require "font_awesome5_rails"
 
 module OpenFresk
