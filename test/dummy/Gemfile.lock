@@ -1,16 +1,3 @@
-PATH
-  remote: ../..
-  specs:
-    open_fresk (0.1.1)
-      bootstrap (= 5.3.1)
-      concurrent-ruby (= 1.3.4)
-      font_awesome5_rails (= 1.5.0)
-      pg
-      puma
-      rails (= 7.0.8.1)
-      sass-rails (>= 6)
-      sprockets-rails
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -126,6 +113,15 @@ GEM
     nio4r (2.7.4)
     nokogiri (1.18.8-arm64-darwin)
       racc (~> 1.4)
+    open_fresk (0.1.1)
+      bootstrap (= 5.3.1)
+      concurrent-ruby (= 1.3.4)
+      font_awesome5_rails (= 1.5.0)
+      pg
+      puma
+      rails (= 7.0.8.1)
+      sass-rails (>= 6)
+      sprockets-rails
     pg (1.5.9)
     popper_js (2.11.8)
     puma (6.6.0)
@@ -197,7 +193,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  open_fresk!
+  open_fresk (= 0.1.1)
   rails (~> 7.0.0)
 
 BUNDLED WITH
