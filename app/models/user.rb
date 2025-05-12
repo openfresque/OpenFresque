@@ -1,3 +1,4 @@
-class User < OpenFresk::User   
+class User < OpenFresk::User
+  has_secure_password
 end
   
