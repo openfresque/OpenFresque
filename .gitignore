@@ -61,4 +61,4 @@ config/credentials.yml.enc
 *.rbc
 
 test/dummy/tmp/
-test/dummy/log/
+*.log
