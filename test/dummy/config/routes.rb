@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  mount OpenFresk::Engine => "/open_fresk"
+  root to: "training_sessions#index"
+
+  mount OpenFresk::Engine => "/"
 end

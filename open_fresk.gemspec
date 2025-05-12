@@ -21,4 +21,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "sprockets-rails"
   spec.add_dependency "concurrent-ruby", '1.3.4'
   spec.add_dependency "font_awesome5_rails", "1.5.0"
+  spec.add_dependency "sass-rails", ">= 6"
+  spec.add_dependency "bootstrap", "5.3.1"
 end
