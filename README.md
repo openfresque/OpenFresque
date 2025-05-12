@@ -127,4 +127,4 @@ Please report any security issues via GitHub Issues or by contacting the maintai
 
 ## License
 
-OpenFresk is released under the MIT License. See the [MIT-LICENSE](MIT-LICENSE) file for details
+OpenFresk is released under the MIT License. See the [MIT-LICENSE](MIT-LICENSE) file for details.
