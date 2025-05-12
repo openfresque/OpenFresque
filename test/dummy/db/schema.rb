@@ -44,8 +44,8 @@ ActiveRecord::Schema[7.0].define(version: 2021_11_19_233449) do
 
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", null: false
-    t.string "first_name"
-    t.string "last_name"
+    t.string "firstname"
+    t.string "lastname"
     t.string "password_digest", null: false
     t.boolean "admin", default: false, null: false
     t.string "token", null: false

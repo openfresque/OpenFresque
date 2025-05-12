@@ -4,7 +4,7 @@
     <%= render "layouts/header/logo" %>
     <div class="navbar-collapse offcanvas-collapse on_top_of_iframe">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <%= root_path(t("header.home"), training_sessions_path) %>
+        <%= root_path(t("header.home")) %>
       </ul>
       <%= link_to fa_icon("globe", text: current_language), "#languageModal", class: "nav-item nav-link link-dark",  data: { bs_toggle: "modal", bs_target: "#languageModal"} %>
     </div>
