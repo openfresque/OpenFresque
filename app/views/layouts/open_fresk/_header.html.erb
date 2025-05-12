@@ -1,1 +1,12 @@
-<p>foo</p>
+<div class="container-fluid px-0 header bg-secondary bg-opacity-25">
+  <nav class="navbar navbar-expand-lg px-3 py-0 shadow-sm">
+    <%= render "layouts/header/hamburger" %>
+    <%= render "layouts/header/logo" %>
+    <div class="navbar-collapse offcanvas-collapse on_top_of_iframe">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <%= home_link(t("header.home"), training_sessions_path) if policy(TrainingSession).index? %>
+      </ul>
+      <%= link_to fa_icon("globe", text: current_language), "#languageModal", class: "nav-item nav-link link-dark",  data: { bs_toggle: "modal", bs_target: "#languageModal"} %>
+    </div>
+  </nav>
+</div>
