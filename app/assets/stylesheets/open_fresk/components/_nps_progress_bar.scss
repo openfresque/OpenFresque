@@ -1,0 +1,97 @@
+.wrapper-nps {
+  height: 1em;
+  width: 100%;
+}
+
+.progress-nps {
+  height: 1em;
+  width: 100%;
+  background-color: $primary;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.nps-score {
+  background-color: $primary;
+  border-radius: 5px;
+  color: white;
+  display: inline-block;
+  position: relative;
+  transform: translateX(-50%);
+}
+
+.nps-score::after {
+  content: "";
+  position: absolute;
+  left: 43%;
+  display : inline-block;
+  height : 0;
+  width : 0;
+  border-top : 14px solid $primary;
+  border-right : 8px solid transparent;
+  border-left : 7px solid transparent;
+  top: 75%;
+  z-index: 2;
+}
+
+.nps-middle {
+  content: "";
+  position: absolute;
+  height: 2em;
+  width: 3.5px;
+  border-radius: 15px;
+  background-color: $secondary;
+  left: 50%;
+  z-index: 1;
+}
+
+.blind {
+  background-color: #CACED2;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  min-width: 50%;
+}
+
+.blind.right {
+  left: 50%;
+  transform-origin: left top;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -1%;
+    width: 2%;
+    height: 100%;
+    background-color: $primary;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  &.no-before::before{
+    display:none;
+  }
+}
+
+.blind.left {
+  transform-origin: left top;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 99%;
+    width: 2%;
+    height: 100%;
+    background-color: $primary;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  &.no-before::before{
+    display:none;
+  }
+}

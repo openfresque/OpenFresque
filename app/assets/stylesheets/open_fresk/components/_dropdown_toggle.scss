@@ -1,0 +1,9 @@
+.dropdown-toggle[aria-expanded="true"]:after {
+  transform: rotate(180deg);
+}
+.dropdown-toggle:after {
+  transition: 0.3s;
+}
+.dropdown-toggle::after {
+  content: "\25BC"; /* Unicode for a downward-pointing triangle */
+}

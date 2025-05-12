@@ -1,0 +1,31 @@
+.ss-main {
+  border-radius: 12px !important;
+  background-color: #f1f1f1 !important;
+  padding: 0.7rem !important;
+  border: none !important;
+}
+
+.ss-main .ss-values .ss-value {
+  background-color: $primary;
+}
+
+.ss-main .ss-multi-selected .ss-values .ss-value {
+  color: white;
+  font-size: 13px;
+  border-radius: 50px;
+}
+
+.ss-main .ss-multi-selected {
+  padding: 0.7rem !important;
+}
+
+.ss-main .ss-values .ss-value .ss-value-text {
+  font-size: 16px;
+  color: #fff;
+  line-height: 1;
+}
+
+.ss-content .ss-list .ss-option.ss-highlighted,
+.ss-content .ss-list .ss-option.ss-selected:not(.ss-disabled) {
+  background-color: $primary;
+}

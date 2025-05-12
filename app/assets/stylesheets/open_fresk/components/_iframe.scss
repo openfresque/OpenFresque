@@ -1,0 +1,26 @@
+.iframe_fullscreen {
+  position:fixed;
+  left:0;
+  bottom: 0px;
+  right:0;
+  width:100%;
+  border:none;
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
+  z-index:999;
+}
+
+.iframe-top-60 {
+  top: 60px;
+  height: calc(100% - 60px);
+}
+
+.iframe-top-160 {
+  top: 160px;
+  height: calc(100% - 160px);
+}
+
+.on_top_of_iframe {
+  z-index: 1000;
+}

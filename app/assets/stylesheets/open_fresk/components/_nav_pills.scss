@@ -1,0 +1,26 @@
+  .nav,
+  .nav-pills {
+    font-weight: 700;
+    .nav-link.active {
+      margin: 0px 5px;
+      color: $primary !important;
+      background-color: #fff !important;
+      border-bottom: 2px solid $primary;
+      border-radius: 0px !important;
+    }
+    .nav-link.active:hover {
+      background-color: $primary !important;
+      color: #fff !important;
+    }
+    .nav-link:not(.active) {
+      margin: 0px 5px;
+      background-color: #fff;
+      color: rgba($secondary, 0.8) !important;
+      border-bottom: 2px solid rgba($secondary, 0.8);
+      border-radius: 0px !important;
+    }
+    .nav-link:not(.active):hover {
+      background-color: rgba($secondary, 0.2) !important;
+      color: $secondary !important;
+    }
+  }

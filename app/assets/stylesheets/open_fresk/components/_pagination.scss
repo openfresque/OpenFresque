@@ -1,0 +1,11 @@
+.pagination {
+  .page-link {
+    color: $primary;
+  }
+  .page-item.active .page-link {
+      z-index: 3;
+      color: #fff;
+      background-color: $primary;
+      border-color: $primary;
+  }
+}
