@@ -36,6 +36,10 @@ module OpenFresk
       app.config.assets.precompile += %w[
         open_fresk/application.css
         open_fresk.js
+        open_fresk/favicon.png
+        manifest.json
+        open_fresk/application.js
+        open_fresk/logos/logo.png
       ]
     end
 
