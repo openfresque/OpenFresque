@@ -1,0 +1,15 @@
+fr:
+  open_fresk:
+    default_title: "OpenFresk"
+    default_site_name: "OpenFresk"
+    default_description: "OpenFresk - Plateforme d'Ateliers de la Fresque du Climat"
+    meta:
+      title: "OpenFresk"
+      site_name: "OpenFresk"
+      description: "OpenFresk - Plateforme d'Ateliers de la Fresque du Climat"
+  email: "Email"
+  password: "Mot de passe"
+  show_password: "Afficher le mot de passe"
+  sessions:
+    signin: "Se connecter"
+    forgot: "Mot de passe oublié ?"

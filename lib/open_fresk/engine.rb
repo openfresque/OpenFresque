@@ -1,3 +1,4 @@
+require "sprockets/rails"
 require "font_awesome5_rails"
 
 module OpenFresk
@@ -35,6 +36,10 @@ module OpenFresk
       app.config.assets.precompile += %w[
         open_fresk/application.css
         open_fresk.js
+        open_fresk/favicon.png
+        manifest.json
+        open_fresk/application.js
+        open_fresk/logos/logo.png
       ]
     end
 
@@ -60,9 +65,15 @@ module OpenFresk
       end
     end
 
-    # Tell importmap-rails about our engine’s own importmap.rb
-    initializer "open_fresk.importmap", before: "importmap" do |app|
-      app.config.importmap.paths << root.join("config/importmap.rb")
+    # # Tell importmap-rails about our engine’s own importmap.rb
+    # initializer "open_fresk.importmap", after: "importmap" do |app|
+    #   app.config.importmap.paths << root.join("config/importmap.rb")
+    # end
+
+    initializer "open_fresk.assets.bootstrap", before: :append_assets_path do |app|
+      if spec = Gem.loaded_specs["bootstrap"]
+        app.config.assets.paths << File.join(spec.full_gem_path, "assets", "stylesheets")
+      end
     end
 
     # Include shared helpers after load

@@ -1,0 +1,22 @@
+.form-control {
+  border-radius: 12px !important;
+  background-color: #f1f1f1 !important;
+  padding: 0.7rem !important;
+  border: none !important;
+}
+
+.form-control-sm {
+  border-radius: 8px !important;
+  background-color: #f1f1f1 !important;
+  padding: 0.6rem 0.5rem !important;
+  border: none !important;
+}
+
+.border-right-0 {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.form-control:disabled, .form-control[readonly] {
+  color: $secondary;
+}

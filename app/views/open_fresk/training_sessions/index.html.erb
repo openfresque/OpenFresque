@@ -12,8 +12,7 @@
     <div class="tab-pane fade mt-3" id="my_sessions">
       <div>
         <span class='btn text-primary border-primary rounded-pill'><%= t("training_sessions.to_come") %></span>
-        <%= link_to t("training_sessions.past"),
-                    user_path(current_user), class: "btn link-secondary" %>
+        
       </div>
       <% @my_training_sessions&.each do |my_training_session| %>
         <%= render "card", training_session: my_training_session %>

@@ -1,0 +1,25 @@
+input[type="radio"].checked_radio_button:checked + label {
+  background-color: $primary;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="radio"].checked_radio_button:not(:checked) + label {
+  background-color: #fff;
+  color: $secondary;
+  border-color: $secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="radio"].checked_radio_button:disabled + label {
+  background-color: #fff;
+  color: $secondary;
+  border-color: $secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

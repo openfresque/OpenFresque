@@ -15,19 +15,19 @@ OpenFresk is a 100% open-source project for non-profit organizations to deploy a
 
 **With OpenFresk, you can:**
 
-* 📅 **Create and schedule workshops** to manage time slots and sessions.
-* 🙍 **Manage participant registration and authentication** with built-in user flows.
-* 💳 **Sell tickets and manage payments** (via Stripe, PayPal, etc.).
-* 🤝 **Facilitate collaborative exercises and collect feedback** during workshops.
+- 📅 **Create and schedule workshops** to manage time slots and sessions.
+- 🙍 **Manage participant registration and authentication** with built-in user flows.
+- 💳 **Sell tickets and manage payments** (via Stripe, PayPal, etc.).
+- 🤝 **Facilitate collaborative exercises and collect feedback** during workshops.
 
 ---
 
 ## Key Benefits
 
-* 🔒 **Ownership.** Fully self-hosted and branded.
-* ⚡️ **Speed.** Rapid deployment with minimal configuration.
-* 🛠️ **Flexibility.** Override any part of the engine to fit your needs.
-* ❤️ **Community.** Backed by a growing open-source community.
+- 🔒 **Ownership.** Fully self-hosted and branded.
+- ⚡️ **Speed.** Rapid deployment with minimal configuration.
+- 🛠️ **Flexibility.** Override any part of the engine to fit your needs.
+- ❤️ **Community.** Backed by a growing open-source community.
 
 ---
 
@@ -44,27 +44,32 @@ OpenFresk is a 100% open-source project for non-profit organizations to deploy a
 ## Getting Started
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/yourusername/open_fresk.git
    cd open_fresk
    ```
 
 2. **Install dependencies**:
+
    ```bash
    bundle install
    ```
 
 3. **Switch to the dummy host app**:
+
    ```bash
    cd test/dummy
    ```
 
 4. **Set up the app** (gems, database, assets):
+
    ```bash
    bin/setup
    ```
 
 5. **Run the server**:
+
    ```bash
    bin/rails server
    ```
@@ -72,6 +77,7 @@ OpenFresk is a 100% open-source project for non-profit organizations to deploy a
 6. **Visit** `http://localhost:3000/open_fresk` in your browser.
 
 To run on a different port (e.g., 3001):
+
 ```bash
 bin/rails server -p 3001
 ```

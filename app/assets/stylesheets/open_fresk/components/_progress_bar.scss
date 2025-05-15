@@ -1,0 +1,17 @@
+.progress {
+  #first-section {
+    border-right: solid white;
+    border-width: medium;
+  }
+
+  #last-section {
+    border-left: solid white;
+    border-width: medium;
+  }
+
+  .middle-section {
+    border-right: solid white;
+    border-left: solid white;
+    border-width: medium;
+  }
+}

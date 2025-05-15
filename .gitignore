@@ -59,3 +59,6 @@ config/credentials.yml.enc
 
 # Other miscellaneous temporary files
 *.rbc
+
+test/dummy/tmp/
+*.log

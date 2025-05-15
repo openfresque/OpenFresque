@@ -1,0 +1,24 @@
+.text-secondary,
+.link-secondary {
+  color: $secondary !important;
+}
+.text-light,
+.link-light {
+  color: $light !important;
+}
+.text-warning,
+.link-warning {
+  color: $warning !important;
+}
+.text-white,
+.link-white  {
+    color: #fff !important;
+}
+.text-green,
+.link-green  {
+    color: $green !important;
+}
+.text-transparent,
+.link-transparent  {
+    color: rgba(255, 255, 255, 0) !important;
+}
