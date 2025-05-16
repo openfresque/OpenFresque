@@ -10,6 +10,26 @@ en:
   email: "Email"
   password: "Password"
   show_password: "Show password"
+  reset_password:
+    subject: Reset your password
+    content_01: Hello,
+    content_02: A password reset has been requested for the account %{email}
+    content_03: If this is an error, ignore this email and nothing will happen.
+    content_04: "To reset your password, click on the following link:"
+    content_05: Reset my password
+    content_06_html: <b>Warning!</b> This link is accessible for 48 hours only. After, you can receive a new account activation email <a href="%{forgot_password_url}">by following this link</a>.
   sessions:
-    signin: "Sign in"
-    forgot: "Forgot your password?"
+    forgot: I forgot my password
+    forgot_password_email_sent: You have received an email to change your password
+    forgot_password_user_unknown: This email does not match any known user
+    invalid_credentials: Invalid credentials
+    log_in_email: Log in with Email
+    logged_out: You are logged out
+    missing_password_digest: Missing password, please reset it
+    new_password: Enter a new password
+    no_right_to_access_app: You do not have the rights to access the application
+    remember: Remember me
+    signin: Signin
+    submit: Send me an email
+    title: Log in
+    your_email: Enter your email

@@ -10,6 +10,26 @@ fr:
   email: "Email"
   password: "Mot de passe"
   show_password: "Afficher le mot de passe"
+  reset_password:
+    subject: Réinitialisation du mot de passe
+    content_01: Bonjour,
+    content_02: Une demande de réinitialisation du mot de passe a été effectuée pour le compte %{email}
+    content_03: Si ceci est une erreur, ignorez cet e-mail et rien ne se passera.
+    content_04: "Pour renouveler votre mot de passe, cliquez sur le lien suivant :"
+    content_05: Renouveler mon mot de passe
+    content_06_html: <b>Attention !</b> Ce lien est accessible pendant 48h uniquement. Au-delà, vous pouvez recevoir un nouvel e-mail d'activation de compte <a href="%{forgot_password_url}">en suivant ce lien</a>.
   sessions:
-    signin: "Se connecter"
-    forgot: "Mot de passe oublié ?"
+    forgot: J'ai oublié mon mot de passe
+    forgot_password_email_sent: Vous avez reçu un e-mail pour changer votre mot de passe
+    forgot_password_user_unknown: Cet e-mail ne correspond à aucun·e utilisateur·ice connu·e
+    invalid_credentials: Identifiants incorrects
+    log_in_email: Connexion E-mail
+    logged_out: Vous êtes déconnecté
+    missing_password_digest: Mot de passe manquant, veuillez le réinitialiser
+    new_password: Entrez un nouveau mot de passe
+    no_right_to_access_app: Vous n'avez pas les droits pour accéder à l'application
+    remember: Se souvenir de moi
+    signin: Me connecter
+    submit: M'envoyer un e-mail
+    title: Connexion
+    your_email: Saisissez votre e-mail
