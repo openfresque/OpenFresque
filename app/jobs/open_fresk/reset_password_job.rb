@@ -1,6 +1,5 @@
 module OpenFresk
   class ResetPasswordJob < ApplicationJob
-    include Rails.application.routes.url_helpers
     queue_as :critical
   
     def perform(user_id)

@@ -1,6 +1,6 @@
 module OpenFresk
   class ApplicationMailer < ActionMailer::Base
     default from: "from@example.com"
-    layout "mailer"
+    layout "open_fresk/mailer"
   end
 end
