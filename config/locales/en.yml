@@ -1,4 +1,38 @@
 en:
+  activerecord:
+    attributes:
+      user:
+        accounts: Accounts
+        accounts_management: Accounts management
+        administrator: Administrator
+        animator: Facilitator
+        belt: Belt
+        cgu: Terms and conditions accepted
+        city: City
+        country: Country
+        department: Department
+        description: Description
+        email: Email
+        facilitation_languages: Facilitation languages
+        firstname: First name
+        invoicing_city: City
+        invoicing_company_name: Company name
+        invoicing_firstname: First name
+        invoicing_lastname: Last name
+        invoicing_street: Adress
+        invoicing_zip: Zip
+        lastname: Last name
+        name: Name
+        native_language: Language
+        new: Add a user
+        optin_directory: Community directory
+        optin_directory_settings: Appear in the community directory
+        optin_employees: Employees
+        optin_service_provider: Pros
+        organisator: Organiser
+        password: Password
+        phone: Phone
+        time_zone: Timezone
   open_fresk:
     default_title: "OpenFresk"
     default_site_name: "OpenFresk"
@@ -33,3 +67,13 @@ en:
     submit: Send me an email
     title: Log in
     your_email: Enter your email
+  password_choice: Choose your password
+  password_confirmation: Password confirmation
+  password_recovery: Password recovery
+  password_recovery_invalid: The link you clicked has expired. Enter your email below to receive a new link
+  password_robustness: "Please choose a password :"
+  password_robustness_1: more than 12 characters long
+  password_robustness_2: with uppercase and lowercase letters
+  password_robustness_3: with numbers
+  password_robustness_4: "with at least 1 special character among :"
+  validate_password: Validate your password
