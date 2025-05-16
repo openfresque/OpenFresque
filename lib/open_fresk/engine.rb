@@ -66,9 +66,9 @@ module OpenFresk
     end
 
     # # Tell importmap-rails about our engine’s own importmap.rb
-    # initializer "open_fresk.importmap", after: "importmap" do |app|
-    #   app.config.importmap.paths << root.join("config/importmap.rb")
-    # end
+    initializer "open_fresk.importmap", after: "importmap" do |app|
+      app.config.importmap.paths << root.join("config/importmap.rb")
+    end
 
     initializer "open_fresk.assets.bootstrap", before: :append_assets_path do |app|
       if spec = Gem.loaded_specs["bootstrap"]
