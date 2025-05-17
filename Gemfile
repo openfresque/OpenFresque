@@ -7,6 +7,7 @@ gemspec
 
 group :development, :test do
   gem "rubocop-rails-omakase", require: false
+  gem "letter_opener_web"
   # Uncomment the next line if you need a debugger during development:
   # gem "debug", ">= 1.0.0"
 end

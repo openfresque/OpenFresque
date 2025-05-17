@@ -26,4 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "font_awesome5_rails", "1.5.0"
   spec.add_dependency "sass-rails", ">= 6"
   spec.add_dependency "bootstrap", "5.3.1"
+  spec.add_dependency "redis", "4.6.0"
+  spec.add_dependency "sidekiq", "6.5.12"
 end

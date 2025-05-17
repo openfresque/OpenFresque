@@ -1,0 +1,65 @@
+<main class="form-signin" data-controller="password-validation">
+  <h1 class="h3 mb-3 fw-normal"><%= t('password_choice') %></h1>
+  <% if @errors&.any? %>
+    <% @errors.full_messages.each do |message| %>
+      <div class="rounded bg-danger text-white px-3 py-1 mb-3"><%= message %></div>
+    <% end %>
+  <% end %>
+  <small>
+    <%= t('password_robustness') %>
+    <ul>
+      <li data-password-validation-target= "size" class="text-danger"><%= t('password_robustness_1') %></li>
+      <li data-password-validation-target= "lowerUpper" class="text-danger"><%= t('password_robustness_2') %></li>
+      <li data-password-validation-target= "numbers" class="text-danger"><%= t('password_robustness_3') %></li>
+      <li data-password-validation-target= "specialCharacters" class="text-danger"><%= t('password_robustness_4') %>
+      <br> @:,\-?*_()!#$%^&+=</li>
+    </ul>
+  </small>
+
+  <%= form_tag(recover_password_path, :method => :post) do %>
+    <%= hidden_field_tag :language, params[:language].present? ? params[:language] : "en" %>
+    <%= hidden_field_tag 'recovery_token', @recovery_token %>
+
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <%= password_field_tag :password, nil, placeholder: t('activerecord.attributes.user.password'),
+            class: 'form-control', id: 'password_input_1', required: true, 'data-password-validation-target': 'firstInput',
+            "data-action": "keyup->password-validation#firstInputValidation"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= password_field_tag :password_confirmation, nil, placeholder: t('password_confirmation'),
+         class: 'form-control', id: 'password_input_2', required: true, 'data-password-validation-target': 'secondInput',
+         "data-action": "keyup->password-validation#secondInputValidation"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-3">
+      <small class="text-danger" data-password-validation-target= "validRepeat"><%= t('users.password_must_match') %></small>
+      </div>
+    </div>
+    <label class="mb-3">
+      <input type="checkbox" onclick="myFunction()"> <%= t('show_password') %>
+    </label>
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <%= submit_tag(t('validate_password'), class: "btn btn-large rounded-pill btn-primary", data: {turbo: false},
+        'data-password-validation-target': 'submit', disabled: true) %>
+      </div>
+    </div>
+  <% end %>
+</main>
+<script>
+  function myFunction() {
+    var x1 = document.getElementById("password_input_1");
+    var x2 = document.getElementById("password_input_2");
+    if (x1.type === "password") {
+      x1.type = "text";
+      x2.type = "text";
+    } else {
+      x1.type = "password";
+      x2.type = "password";
+    }
+  }
+</script>

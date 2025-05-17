@@ -3,6 +3,8 @@
 //= link_directory ../stylesheets/open_fresk .css
 //= link open_fresk/application.css
 //= link open_fresk/application.js
+//= link open_fresk/recover_password.js
+//= link open_fresk/controllers/password_validation_controller.js
 
 // explicitly declare your favicon and any other images you reference by path
 //= link open_fresk/favicon.png
