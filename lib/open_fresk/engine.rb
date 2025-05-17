@@ -1,9 +1,30 @@
 require "sprockets/rails"
 require "font_awesome5_rails"
+require "administrate"
 
 module OpenFresk
   class Engine < ::Rails::Engine
     isolate_namespace OpenFresk
+
+    config.before_initialize do
+      # Add dependent gems asset paths to the application's asset pipeline
+      # This ensures that sprockets (and subsequently SassC via sprockets-rails)
+      # can find assets from these gems.
+
+      # Bootstrap assets
+      if bootstrap_spec = Gem.loaded_specs["bootstrap"]
+        config.assets.paths << File.join(bootstrap_spec.full_gem_path, "assets", "stylesheets")
+        # Add other bootstrap asset types if needed (e.g., javascripts, fonts)
+      end
+
+      # Administrate assets
+      if administrate_spec = Gem.loaded_specs["administrate"]
+        config.assets.paths << File.join(administrate_spec.full_gem_path, "app", "assets", "stylesheets")
+        config.assets.paths << File.join(administrate_spec.full_gem_path, "app", "assets", "javascripts")
+        config.assets.paths << File.join(administrate_spec.full_gem_path, "vendor", "assets", "images") # Administrate has images here
+        config.assets.paths << File.join(administrate_spec.full_gem_path, "vendor", "assets", "javascripts") # and some JS here
+      end
+    end
 
     # Load migrations into the host app (aka "dummy" app)
     initializer :append_migrations do |app|
@@ -24,6 +45,11 @@ module OpenFresk
       helpers_path = root.join("app", "helpers")
       config.autoload_paths   += [helpers_path]
       config.eager_load_paths += [helpers_path]
+
+      # Dashboards
+      dashboards_path = root.join("app", "dashboards")
+      config.autoload_paths   += [dashboards_path]
+      config.eager_load_paths += [dashboards_path]
     end
 
     # Make app/javascript discoverable by Sprockets (so importmap assets are served)
@@ -65,15 +91,9 @@ module OpenFresk
       end
     end
 
-    # # Tell importmap-rails about our engine’s own importmap.rb
+    # # Tell importmap-rails about our engine's own importmap.rb
     initializer "open_fresk.importmap", after: "importmap" do |app|
       app.config.importmap.paths << root.join("config/importmap.rb")
-    end
-
-    initializer "open_fresk.assets.bootstrap", before: :append_assets_path do |app|
-      if spec = Gem.loaded_specs["bootstrap"]
-        app.config.assets.paths << File.join(spec.full_gem_path, "assets", "stylesheets")
-      end
     end
 
     # Include shared helpers after load

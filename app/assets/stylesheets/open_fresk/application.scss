@@ -32,6 +32,13 @@ label.required:after {
 // @import "@fortawesome/fontawesome-free/scss/v4-shims";
 @import "bootstrap";
 
+/*
+ * Explicitly require Administrate's base CSS using Sprockets.
+ * This is used instead of @import due to issues with SassC load paths
+ * when including from an engine into a host application.
+ */
+//= require administrate/base
+
 // External libraries
 body,
 html {
