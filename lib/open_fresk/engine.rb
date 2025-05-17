@@ -18,12 +18,12 @@ module OpenFresk
       end
 
       # Administrate assets
-      if administrate_spec = Gem.loaded_specs["administrate"]
-        config.assets.paths << File.join(administrate_spec.full_gem_path, "app", "assets", "stylesheets")
-        config.assets.paths << File.join(administrate_spec.full_gem_path, "app", "assets", "javascripts")
-        config.assets.paths << File.join(administrate_spec.full_gem_path, "vendor", "assets", "images") # Administrate has images here
-        config.assets.paths << File.join(administrate_spec.full_gem_path, "vendor", "assets", "javascripts") # and some JS here
-      end
+      # if administrate_spec = Gem.loaded_specs["administrate"]
+      #   config.assets.paths << File.join(administrate_spec.full_gem_path, "app", "assets", "stylesheets")
+      #   config.assets.paths << File.join(administrate_spec.full_gem_path, "app", "assets", "javascripts")
+      #   config.assets.paths << File.join(administrate_spec.full_gem_path, "vendor", "assets", "images") # Administrate has images here
+      #   config.assets.paths << File.join(administrate_spec.full_gem_path, "vendor", "assets", "javascripts") # and some JS here
+      # end
     end
 
     # Load migrations into the host app (aka "dummy" app)
