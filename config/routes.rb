@@ -1,10 +1,13 @@
 OpenFresk::Engine.routes.draw do
   namespace :admin do
-    # Add dashboard for each model wanted in Admin
-    # resources :users
-    # resources :training_sessions
+    resources :users
+    resources :training_sessions
+    
+    resources :smtp_settings, only: [:index, :show, :edit, :update], 
+                                controller: "open_fresk/admin/smtp_settings", 
+                                as: :open_fresk_smtp_settings
 
-    root to: "users#index" # Adjust if users is not the default dashboard
+    root to: "users#index", controller: "open_fresk/admin/users"
   end
 
   root to: "sessions#new"

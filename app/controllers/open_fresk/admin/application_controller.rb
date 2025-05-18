@@ -41,6 +41,16 @@ module OpenFresk
       def find_dashboard
         dashboard_class.new
       end
+
+      # Defines the dashboard manifest for Administrate sidebar within the engine.
+      def dashboard_manifest
+        [
+          OpenFresk::User, 
+          OpenFresk::SmtpSetting,
+          OpenFresk::TrainingSession,
+          # Add other dashboards from this engine here
+        ]
+      end
     end
   end
 end 
