@@ -5,6 +5,5 @@ OpenFresk::Engine.routes.draw do
   resource  :recover_password, only: %i[new create]
   resource  :forgot_password, only: %i[new create]
 
-  resources :training_sessions, only: %i[index] do
-  end
+  resources :training_sessions
 end

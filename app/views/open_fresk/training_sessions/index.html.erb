@@ -3,16 +3,19 @@
     <%= t("hello_name", name: current_user.firstname&.titleize_with_dashes) %>
   </div>
   <nav class="nav nav-pills">
-    <a class="flex-fill text-center nav-link" href="#my_sessions" data-bs-toggle="pill" data-bs-target="#my_sessions">
+    <a class="flex-fill text-center nav-link active" href="#my_sessions" data-bs-toggle="pill" data-bs-target="#my_sessions">
       <%= t("training_sessions.my_sessions") %>
       <span class="small">(<%= @my_training_sessions&.count %>)</span>
     </a>
   </nav>
   <div class="tab-content">
-    <div class="tab-pane fade mt-3" id="my_sessions">
+    <div class="tab-pane fade show active mt-3" id="my_sessions">
       <div>
-        <span class='btn text-primary border-primary rounded-pill'><%= t("training_sessions.to_come") %></span>
-        
+        <div class="text-end mt-2">
+          <%= link_to new_training_session_path, class: "btn btn-primary rounded-pill" do %>
+            <%= fa_icon("plus", text: t("training_sessions.new"), right: true) %>
+          <% end %>
+        </div>
       </div>
       <% @my_training_sessions&.each do |my_training_session| %>
         <%= render "card", training_session: my_training_session %>

@@ -1,0 +1,16 @@
+<div class="mb-3 border-bottom">
+  <div class="d-flex align-items-center">
+    <%= form.label t('training_sessions.session_info') %>
+    <div class="my-auto">
+      <a tabindex="0" class="btn" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
+                  data-html="true"
+                  data-bs-content-id="sub_session_info">
+                <%= fa_icon("question-circle", class: "text-secondary") %>
+      </a>
+      <div id="sub_session_info" class="d-none">
+        <%= t('training_sessions.sub_session_info') %>
+      </div>
+    </div>
+  </div>
+  <%= form.text_area :session_info, class: 'form-control mb-3' %>
+</div>

@@ -1,0 +1,11 @@
+<!-- SUBMIT -->
+<div class="actions">
+  <%= button_tag(name: "create_training_session_commit", type: "submit", class: "btn btn-primary btn-block rounded-pill") do %>
+    <% if action_name.in? %w(new create) %>
+      <%= t('training_sessions.create') %>
+    <% end %>
+    <% if action_name.in? %w(edit update) %>
+      <%= t('training_sessions.update') %>
+    <% end %>
+  <% end %>
+</div>
