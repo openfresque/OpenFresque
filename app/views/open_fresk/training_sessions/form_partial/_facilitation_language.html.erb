@@ -1,0 +1,9 @@
+<!-- FACILITATION LANGUAGE -->
+<div class="mb-3">
+  <%= form.label :language, class: "required h5" %>
+  <%= select_tag "training_session[language_id]",
+      options_for_select(Language.all.order(:french_name).map { |language| [t("languages.#{language.iso3}"), language.id] }, @facilitation_language || params.dig(:training_session, :language_id)),
+      multiple: false,
+      class: 'form-control',
+      required: true %>
+</div>

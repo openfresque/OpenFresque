@@ -1,0 +1,51 @@
+<%= link_to "#", class: "d-block link-dark text-decoration-none rounded-3 my-3" do %>
+  <div class="d-flex shadow-sm border border-light rounded-3 py-2 px-3 card-hover cursor-pointer">
+    <div class="flex-grow-1">
+      <div class="d-flex justify-content-between" >
+        <small class="text-secondary">
+          <%= l(training_session.date, format: :long) %>
+          <span>&#183;</span>
+              <%= l(training_session.local_start_time, format: :short) %> - <%= l(training_session.local_end_time, format: :short) %> (<%= t('time_of', time_zone: training_session.time_zone ) %>)
+            <span>&#183;</span>
+            <% if training_session.online? %>
+              <%= t('training_sessions.online') %>
+            <% else %>
+              <%= training_session.room %>
+              (<%= training_session.city %>)
+            <% end %>
+        </small>
+      </div>
+      <div class="mt-2">
+        <% if training_session.atelier? %>
+          <%= t('training_sessions.fdc_atelier') %>
+        <% else %>
+          <%= t('training_sessions.fdc_formation') %>
+        <% end %>
+      </div>
+      
+        <div class="mt-2 text-secondary">
+            <small>
+              <%= t('training_sessions.capacity_2',
+              tables: training_session.capacity_table,
+              count: training_session.capacity ) %>
+            </small>
+        </div>
+        <div>
+          <div class="d-flex justify-content-between align-items-center mt-2 me-3 text-secondary">
+            <%= fa_icon("users", style: 'width: 30px') %>
+            <%= seats_booked_progress_bar(training_session) %>
+            <small class="ms-1"><%= "#{training_session.confirmed_present_count}/#{training_session.capacity}" %></small>
+          </div>
+          <div class="my-2 me-3 text-secondary d-flex align-items-center">
+            <%= fa_icon("user-graduate", style: 'width: 30px') %>
+          </div>
+        </div>
+        <div class="text-end">
+      </div>
+      
+    </div>
+    <div class="d-flex align-items-center text-secondary" >
+      <%= fa_icon("chevron-right") %>
+    </div>
+  </div>
+<% end %>

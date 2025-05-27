@@ -77,3 +77,300 @@ fr:
   password_robustness_3: avec des chiffres
   password_robustness_4: "avec au moins 1 caractère spécial parmi :"
   validate_password: Valider votre mot de passe
+
+  stripe_rails:
+    secured_transaction: Transactions chiffrées et sécurisées
+    submit_button_text: Payer maintenant
+    title: Paiement
+  training_sessions:
+    active_filters:
+      one: "%{count} filtre actif"
+      other: "%{count} filtre actifs"
+      zero: "%{count} filtre actif"
+    add: Ajouter
+    address_not_valid:
+      "Adresse non valide : Veuillez sélectionner une adresse dans
+      le menu déroulant"
+    advice: Conseillé
+    animate: Mon rôle pendant la session
+    animator_destroyed: Votre participation a été supprimée
+    animator_registered: Inscription confirmée
+    animator_session_info: Message aux animateur·ices
+    animator_unregistered: Vous êtes désinscrit·e de cette session
+    animator_updated: Votre participation a été mise à jour
+    annonce_recurrence:
+      "Sessions récurrentes : vous pourrez ajouter d'autres dates
+      après avoir créé cette session"
+    around: autour de
+    ask_for_animation_sanofi: Demander une animation pour mon équipe
+    ask_for_organisation_rights_html:
+      Si tu veux créer une session grand public, contacte les référent·es de ton
+      <a href="%{url}" target="_blank">groupe local</a> qui te donneront les droits.
+    atelier: Fresque du Climat
+    audience:
+      association: Association
+      audience: Audience
+      company: Entreprise
+      education: Enseignement
+      error: L'audience ne correspond pas à la visibilité publique
+      general_public: Grand Public (Citoyen·nes, affiché sur le site)
+      inter_company: Inter-Entreprise (Affiché sur le site)
+      personal: Proches, famille, ami·es
+      public_sector: Pouvoirs Publics
+    become_animator: Inscription
+    capacity_1: Capacité
+    capacity_2:
+      one: "%{count} place (%{tables} table)"
+      other: "%{count} places (%{tables} tables)"
+      zero: "%{count} place (%{tables} table)"
+    capacity_3:
+      one: "%{count} place"
+      other: "%{count} places"
+      zero: "%{count} place"
+    card:
+      my_counter: Mon compteur
+      no_count: Vous n’avez compté aucun·e participant·e
+    categories: Catégories
+    category_error:
+      Pour modifier la catégorie de la session, vous devez d’abord annuler
+      l'émargement des participant·es
+    category_location: "%{category} en %{location}"
+    confirm_registration: Confirmer mon inscription
+    contact: Contact
+    contact_creator: Contacter l'organisateur·ice
+    contact_subtitle: Informations visibles sur la page de session
+    context:
+      commercial: "Utilisation dans un cadre commercial : j’ai une société et je facture des prestations (y compris auto-entreprise)"
+      errors: Ce contexte ne peut pas être attribué à l'audience sélectionnée
+      internal: Utilisation en interne dans une organisation (auprès de mes collègues, d’élèves ou bénévolement)
+      link_text: Plus d'informations sur la licence d'utilisation
+    copy_paste: Copier / coller
+    copy_url: Copier l'URL
+    coupon: Saisir coupon
+    create: Créer la session
+    created: La session a été créée avec succès
+    custom_contact: Autre
+    custom_contact_error:
+      Pour selectionner "Autre" pour Contact, vous devez remplir
+      à la fois le champ "Prénom, Nom" et "E-mail"
+    custom_email: E-mail
+    custom_name: Prénom, Nom
+    delete: Supprimer la session
+    delete_text:
+      Pour supprimer une session, vous devez d’abord annuler les inscriptions
+      des animateur·ices et des participant·es
+    description: Description
+    destroy_session_notice: La session a été supprimée.
+    destroy_session_text: Souhaitez-vous supprimer cette session ?
+    distance: Dans un rayon de
+    distance_filter: Saisir une ville ou un code postal
+    edit: Modifier session
+    end_date_after_start_date: L'heure de fin doit être supérieure à l'heure du début
+    facilitator: Animateur·ices
+    fdc_atelier: Atelier La Fresque du Climat
+    fdc_formation: Formation à l'animation
+    fdc_formation_opportunities: Formation à l’animation de la Fresque du Climat
+    fill_counter: Remplir mon compteur
+    format: Localisation
+    formation: Formation à l’animation
+    free: entrée libre
+    free_seats:
+      one: "%{count} place restante"
+      other: "%{count} places restantes"
+      zero: "%{count} place restante"
+    full: Complet
+    future_session: Sessions à venir
+    i_animate: J'anime
+    i_coach: Je mentore
+    i_observe: J'observe
+    i_organize: J'organise
+    i_take_part: Gérer mon inscription
+    location: Localisation
+    manage_attendee: Gérer les participants
+    menu_date: Date
+    menu_end_date: Heure de fin
+    menu_start_date: Heure de début
+    menu_time_zone: Fuseau horaire
+    missions:
+      audience_error: L'audience de la session ne correspond pas à celle de la mission
+      organisation_error:
+        L'organisation de la session de formation ne correspond
+        pas à l'organisation de la mission
+      remuneration_requested: Rétributions demandées
+      remuneration_requested_tooltip:
+        '"Rétributions demandées" signifie que les demandes
+        de rétributions ont bien été transmises à l''équipe Permanente. Chaque animateur·ice
+        devrait recevoir l''autofacture de sa rétribution autour du %{date}.'
+      remuneration_pending: Rétribution en attente
+      remuneration_pending_tooltip:
+        '"Rétribution en attente" signifie que la demande
+        de rétribution n''a pas encore été faite par le coordinateur·ice à l''association.'
+    my_passed_sessions: Mes sessions passées
+    my_passed_sessions_missing: Ton compteur ou ta ceinture sont incorrects ?
+    my_passed_sessions_missing_text_html:
+      Rends-toi sur le <a href="https://climatefresk.org/support/fr/support-fr-blog/"
+      class="text-warning" target="_blank">blog de la plateforme</a> pour comprendre
+      pourquoi et les mettre à niveau !
+    my_session: Ma session
+    my_sessions: Mes sessions
+    new: Organiser un évènement
+    new_atelier: Créer un atelier
+    no_description: L'organisateur·ice n'a pas écrit de description pour cette session
+    no_message_animator_session_info:
+      L'organisateur·ice n'a pas écrit de message
+      pour les animateur·ices de cette session
+    no_message_session_info:
+      L'organisateur·ice n'a pas écrit de message pour les
+      participant·es de cette session
+    no_product_selected: Aucun produit sélectionné
+    no_session_found: Aucune session n’a été trouvée...
+    no_session_found_text_html:
+      <span role="button" onclick="document.getElementById('notification').click()"
+      class="link-primary text-decoration-underline">Créez une alerte</span> pour
+      être averti lorsqu’une nouvelle session est publiée dans votre région
+    not_found: Désolé, la session n'a pas été trouvée
+    occurrences: Occurrences
+    online: En ligne
+    onsite: Présentiel
+    opportunities: Opportunités
+    order_summary:
+      charged_ticket: Plein tarif
+      title: Résumé
+    organisation_not_filled: Veuillez renseigner le nom de l'organisation
+    other_animator: Il y aura d’autres animateur·ices
+    other_animator_past: Il y avait d’autres animateur·ices
+    other_animator_yes:
+      Combien de places supplémentaires souhaitez-vous ouvrir par
+      rôle ?
+    other_animator_yes_past: Combien de personnes ont effectué chaque rôle ?
+    participant_capacity_full: Complet
+    participants: Participant·es
+    participants_full: Cette session est complète.
+    past: Passées
+    past_1: passé
+    personal_contact: Vous
+    personal_informations:
+      title: Mes coordonnées
+      title2: Facturation
+      billing:
+        address: Adresse de facturation
+        organisation_name: Nom de l'organisation
+        contact: Contact de facturation (facultatif)
+    places_available: Nombre de places
+    present_participants:
+      one: "%{count} participant·e"
+      other: "%{count} participant·es"
+      zero: "%{count} participant·e"
+    price: à partir de %{price}
+    private: Privée
+    private_session: Session privée
+    private_text: "(seules les personnes disposant du lien peuvent s'inscrire)"
+    products: Produits
+    public: Publique
+    public_atelier_text_html:
+      '* <u>Attention</u> : si vous avez créer une session
+      "à venir", le comptage est automatique lors de l''enregistrement des présences.'
+    public_opportunity: Afficher dans les opportunités
+    public_opportunity_error:
+      Une session inter-entreprise ne peut pas apparaître
+      dans la liste des opportunités publiques
+    public_opportunity_false:
+      Seuls les animateur·ices disposant du lien pourront
+      s’inscrire
+    public_opportunity_true:
+      Les  animateur·ices pourront s’inscrire depuis la liste
+      des opportunités
+    public_session: Session publique
+    public_sessions: Calendrier des sessions publiques
+    public_text: "(tout le monde peut s'inscrire depuis la page publique des évenements)"
+    recurrence: Ajouter d'autres dates
+    recurrence_title_modal: Ajouter une sessions récurrente
+    recurrence_update_all: Modifier toute la série
+    recurrence_update_one: Modifier cette session uniquement
+    registration: Inscription
+    reset_filters: Effacer les filtres
+    role: Mon rôle
+    role_filter: Rôles disponibles
+    roles_helper:
+      animator_html:
+        "<div> <b>Animer seul·e</b> <br> Anime en autonomie. Tu dois
+        émarger tes participants pour incrémenter ton compteur. </div>"
+      coach_html:
+        "<div> <b>Mentorer</b> <br> Accompagne des animateur·ices pendant
+        leur animation. Tu es là en tant que soutien, pour faire progresser les animateur·ices
+        que tu mentores. Tu n'as pas à émarger les participant·es. </div>"
+      coanimator_html:
+        "<div class='mb-3'> <b>Coanimer</b> <br> Anime en duo avec
+        un·e autre animateur·ice. La coanimation est un excellent moyen de progresser
+        en apprenant des autres ! Tu dois émarger tes participants pour incrémenter
+        ton compteur. </div>"
+      observer_html:
+        "<div class='mb-3'> <b>Observer</b> <br> Reste en retrait pour
+        observer l’animation. Ne participe pas à l’animation. </div>"
+    room: Nom du lieu
+    see: Voir
+    session_info: Informations pratiques
+    session_version:
+      first: 1ère génération
+      faq: "1ère, 2e génération : Qu’est ce que c’est ?"
+      second: "[BETA-TEST] 2e génération"
+    share: Partager
+    show_online: Afficher les sessions en ligne
+    show_online_text: Les sessions en ligne seront affichées selon les langues sélectionnées
+    staffing_1:
+      "Ceci est un indicateur instantané : le nombre des participant·es
+      et des animateur·ices inscrit·es peut évoluer."
+    staffing_2a: Il manque d’animateur·ices
+    staffing_2b:
+      si ils ne sont pas assez pour animer les tables occupées par les
+      participant·es inscrit·es
+    staffing_3a: Il y a suffisament d’animateur·ices
+    staffing_3b:
+      si ils sont assez pour animer les tables occupées par les participant·es
+      inscrit·es.
+    staffing_4a: Il y a trop d’animateur·ices
+    staffing_4b: si un·e animateur·ice ou plus n’a pas au moins une table à coanimer.
+    street: Numéro de rue, Nom de rue, Ville, Pays
+    sub_animator_session_info:
+      Indication d’accès (pour les sessions en présentiel), code secret (pour les sessions en ligne), …
+      Ce message sera indiqué dans les e-mails automatiques pour les animateur·ices inscrit·es,
+      en plus des autres informations de la session (date, horaire, lieu, lien)
+    sub_session_info:
+      Indication d’accès (pour les sessions en présentiel), code secret (pour les sessions en ligne), …
+      Ce message sera indiqué dans les e-mails automatiques pour les participant·es inscrit·es,
+      en plus des autres informations de la session (date, horaire, lieu, lien, accès au MOOC)
+    submit_product_configurations: Enregistrer les billets disponibles
+    table_capacity: table(s) distincte(s)
+    tables:
+      one: "%{count} table"
+      other: "%{count} tables"
+      zero: table
+    take_part: Participer
+    ticket_choice:
+      title: Choix des billets
+    tickets_available: Billets disponibles
+    tickets_available_subtitle: Choisissez le ou les billets visibles par les participant·es
+    timezone_choice: Choix du fuseau horaire
+    title: Mes sessions
+    title_recurrence: Modifier la session récurrente
+    to_animate: S'inscrire
+    to_come: À venir
+    to_organize: Organiser
+    upcoming_event: Organiser un évènement
+    update: Enregistrer
+    updated: La session a été mise à jour avec succès
+    updated_recurrent: La série a été mise à jour avec succès
+    visibility: Visibilité
+    visio_link: Lien de connexion
+    warning_good_balance:
+      Pour le moment, il y a suffisament d’animateur·ices pour
+      le nombre de participant·es inscrit·es
+    warning_lack_of_animator:
+      Pour le moment, il manque d’animateur·ices pour le
+      nombre de participant·es inscrit·es
+    warning_recurrence:
+      Les changements de timezone, date, heure et rôle ne s'appliqueront
+      qu'à cette session
+    warning_too_many_animator:
+      Pour le moment, il y a trop d’animateur·ices pour
+      le nombre de participant·es inscrit·es

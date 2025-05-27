@@ -1,0 +1,39 @@
+<div data-training-sessions-format-target="onsite" data-controller="places-autocomplete">
+  <% unless params[:past] == "true" %>
+    <div class="mb-3">
+      <%= form.label t("training_sessions.room"), class: "h5" %>
+      <%= form.text_field :room, class: "form-control" %>
+    </div>
+  <% end %>
+  <div>
+    <%= form.hidden_field :unavailable_location_data, data: {places_autocomplete_target: "unavailableLocationData"} %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :street, class: "h6 required"%>
+    <%= form.text_field :street,
+                        placeholder: t("training_sessions.street"),
+                        class: "form-control",
+                        required: true,
+                        data: {places_autocomplete_target: "input",
+                               action: "keydown->places-autocomplete#preventSubmit"},
+                        "data-training-sessions-format-target": "address"  %>
+  </div>
+  <div class="d-flex justify-content-between mb-3">
+    <div>
+      <%= form.label :zip, class: "h6 required" %>
+      <%= form.text_field :zip,
+                          class: "form-control",
+                          id: "postal_code",
+                          required: true %>
+    </div>
+    <div>
+      <%= form.label :city, class: "h6 required" %>
+      <%= form.text_field :city,
+                          class: "form-control",
+                          id: "locality",
+                          required: true %>
+    </div>
+    <%= form.text_field :latitude, class: "d-none", id: "lat", data: {places_autocomplete_target: "latitude"} %>
+    <%= form.text_field :longitude, class: "d-none", id: "lng", data: {places_autocomplete_target: "longitude"}%>
+  </div>
+</div>

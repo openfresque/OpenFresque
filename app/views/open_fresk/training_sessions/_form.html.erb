@@ -1,0 +1,26 @@
+ <%= form_with(model: training_session, data: { turbo: false }) do |form| %>
+    <% if training_session.errors.any? %>
+      <h6><%= t('error_message', count: training_session.errors.count) %></h6>
+      <% training_session.errors.full_messages.each do |message| %>
+        <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">
+          <%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+    <% end %>
+    <!-- TITLE + DESCRIPTION-->
+    <div class="mb-3 <%= "border-bottom" unless params[:past] == "true" %>">
+      <%= hidden_field_tag :past, params[:past] == "true" %>
+      <%= render 'open_fresk/training_sessions/form_partial/description', form: form unless params[:past] == "true" %>
+    </div>
+    <div class="border-bottom mb-3">
+      <%= render 'open_fresk/training_sessions/form_partial/facilitation_language', form: form %>
+      <%= render 'open_fresk/training_sessions/form_partial/date_and_start_time_and_end_time', form: form, params: params %>
+    </div>
+    <%= render 'open_fresk/training_sessions/form_partial/category', form: form, training_session: @training_session %>
+    <%= render 'open_fresk/training_sessions/form_partial/location', form: form, params: params, training_session: @training_session %>
+    <%= render 'open_fresk/training_sessions/form_partial/capacity', form: form, training_session: @training_session unless params[:past] == "true" %>
+    <%= render 'open_fresk/training_sessions/form_partial/infos', form: form unless params[:past] == "true" %>
+    <%= render 'open_fresk/training_sessions/form_partial/submit' %>
+  <% end %>
+</div>

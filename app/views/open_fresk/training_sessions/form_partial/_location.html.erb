@@ -1,0 +1,27 @@
+<!-- LOCATION -->
+<div class="border-bottom mb-3" data-controller="training-sessions-format">
+  <div class="border-bottom mb-3 pb-3 row">
+    <%= form.label :format, class: "d-block required h5" %>
+    <div class="col-6 text-center">
+      <%= form.radio_button :format, TrainingSession::Onsite,
+          checked: params[:action] == "new" || training_session.format == TrainingSession::Onsite,
+          id: "onsite_btn", required: true, class:"btn-check checked_radio_button", name:"[training_session]format",
+          autocomplete:"off", 'data-training-sessions-format-target': 'onsiteButton',
+          'data-action': 'click->training-sessions-format#click' %>
+      <%= form.label t('training_sessions.onsite'), for: "onsite_btn", class: "btn btn-sm h-100 w-100" %>
+    </div>
+    <div class="col-6 text-center">
+      <%= form.radio_button :format, TrainingSession::Online, id: "online_btn", required: true,
+          class:"btn-check checked_radio_button", name:"[training_session]format", autocomplete:"off",
+          'data-training-sessions-format-target': 'onlineButton', 'data-action': 'click->training-sessions-format#click' %>
+      <%= form.label t('training_sessions.online'), for: "online_btn", class: "btn btn-sm h-100 w-100" %>
+    </div>
+  </div>
+  <%= render "open_fresk/training_sessions/form_partial/online", form: form unless params[:past] == "true" %>
+  <%= render "open_fresk/training_sessions/form_partial/onsite", form: form, params: params %>
+  <div class="country mb-3">
+    <%= collection_select(:training_session, :country_id, Country.all.order(:name), :id,
+        :name, { selected: action_name == "new" ? current_user&.country&.id : training_session.country_id },
+        class: 'form-control', required: true ) %>
+  </div>
+</div>

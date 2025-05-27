@@ -77,3 +77,300 @@ en:
   password_robustness_3: with numbers
   password_robustness_4: "with at least 1 special character among :"
   validate_password: Validate your password
+
+  stripe_rails:
+    secured_transaction: Encrypted and secure transactions
+    submit_button_text: Pay now
+    title: Payment
+  training_sessions:
+    active_filters:
+      one: "%{count} active filter"
+      other: "%{count} active filters"
+      zero: "%{count} active filter"
+    add: Add
+    address_not_valid:
+      "Address is not valid : Please select an address suggested
+      in the dropdown"
+    advice: Recommended
+    animate: My role during the session
+    animator_destroyed: Your registration has been removed
+    animator_registered: Registration confirmed
+    animator_session_info: Message for facilitators
+    animator_unregistered: You are unregistered from this session
+    animator_updated: Your registration has been updated
+    annonce_recurrence:
+      "Recurring sessions : you can add other dates after you finished
+      creating this session"
+    around: around
+    ask_for_animation_sanofi: Request an intervention for my team
+    ask_for_organisation_rights_html:
+      If you want to create a general public session, contact your
+      <a href="%{url}" target="_blank">local group</a> coordinators, who will give you the rights.
+    atelier: Climate Fresk workshop
+    audience:
+      association: Association
+      audience: Audience
+      company: Company
+      education: Education
+      error: Audience does not match public visibility
+      general_public: General Public (Citizens, displayed on the site)
+      inter_company: Inter-Company (Displayed on the site)
+      personal: Relatives, family, friends
+      public_sector: Public authorities
+    become_animator: Subscription
+    capacity_1: Capacity
+    capacity_2:
+      one: "%{count} place (%{tables} table)"
+      other: "%{count} places (%{tables} tables)"
+      zero: "%{count} place (%{tables} table)"
+    capacity_3:
+      one: "%{count} place"
+      other: "%{count} places"
+      zero: "%{count} place"
+    card:
+      my_counter: My counter
+      no_count: You haven't counted any participants
+    categories: Categories
+    category_error:
+      To change the session category, you must first cancel the registration
+      of participants
+    category_location: "%{location} %{category}"
+    confirm_registration: Confirm registration
+    contact: Contact
+    contact_creator: Contact the organiser
+    contact_subtitle: Information visible on the session page
+    context:
+      commercial: "Use in a commercial context: I have a company and I invoice services (including self-employment)"
+      errors: This context cannot be attributed to the selected audience
+      internal: Internal use in an organisation (with colleagues, students or voluntarily)
+      link_text: More about the user license
+    copy_paste: Copy / paste
+    copy_url: Copy URL
+    coupon: Enter a coupon code
+    create: Create the session
+    created: The session has been created successfully
+    custom_contact: Other
+    custom_contact_error:
+      To select 'Other' for contact you must fill both "Fullname"
+      and "Email" fields
+    custom_email: Email
+    custom_name: Fullname
+    delete: Delete this session
+    delete_text:
+      To delete a session, you must first unsubscribe facilitators and
+      participants
+    description: Description
+    destroy_session_notice: The session has been deleted.
+    destroy_session_text: Do you want to delete this session?
+    distance: Within
+    distance_filter: Enter a town or postcode
+    edit: Edit session
+    end_date_after_start_date: End time must be later than the start time
+    facilitator: Facilitators
+    fdc_atelier: Climate Fresk workshop
+    fdc_formation: Climate Fresk facilitation training
+    fdc_formation_opportunities: Climate Fresk facilitation training
+    fill_counter: Fill my counter
+    format: Location
+    formation: Facilitation training
+    free: free entry
+    free_seats:
+      one: "%{count} place still available"
+      other: "%{count} places still available"
+      zero: "%{count} place still available"
+    full: Full
+    future_session: Future sessions
+    i_animate: I facilitate
+    i_coach: I mentor
+    i_observe: I observe
+    i_organize: I organise
+    i_take_part: Manage my registration
+    location: Location
+    manage_attendee: Manage attendees
+    menu_date: Date
+    menu_end_date: End hour
+    menu_start_date: Starting hour
+    menu_time_zone: Timezone
+    missions:
+      audience_error: Training session's audience does not match mission's audience
+      organisation_error:
+        Training session's organisation does not match mission's
+        organisation
+      remuneration_pending: Remuneration pending
+      remuneration_pending_tooltip:
+        '"Remuneration pending" means that the request
+        for remuneration has not yet been made by the coordinator, to the Climate
+        Fresk NGO.'
+      remuneration_requested: Remuneration requested
+      remuneration_requested_tooltip:
+        '"Remuneration requested" means that the request
+        for remuneration has been sent to the Climate Fresk NGO. Each facilitator
+        should receive it around %{date}.'
+    my_passed_sessions: My past sessions
+    my_passed_sessions_missing: Your counter or belt is wrong?
+    my_passed_sessions_missing_text_html:
+      Go to the <a href="https://climatefresk.org/support/en/support-en-blog/"
+      class="text-warning" target="_blank">platform's blog</a> to find out why and
+      upgrade them!
+    my_session: My session
+    my_sessions: My sessions
+    new: Organise an event
+    new_atelier: Create a workshop
+    no_description: The organizer didn't write a description for this session
+    no_message_animator_session_info:
+      The organizer didn't write a description to
+      facilitators for this session
+    no_message_session_info:
+      The organizer didn't write a description to participants
+      for this session
+    no_product_selected: No products selected
+    no_session_found: No session has been found...
+    no_session_found_text_html:
+      <span role="button" onclick="document.getElementById('notification').click()"
+      class="link-primary text-decoration-underline">Create an alert</span> to be
+      notified when a new session is posted in your area
+    not_found: Sorry, the session does not exist
+    occurrences: Occurrences
+    online: Online
+    onsite: In-person
+    opportunities: Opportunities
+    order_summary:
+      charged_ticket: Full price
+      title: Order summary
+    organisation_not_filled: Please fill in the name of the organization-
+    other_animator: There will be other facilitators
+    other_animator_past: There were other facilitators
+    other_animator_yes: How many additional places do you want to open per role?
+    other_animator_yes_past: How many people performed each role?
+    participant_capacity_full: Full
+    participant_staffing_text:
+      "%{participants} participants fill %{tables} tables
+      (%{seats_free} remaining places)"
+    participants: Participants
+    participants_full: This session is full.
+    past: Past
+    past_1: past
+    personal_contact: You
+    personal_informations:
+      title: Personal informations
+      title2: Invoicing
+      billing:
+        address: Billing address
+        organisation_name: Organisation name
+        contact: Billing contact (optional)
+    places_available: Available places
+    present_participants:
+      one: "%{count} participant"
+      other: "%{count} participants"
+      zero: "%{count} participant"
+    price: from %{price}
+    private: Private
+    private_session: Private session
+    private_text: "(only people with the link can register)"
+    products: Products
+    public: Public
+    public_atelier_text_html:
+      '* <u>Warning</u>: If you have created a "coming soon"
+      session, it is automatically counted when registering attendees.'
+    public_opportunity: Show in Opportunities
+    public_opportunity_error:
+      An inter-company session cannot appear in the list of
+      public opportunities
+    public_opportunity_false: Only facilitators with the link will be able to register
+    public_opportunity_true:
+      Facilitators will be able to register from the list of
+      opportunities
+    public_session: Public session
+    public_sessions: Public sessions calendar
+    public_text: "(anyone can register from the public page)"
+    recurrence: Add other dates
+    recurrence_title_modal: Add a recurring session
+    recurrence_update_all: Edit the whole series
+    recurrence_update_one: Edit this session only
+    registration: Registration
+    reset_filters: Reset filters
+    role: My role
+    role_filter: Available roles
+    roles_helper:
+      animator_html:
+        "<div> <b>Facilitate alone</b> <br> Leads independently. You
+        must record attendees to increase your counter. </div>"
+      coach_html:
+        "<div> <b>Mentor</b> <br> Help facilitators during their workshop.
+        You are a support to the facilitators you mentor. You do not have to register
+        the participants. </div>"
+      coanimator_html:
+        "<div class='mb-3'> <b>Cofacilitate</b> <br> Facilitates in
+        duo with another facilitator. Co-facilitating is a great way to grow by learning
+        from others! You must record attendees to increase your counter. </div>"
+      observer_html:
+        "<div class='mb-3'> <b>Observe</b> <br> Stays back to observe
+        the activity. Does not participate in the facilitation. </div>"
+    room: Location name
+    see: See
+    session_info: Practical information
+    session_version:
+      first: 1st generation
+      faq: "1st, 2nd generation: What is it ?"
+      second: "[BETA-TEST] 2nd generation"
+    share: Share
+    show_online: Show online sessions
+    show_online_text:
+      Online sessions will be displayed according to the selected
+      languages
+    staffing_1:
+      "This is an instant indicator: the number of participants and registered
+      facilitators may change."
+    staffing_2a: There is a lack of facilitators
+    staffing_2b:
+      if they are not enough to facilitate the tables filled by the registered
+      participants
+    staffing_3a: There are enough facilitators
+    staffing_3b:
+      if they are enough to facilitate the tables filled by the registered
+      participants.
+    staffing_4a: There are too many facilitators
+    staffing_4b: if one or more facilitators do not have at least one table to co-facilitate.
+    street: Street number, Road name, City, Country
+    sub_animator_session_info:
+      Access indication (for face-to-face sessions), secret code (for online sessions), etc.
+      This message will be indicated in automatic emails for registered facilitators,
+      in addition to other session information (date, time, location, link)
+    sub_session_info:
+      Access indication (for face-to-face sessions), secret code (for online sessions), etc.
+      This message will be indicated in automatic emails for registered participants,
+      in addition to other session information (date, time, location, link, access to the facilitation training e-training (MOOC))
+    submit_product_configurations: Save available tickets
+    table_capacity: table(s)
+    tables:
+      one: "%{count} table"
+      other: "%{count} tables"
+      zero: table
+    take_part: Take part
+    ticket_choice:
+      title: Choose your ticket
+    tickets_available: Tickets available
+    tickets_available_subtitle: Choose the ticket(s) visible to attendees
+    timezone_choice: Timezone choice
+    title: My training sessions
+    title_recurrence: Edit the recurring session
+    to_animate: Register
+    to_come: Upcoming
+    to_organize: Organize
+    upcoming_event: Organise an event
+    update: Update
+    updated: The session has been updated successfully
+    updated_recurrent: The group of sessions has been updated successfully
+    visibility: Visibility
+    visio_link: Connection link
+    warning_good_balance:
+      For now, there are enough facilitators for the number of registered
+      participants
+    warning_lack_of_animator:
+      For now, there is a lack of facilitators for the number
+      of registered participants.
+    warning_recurrence: Timzone, dates and hours changes will affect only this session
+    warning_too_many_animator:
+      For now, there are too many facilitators for the number
+      of registered participants.
+
