@@ -1,0 +1,12 @@
+<div class="col-lg-6 mx-auto my-3">
+  <%= render 'form', training_session: @training_session %>
+
+  <%= link_to  fa_icon('times', text: t('training_sessions.delete')),
+    "#destroySessionModal",
+    class: "btn mt-3 #{@training_session.destroyable? ? "text-danger" : "text-secondary disabled"}",
+    data: { bs_toggle: "modal", bs_target: "#destroySessionModal"} %>
+  <% if !@training_session.destroyable? %>
+    <p class="small text-secondary mx-3"><%= t('training_sessions.delete_text') %></p>
+  <% end %>
+</div>
+<%= render "open_fresk/training_sessions/form_partial/destroy_session_modal" %>
