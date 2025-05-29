@@ -1,6 +1,5 @@
 import { Application } from "@hotwired/stimulus";
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading";
-import "open_fresk/recover_password";
 import "bootstrap";
 
 const application = Application.start();
