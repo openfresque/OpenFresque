@@ -10,7 +10,7 @@
           <%= t('close') %>
         </button>
         <%= button_to t('training_sessions.delete'),
-            @training_session.future? ? training_session_path(@training_session) : training_sessions_past_path(@training_session),
+            training_session_path(@training_session),
             method: :delete,
             class: "btn btn-danger rounded-pill" %>
       </div>

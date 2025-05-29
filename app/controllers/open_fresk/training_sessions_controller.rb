@@ -1,7 +1,7 @@
 module OpenFresk
   class TrainingSessionsController < ApplicationController
     before_action :set_training_session,
-                  only: %i[edit update]
+                  only: %i[edit update destroy]
     def index
       public_opportunities
     end
@@ -51,6 +51,14 @@ module OpenFresk
                     notice: t("training_sessions.created")
       else
         render :new
+      end
+    end
+
+    def destroy
+      if @training_session.destroy!
+        redirect_to root_path, notice: t("training_sessions.destroy_session_notice")
+      else
+        render :edit
       end
     end
 
