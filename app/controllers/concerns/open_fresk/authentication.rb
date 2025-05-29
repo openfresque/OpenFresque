@@ -13,6 +13,6 @@ module OpenFresk::Authentication
   def authenticate_user!
     return if current_user
     session[:forwarding_url] = request.fullpath if request.get?
-    redirect_to new_session_path, alert: t("please_log_in")
+    redirect_to new_session_path, alert: t("sessions.please_log_in")
   end
 end

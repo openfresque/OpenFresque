@@ -58,6 +58,7 @@ en:
     forgot_password_user_unknown: This email does not match any known user
     invalid_credentials: Invalid credentials
     log_in_email: Log in with Email
+    please_log_in: Please log in
     logged_out: You are logged out
     missing_password_digest: Missing password, please reset it
     new_password: Enter a new password
