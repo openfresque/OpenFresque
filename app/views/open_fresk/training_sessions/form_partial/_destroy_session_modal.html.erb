@@ -1,0 +1,19 @@
+<!-- Modal -->
+<div class="modal fade" id="destroySessionModal" tabindex="-1" aria-labelledby="destroySessionModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-md modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('training_sessions.destroy_session_text') %></h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">
+          <%= t('close') %>
+        </button>
+        <%= button_to t('training_sessions.delete'),
+            training_session_path(@training_session),
+            method: :delete,
+            class: "btn btn-danger rounded-pill" %>
+      </div>
+    </div>
+  </div>
+</div>

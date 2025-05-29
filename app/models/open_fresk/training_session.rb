@@ -15,6 +15,8 @@ module OpenFresk
     scope :organized_by, ->(user) { where(created_by_user_id: user&.id) }
     scope :my_sessions, ->(user) { where(id: organized_by(user)) }
 
+    delegate :future?, to: :end_time
+
     #TODO: remove me when timezones are implemented
     def local_start_time
       start_time
@@ -33,6 +35,13 @@ module OpenFresk
     #TODO: remove me when seats are implemented
     def animator_count
       1
+    end
+
+    #TODO: implement when participations are implemented
+    def destroyable?
+      true
+      # participations.where(status: Participation::Confirmed).none? &&
+      #   participations.where(status: Participation::Present).none?
     end
   end
 end
