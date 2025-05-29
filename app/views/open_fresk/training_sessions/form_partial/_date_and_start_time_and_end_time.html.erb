@@ -1,21 +1,20 @@
 <!-- DATE + START_TIME + END_TIME -->
 <div class="d-xl-flex justify-content-between ">
-  <div class="mb-3" data-controller="load-flatpickr" data-load-flatpickr-past="<%= params[:past] == "true" %>">
+  <div class="mb-3">
     <%= form.label :date, class: "d-block required h5", for: "date_input" %>
     <div class="input-group mb-1">
-      <%= form.text_field :date, type: "date", class: "flatpickr form-control border-right-0", id: 'date_input',
-         required: true, "data-load-flatpickr-target": "flatpickr"  %>
-      <button class="btn btn-outline-secondary" type="button" onclick="document.getElementById('date_input').click()" name="calendar" ><%= fa_icon ('calendar-alt') %></button>
+      <%= form.text_field :date, type: "date", class: "form-control", id: 'date_input',
+         required: true, min: Date.today.strftime('%Y-%m-%d') %>
     </div>
   </div>
   <% unless params[:past] == "true" %>
     <div class="mb-3">
       <%= form.label :start_hour, class: "d-block required h5", for: "start_time_input" %>
-      <%= text_field_tag 'training_session[start_hour]', @start_time || params.dig(:training_session, :start_hour), type: "time", class: "form-control", id: 'start_time_input', required: true  %>
+      <%= text_field_tag 'training_session[start_hour]', @start_time || params.dig(:training_session, :start_hour) || Time.current.strftime('%H:%M'), type: "time", class: "form-control", id: 'start_time_input', required: true  %>
     </div>
     <div class="mb-3">
       <%= form.label :end_hour, class: "d-block required h5", for: "end_time_input" %>
-      <%= text_field_tag 'training_session[end_hour]', @end_time || params.dig(:training_session, :end_hour), type: "time", class: "form-control", id: 'end_time_input', required: true  %>
+      <%= text_field_tag 'training_session[end_hour]', @end_time || params.dig(:training_session, :end_hour) || Time.current.strftime('%H:%M'), type: "time", class: "form-control", id: 'end_time_input', required: true  %>
     </div>
   <% end %>
 </div>

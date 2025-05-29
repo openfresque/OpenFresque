@@ -107,7 +107,7 @@ en:
     ask_for_organisation_rights_html:
       If you want to create a general public session, contact your
       <a href="%{url}" target="_blank">local group</a> coordinators, who will give you the rights.
-    atelier: Climate Fresk workshop
+    atelier: workshop
     audience:
       association: Association
       audience: Audience
@@ -259,7 +259,7 @@ en:
         address: Billing address
         organisation_name: Organisation name
         contact: Billing contact (optional)
-    places_available: Available places
+    places_available: Number of participants
     present_participants:
       one: "%{count} participant"
       other: "%{count} participants"
@@ -374,4 +374,3 @@ en:
     warning_too_many_animator:
       For now, there are too many facilitators for the number
       of registered participants.
-

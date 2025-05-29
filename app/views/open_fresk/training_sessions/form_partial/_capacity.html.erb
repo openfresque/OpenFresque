@@ -6,9 +6,4 @@
     <%= form.number_field :capacity, class: 'form-control-sm', id: "capacity", min: 0, max: 9999, required: true,
         "data-capacity-target": "capacityNumber", "data-action": "input->capacity#change" %>
   </div>
-  <small class="text-secondary">
-    <p><%= t('training_sessions.advice') %> : <span id="table_capacity" data-capacity-target="tableCapacity">
-      <%= params[:action] == "new" ? "0" : training_session.capacity_table %>
-    </span> <%= t('training_sessions.table_capacity') %></p>
-  </small>
 </div>
