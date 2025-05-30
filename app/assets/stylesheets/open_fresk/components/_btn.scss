@@ -3,6 +3,12 @@
   border: 1px solid 099e9b !important;
 }
 
+// PRIMARY
+
+.btn-primary {
+  background-color: var(--primary-color) !important ;
+}
+
 // DANGER
 .btn-danger {
   background-color: rgba($danger, 0.3) !important;

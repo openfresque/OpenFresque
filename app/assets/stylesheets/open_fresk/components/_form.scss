@@ -18,5 +18,5 @@
 }
 
 .form-control:disabled, .form-control[readonly] {
-  color: $secondary;
+  color: var(--secondary-color);
 }

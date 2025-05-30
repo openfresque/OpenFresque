@@ -1,11 +1,11 @@
 .pagination {
   .page-link {
-    color: $primary;
+    color: var(--primary-color);
   }
   .page-item.active .page-link {
       z-index: 3;
       color: #fff;
-      background-color: $primary;
-      border-color: $primary;
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
   }
 }

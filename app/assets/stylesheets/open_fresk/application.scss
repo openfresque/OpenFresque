@@ -19,6 +19,7 @@ label.required:after {
 // Main stylesheet
 
 // CSS partials
+@import "bootstrap";
 @import "config/index";
 @import "external_libraries/index";
 @import "components/index";
@@ -30,7 +31,10 @@ label.required:after {
 // @import "@fortawesome/fontawesome-free/scss/solid";
 // @import "@fortawesome/fontawesome-free/scss/regular";
 // @import "@fortawesome/fontawesome-free/scss/v4-shims";
-@import "bootstrap";
+:root {
+  --primary-color: #007e7c;
+  --secondary-color: #d3d7de;
+}
 
 // External libraries
 body,

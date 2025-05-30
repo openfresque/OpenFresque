@@ -1,5 +1,5 @@
 input[type="radio"].checked_radio_button:checked + label {
-  background-color: $primary;
+  background-color: var(--primary-color);
   color: #fff;
   display: flex;
   align-items: center;
@@ -8,8 +8,8 @@ input[type="radio"].checked_radio_button:checked + label {
 
 input[type="radio"].checked_radio_button:not(:checked) + label {
   background-color: #fff;
-  color: $secondary;
-  border-color: $secondary;
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,8 +17,8 @@ input[type="radio"].checked_radio_button:not(:checked) + label {
 
 input[type="radio"].checked_radio_button:disabled + label {
   background-color: #fff;
-  color: $secondary;
-  border-color: $secondary;
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
   display: flex;
   align-items: center;
   justify-content: center;

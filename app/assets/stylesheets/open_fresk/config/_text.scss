@@ -1,6 +1,6 @@
 .text-secondary,
 .link-secondary {
-  color: $secondary !important;
+  color: var(--secondary-color) !important;
 }
 .text-light,
 .link-light {

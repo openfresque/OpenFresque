@@ -6,7 +6,7 @@
 .progress-nps {
   height: 1em;
   width: 100%;
-  background-color: $primary;
+  background-color: var(--primary-color);
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
@@ -14,7 +14,7 @@
 }
 
 .nps-score {
-  background-color: $primary;
+  background-color: var(--primary-color);
   border-radius: 5px;
   color: white;
   display: inline-block;
@@ -29,7 +29,7 @@
   display : inline-block;
   height : 0;
   width : 0;
-  border-top : 14px solid $primary;
+  border-top : 14px solid var(--primary-color);
   border-right : 8px solid transparent;
   border-left : 7px solid transparent;
   top: 75%;
@@ -42,7 +42,7 @@
   height: 2em;
   width: 3.5px;
   border-radius: 15px;
-  background-color: $secondary;
+  background-color: var(--secondary-color);
   left: 50%;
   z-index: 1;
 }
@@ -67,7 +67,7 @@
     left: -1%;
     width: 2%;
     height: 100%;
-    background-color: $primary;
+    background-color: var(--primary-color);
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
   }
@@ -87,7 +87,7 @@
     left: 99%;
     width: 2%;
     height: 100%;
-    background-color: $primary;
+    background-color: var(--primary-color);
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
   }
