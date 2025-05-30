@@ -12,9 +12,10 @@
     <div class="tab-pane fade show active mt-3" id="my_sessions">
       <div>
         <div class="text-end mt-2">
-          <%= link_to new_training_session_path, class: "btn btn-primary rounded-pill" do %>
-            <%= fa_icon("plus", text: t("training_sessions.new"), right: true) %>
-          <% end %>
+<!--          #TODO : uncomment after merge-->
+          <%#= link_to new_training_session_path, class: "btn btn-primary rounded-pill" do %>
+            <%#= fa_icon("plus", text: t("training_sessions.new"), right: true) %>
+          <%# end %>
         </div>
       </div>
       <% @my_training_sessions&.each do |my_training_session| %>

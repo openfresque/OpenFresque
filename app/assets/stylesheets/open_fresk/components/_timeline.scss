@@ -156,10 +156,10 @@
 }
 
 .b-success {
-  border-color: $primary!important;
+  border-color: var(--primary-color)!important;
 }
 
 .b-success:before {
-  border-color: $primary!important;
-  background-color: $primary !important;
+  border-color: var(--primary-color)!important;
+  background-color: var(--primary-color) !important;
 }

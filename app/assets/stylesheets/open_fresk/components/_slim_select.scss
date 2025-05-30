@@ -6,7 +6,7 @@
 }
 
 .ss-main .ss-values .ss-value {
-  background-color: $primary;
+  background-color: var(--primary-color);
 }
 
 .ss-main .ss-multi-selected .ss-values .ss-value {
@@ -27,5 +27,5 @@
 
 .ss-content .ss-list .ss-option.ss-highlighted,
 .ss-content .ss-list .ss-option.ss-selected:not(.ss-disabled) {
-  background-color: $primary;
+  background-color: var(--primary-color);
 }

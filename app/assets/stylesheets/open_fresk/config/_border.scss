@@ -1,5 +1,5 @@
 .border-primary {
-  border: 1px solid $primary !important;
+  border: 1px solid var(--primary-color) !important;
 }
 .border-warning {
   border: 1px solid $warning !important;

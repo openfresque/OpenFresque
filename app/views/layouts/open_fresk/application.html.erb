@@ -4,6 +4,16 @@
   <title>OpenFresk</title>
   <%= render "layouts/open_fresk/include" %>
   <%= render "layouts/open_fresk/meta" %>
+
+  <% color_setting = defined?(ColorSetting) && ColorSetting.first %>
+  <% if color_setting %>
+  <style>
+    :root {
+      --primary-color: <%= color_setting&.primary_color %>;
+      --secondary-color: <%= color_setting&.secondary_color %>;
+    }
+   </style> 
+   <% end %>
 </head>
 <body class="<%= controller_name %> <%= action_name %> flex-column h-100 my-0">
 <%= render "layouts/open_fresk/header" %>
