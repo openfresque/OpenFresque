@@ -1,0 +1,43 @@
+<%= link_to("#collapse_#{participation.id}",
+            class: "d-block text-secondary text-decoration-none",
+            data: {bs_toggle: "collapse"}) do %>
+  <div class="border-bottom-light p-3 collapse_action">
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <div class="link-secondary">
+          <b><%= participation.user&.fullname %></b> -
+          <%= render(Belt::BeltComponent.new(belt: participation.user.belt, classes: "small")) %>
+          <span class="small text-secondary">
+            <div class="d-flex">
+              <% if @training_session.organisator?(User.find(participation.user_id)) || participation.edit_session_permission %>
+                <div class="me-1"><%= "#{t("invitations.organise").capitalize}," %></div>
+                <%= animator_status(participation) %>
+              <% else %>
+                <%= animator_status(participation) %>
+              <% end %>
+            </div>
+          </span>
+        </div>
+      </div>
+      <div>
+        <% if @coanimator == participation.user %>
+          <span class="link-primary me-3"><%= fa_icon("handshake") %></span>
+        <% end %>
+        <span class="link-light"><%= fa_icon("chevron-right") %></span>
+      </div>
+    </div>
+
+    <div class="collapse small link-light" id="collapse_<%= participation.id %>">
+      <%= user_email_link_or_text(participation) %>
+      <div class="text-primary"><%= fa_icon("user-check", text: my_present_participants_count(@training_session, participation.animator), right: true) %></div>
+      <div class="d-flex justify-content-start mt-2">
+        <%= render "session_partials/animator_card_actions", participation: participation, training_session: @training_session %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= render "session_partials/destroy_coanimation_modal", participation: participation %>
+<%= render "session_partials/animator_remove_modal", participation: participation %>
+<%= render "session_partials/create_coanimation_modal", participation: participation %>
+<%= render "session_partials/animator_add_organiser_modal", participation: participation %>

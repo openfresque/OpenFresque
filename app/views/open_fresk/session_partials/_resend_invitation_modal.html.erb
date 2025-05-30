@@ -1,0 +1,23 @@
+<!-- Modal -->
+<div class="modal fade" id="resend_invitation_<%= participation.user.id %>_Modal" tabindex="-1" aria-labelledby="resend_invitation_<%= participation.user.id %>_ModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg modal-fullscreen-lg-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+            <%= t('invitations.resend_invitation_title') %>
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-dialog-scrollable">
+
+        <%= t('invitations.resend_invitation_with_email', email: participation.user&.email) %>
+
+      </div>
+      <div class="modal-footer">
+        <%= link_to fa_icon( "paper-plane", text: t('invitations.resend_invitation_confirmation')),
+            resend_training_session_invitations_path(@training_session, participation: participation),
+            class: "btn btn-primary rounded-pill" %>
+      </div>
+    </div>
+  </div>
+</div>

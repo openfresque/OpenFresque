@@ -28,11 +28,7 @@ module OpenFresk
     end
 
     def edit_link_session_url(session)
-      if session.legacy
-        edit_training_sessions_past_path(session.uuid)
-      else
-        edit_training_session_path(session.uuid)
-      end
+      edit_training_session_path(session.id)
     end
 
     def session_location(session)

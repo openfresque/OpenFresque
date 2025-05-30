@@ -1,0 +1,22 @@
+<!-- Modal -->
+<div class="modal fade" id="destroycoanimation_<%= participation.id %>_Modal" tabindex="-1" aria-labelledby="destroycoanimation_<%= participation.id %>_ModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-md modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-body modal-dialog-scrollable">
+
+        <p><%= t('coanimation.delete_coanimation', name: participation.user&.firstname&.titleize_with_dashes) %></p>
+        <p><%= t('coanimation.continue?') %></p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">
+          <%= t('close') %>
+        </button>
+        <%= form_tag delete_training_session_coanimations_path(@training_session) do %>
+          <%= hidden_field_tag :animator_id, participation.user.id %>
+          <%= submit_tag t('confirm'), class: "btn btn-primary btn-block rounded-pill" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

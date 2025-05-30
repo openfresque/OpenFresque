@@ -1,0 +1,13 @@
+<div class="text-end mt-3">
+  <button class="toast_btn btn copy-to-clipboard link-secondary border-0 bg-transparent p-0"
+          data-text="<%= animators_emails(@training_session) %>"
+          title="copy to clipboard"
+          <%= 'disabled' if animators_emails(@training_session).blank? %>>
+    <%= fa_icon("copy", type: :regular, text: t('invitations.copy_emails')) %>
+  </button>
+  <%= link_to fa_icon("user-plus", text: t("participations.invite")),
+            "#invitationAnimatorsModal",
+            class: "link-secondary text-decoration-none ms-3",
+            data: { bs_toggle: "modal", bs_target: "#invitationAnimatorsModal"} %>
+</div>
+<%= render partial: "session_partials/invitation_animators_modal" %>

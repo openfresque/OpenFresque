@@ -1,0 +1,44 @@
+<% unless @training_session.passed? || @training_session.legacy %>
+  <div class="text-center mt-3 p-2">
+    <div class="d-flex justify-content-around">
+      <div>
+        <div class="h4">
+          <%= @training_session.leading_animator_count %> /
+          <%= counting_role_capacity(@training_session, Participation::Animator, @training_session.animator_count) %>
+        </div>
+        <div>
+          <%= t("coanimation.animate").downcase %>
+        </div>
+      </div>
+      <div>
+        <div class="h4">
+          <%= @training_session.coanimator_enumerate %> /
+          <%= counting_role_capacity(@training_session, Participation::Coanimator, @training_session.coanimator_count) %>
+        </div>
+        <div>
+          <%= t("coanimation.coanimate").downcase %>
+        </div>
+      </div>
+      <div>
+        <div class="h4">
+          <%= @training_session.observer_enumerate %> /
+          <%= counting_role_capacity(@training_session, Participation::Observer, @training_session.observer_count) %>
+        </div>
+        <div>
+          <%= t("coanimation.observe").downcase %>
+        </div>
+      </div>
+      <% unless @training_session.formation? %>
+        <div>
+          <div class="h4">
+            <%= @training_session.coach_enumerate %> /
+            <%= counting_role_capacity(@training_session, Participation::Coach, @training_session.coach_count) %>
+          </div>
+          <div>
+            <%= t("coanimation.coach").downcase %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

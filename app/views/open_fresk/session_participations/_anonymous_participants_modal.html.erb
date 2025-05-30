@@ -1,0 +1,40 @@
+<!-- Modal -->
+<div class="modal fade" id="anonymous_participants_modal" tabindex="-1" aria-labelledby="anonymous_participants_modalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-md modal-fullscreen-md-down">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title"><%= t("participations.anonymous_participants_title") %></h5>
+      </div>
+      <div class="modal-body modal-dialog-scrollable" data-controller="anonymous-participant" data-anonymous-participant-max="<%= max_anonymous(@training_session) %>">
+        <%= form_with(model: @training_session,
+                      url: anonymous_registration_path,
+                      method: :patch,
+                      id: "anonymous_participants_form", local: true) do |form| %>
+
+          <%= hidden_field_tag :training_session_id, @training_session.uuid %>
+          <%= hidden_field_tag :participation_id, @training_session.facilitator_participation(current_user)&.id %>
+          <div class="text-center">
+            <%= content_tag :div, fa_icon("minus"), class: "btn btn-secondary d-inline", data: {action: "click->anonymous-participant#minus"} %>
+            <%= form.number_field :add_anonymous,
+                                  class: "form-control-sm",
+                                  min: 0, max: max_anonymous(@training_session),
+                                  value: 1,
+                                  required: true,
+                                  data: {anonymous_participant_target: "output"} %>
+            <%= content_tag :div, fa_icon("plus"), class: "btn btn-secondary d-inline", data: {action: "click->anonymous-participant#plus"} %>
+          </div>
+        <% end %>
+
+      </div>
+      <div class="modal-footer border-0 d-flex justify-content-around">
+        <button type="button" class="btn text-secondary" data-bs-dismiss="modal">
+          <%= t("cancel") %>
+        </button>
+        <%= submit_tag t("participations.add"),
+                       class: "btn btn-primary btn-block",
+                       form: "anonymous_participants_form",
+                       data: {bs_dismiss: "modal"} %>
+      </div>
+    </div>
+  </div>
+</div>

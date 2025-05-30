@@ -1,0 +1,9 @@
+<% if participation.nil? %>
+  <b><%= t('participations.anonymous_participant') %></b>
+<% elsif participant_name(participation).present? %>
+  <b><span data-search-participants-target="name"><%= participant_name(participation) %></span></b>
+<% else %>
+  <b><span class="email"><%= participation.user&.email %></span></b>
+<% end %>
+<%= participant_status(participation) %>
+<%= render(Belt::BeltComponent.new(belt: participation&.user&.belt, classes: "small")) %>

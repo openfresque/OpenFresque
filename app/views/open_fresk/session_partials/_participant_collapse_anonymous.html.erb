@@ -1,0 +1,24 @@
+<div class="collapse small link-light" id="collapse_anonymous_<%= "#{participation}_#{i}" %>">
+  <div class="d-flex justify-content-between mt-3">
+    <div class="flex-grow-1">
+      <%= link_to t("edit"),
+                    "#lastminuteModal",
+                    data: { bs_toggle: "modal", bs_target: "#lastminuteModal"},
+                    class: 'link-secondary me-3' %>
+    </div>
+    <div>
+      <% if @training_session.can_emarged? %>
+        <%= form_with(model: @training_session,
+              url: anonymous_registration_path,
+              method: :patch,
+              local: true) do |form| %>
+
+          <%= hidden_field_tag :training_session_id, @training_session.uuid %>
+          <%= hidden_field_tag :participation_id, @training_session.facilitator_participation(current_user)&.id %>
+          <%= hidden_field_tag :remove_anonymous, true %>
+          <%= button_tag(fa_icon("user-minus"), type: "submit", class: "btn link-danger p-0 fs-5") %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
