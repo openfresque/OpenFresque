@@ -19,7 +19,7 @@ module OpenFresk
     end
 
     def update
-      command = TrainingSessions::UpdateTrainingSession.new(
+      command = ::TrainingSessions::UpdateTrainingSession.new(
         training_session_params: training_session_params,
         training_session: @training_session,
         current_user: current_user,
