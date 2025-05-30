@@ -1,0 +1,38 @@
+<% if (training_session.organisator?(current_user) || current_user.super_admin?) && participation.user != current_user && !participation.edit_session_permission %>
+  <button class="btn btn-sm btn-primary me-3 rounded-3 w-30" id="<%= "#add_organiser_#{participation.user.id}_Modal" %>" data-bs-toggle="modal" data-bs-target="<%= "#add_organiser_#{participation.user.id}_Modal" %>">
+    <%= t("invitations.add_organiser") %>
+  </button>
+<% elsif (training_session.organisator?(current_user) || current_user.super_admin?) && participation.user != current_user && participation.edit_session_permission %>
+  <button class="btn btn-sm btn-danger me-3 rounded-3 w-30" id="<%= "#add_organiser_#{participation.user.id}_Modal" %>" data-bs-toggle="modal" data-bs-target="<%= "#add_organiser_#{participation.user.id}_Modal" %>">
+    <%= t("invitations.remove_organiser") %>
+  </button>
+<% end %>
+<% unless @training_session.observer?(participation.user) || @training_session.already_payed? %>
+  <% if @coanimator == participation.user %>
+    <button class= "btn btn-sm btn-danger me-3 rounded-3 w-30" id="<%= "#destroycoanimation_#{participation.id}_Modal" %>" data-bs-toggle="modal" data-bs-target="<%= "#destroycoanimation_#{participation.id}_Modal" %>">
+        <%= t("coanimation.unlink_me") %>
+    </button>
+  <% elsif !@coanimator && current_user != participation.user && (@training_session.animator?(current_user) || @training_session.coanimator?(current_user)) %>
+    <% if participation.coanimator_id %>
+      <div class="small text-secondary bg-light p-2 me-3 rounded-3"><%= t("coanimation.coanimate_already") %></div>
+    <% else %>
+      <button class= "btn btn-sm btn-primary me-3 rounded-3 d-block w-30" id="<%= "#createCoanimation_#{participation.id}_Modal" %>" data-bs-toggle="modal" data-bs-target="<%= "#createCoanimation_#{participation.id}_Modal" %>">
+        <%= t("coanimation.coanimate") %>
+      </button>
+    <% end %>
+  <% end %>
+<% end %>
+<% if (
+    (
+      current_user.super_admin? ||
+      current_user.administrator? ||
+      @training_session.organisator?(current_user) ||
+      @training_session.can_edit_session?(current_user)
+    ) &&
+    !already_registered_participants?(@training_session, participation.user) &&
+    !@training_session.already_payed?
+  ) %>
+    <button class="btn btn-sm btn-danger me-3 rounded-3 w-30" id="<%= "#remove_animator_#{participation.user.id}_Modal" %>" data-bs-toggle="modal" data-bs-target="<%= "#remove_animator_#{participation.user.id}_Modal" %>">
+      <%= t("invitations.remove_animator_confirmation") %>
+    </button>
+<% end %>

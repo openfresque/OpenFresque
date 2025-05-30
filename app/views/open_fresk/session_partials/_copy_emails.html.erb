@@ -1,0 +1,22 @@
+<div class="text-end mt-3">
+  <% if current_user.super_admin? ||
+            current_user.administrator? ||
+            @training_session.organisator?(current_user) ||
+            (@training_session.started? && params[:filter] != "all_present_participants_count") ||
+            @training_session.can_edit_session?(current_user) %>
+     <% participations = @training_session.can_emarged? ? @present_participations : @participations %>
+    <button class="toast_btn copy-to-clipboard link-secondary border-0 bg-transparent p-0"
+            data-text="<%= participants_emails(participations) %>"
+            title="copy to clipboard"
+            <%= 'disabled' if participants_emails(participations).blank? %>>
+      <%= fa_icon("copy", type: :regular, text: t("invitations.copy_emails")) %>
+    </button>
+  <% else %>
+    <span role="button"
+          class="tooltips link-secondary"
+          data-bs-html="true"
+          title='<%= fa_icon("ban", text: t("participations.actions_reserved_organisator")) %>'>
+      <%= fa_icon("copy", type: :regular, text: t("invitations.copy_emails")) %>
+    </span>
+  <% end %>
+</div>

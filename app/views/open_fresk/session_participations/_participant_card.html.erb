@@ -1,0 +1,31 @@
+<div class="border-bottom-light p-3 search-participants-card">
+  <div class="d-flex justify-content-between align-items-center">
+    <%= link_to("#collapse_#{participation.id}",
+              class: "d-block link-secondary text-decoration-none collapse_action flex-grow-1",
+              data: {bs_toggle: "collapse"}) do %>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="link-secondary">
+          <%= render "session_partials/participant_card_info", participation: participation %>
+        </div>
+      </div>
+    <% end %>
+    <div>
+      <% if SessionParticipationPolicy.new(current_user, @training_session).update? %>
+        <% if participation.user.firstname.nil? || participation.user.lastname.nil? %>
+          <%= render "pending_participant_modal", participation: participation %>
+          <%= link_to(fa_icon("user-plus"),
+            "#pendingparticipant_#{participation.id}_Modal",
+            class: "link-primary h5",
+            data: { bs_toggle: "modal", bs_target: "#pendingparticipant_#{participation.id}_Modal"}) %>
+        <% else %>
+          <%= link_to(fa_icon("user-plus"),
+              session_participation_path(participation, training_session_id: @training_session.uuid),
+              data: { turbo_method: :patch },
+              class: "link-primary h5") %>
+        <% end %>      
+      <% end %>
+    </div>
+  </div>
+
+  <%= render "session_partials/participant_collapse", participation: participation %>
+</div>

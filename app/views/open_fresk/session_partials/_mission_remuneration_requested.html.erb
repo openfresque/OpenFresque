@@ -1,0 +1,16 @@
+<div class="d-flex flex-row">
+  <% if @training_session.mission.present? && @training_session.ended? %>
+      <span class="rounded-3 small px-2 py-1 <%= @training_session.already_payed? ? 'bg-success text-white' : 'bg-light text-dark' %>">
+        <%= t("training_sessions.missions.#{@training_session.already_payed? ? 'remuneration_requested' : 'remuneration_pending'}") %>
+      </span>
+      <%= render(TooltipComponent.new(name: "remuneration_requested")) do %>
+        <div>
+          <% if @training_session.already_payed? %>
+            <%= t("training_sessions.missions.remuneration_requested_tooltip", date: l(@training_session.remuneration_processing_deadline, format: :default)) %>
+          <% else %>
+            <%= t("training_sessions.missions.remuneration_pending_tooltip") %>
+          <% end %>
+        </div>
+      <% end %>
+  <% end %>
+</div>

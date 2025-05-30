@@ -1,0 +1,28 @@
+<%= training_session_date(@training_session) %>
+<%#= training_session_recurrence(@training_session) %>
+<%= training_session_location(@training_session) %>
+<%= link_to("#collapse_details",
+            class: "link-secondary text-decoration-none",
+            id: "see_more_btn",
+            data: {bs_toggle: "collapse"}) do %>
+    <div class="d-flex justify-content-center align-items-center">
+      <%= t("see_more") %>
+      <%= fa_icon("chevron-down", class: "ms-3") %>
+    </div>
+<% end %>
+<div class="collapse" id="collapse_details">
+  <%= training_session_language(@training_session) %>
+  <%= training_session_public(@training_session) %>
+  <%= training_session_title(@training_session)%>
+  <%= training_session_description(@training_session) %>
+  <%= training_session_contact(@training_session) %>
+<%= link_to("#collapse_details",
+            class: "link-secondary text-decoration-none",
+            id: "see_less_btn",
+            data: {bs_toggle: "collapse"}) do %>
+    <div class="d-flex justify-content-center align-items-center">
+      <%= t("see_less") %>
+      <%= fa_icon("chevron-up", class: "ms-3") %>
+    </div>
+<% end %>
+</div>

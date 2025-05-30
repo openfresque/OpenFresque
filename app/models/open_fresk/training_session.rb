@@ -2,8 +2,8 @@ module OpenFresk
   class TrainingSession < ApplicationRecord
     self.table_name = 'training_sessions'
 
-    include TrainingSessions::Timings
-    include TrainingSessions::Staffing
+    include ::TrainingSessions::Timings
+    include ::TrainingSessions::Staffing
 
     belongs_to :language
     belongs_to :country
@@ -42,6 +42,10 @@ module OpenFresk
       true
       # participations.where(status: Participation::Confirmed).none? &&
       #   participations.where(status: Participation::Present).none?
+    end
+
+    def created_by_user
+      User.find(created_by_user_id)
     end
   end
 end

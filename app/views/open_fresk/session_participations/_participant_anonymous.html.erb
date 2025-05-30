@@ -1,0 +1,13 @@
+<div id="anonymous_participants">
+  <% if params[:filter] == "all_present_participants_count" %>
+      <% @training_session.cleared_animator_participations.each do |participation| %>
+      <% my_anonymous_participants_count(@training_session, participation.user)&.times do |i| %>
+        <%= render "session_participations/participant_card_anonymous", participation: participation, i: i %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <% my_anonymous_participants_count(@training_session, current_user)&.times do |i| %>
+      <%= render "session_participations/participant_card_anonymous", participation: @training_session.facilitator_participation(current_user), i: i %>
+    <% end %>
+  <% end %>
+</div>

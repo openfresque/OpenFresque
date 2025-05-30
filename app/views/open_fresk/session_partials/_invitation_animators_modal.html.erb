@@ -1,0 +1,54 @@
+<!-- Modal -->
+<div class="modal fade" id="invitationAnimatorsModal" tabindex="-1" aria-labelledby="invitationAnimatorsModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg modal-fullscreen-lg-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('participations.invite_animators') %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="px-3 my-2 border-bottom">
+        <div class="fs-5"><%= fa_icon('share', text: t('invitations.get_link')) %></div>
+        <%= t('invitations.animators_sharing_link') %>
+        <div class="d-flex justify-content-between">
+          <%= link_to show_session_url(@training_session), show_session_url(@training_session), class: "w-75 mb-3 small link-secondary d-block", target: :_blank %>
+          <div data-controller="clipboard">
+            <span class="d-none" data-clipboard-target="source"><%= show_session_url(@training_session) %></span>
+            <button class="toast_btn btn btn-primary btn-sm mb-3"
+              title="copy to clipboard"
+              data-action="clipboard#copy"
+              onclick="this.classList.add('bg-success','fw-bold')">
+              <%= fa_icon("copy", type: :regular, class: 'me-2') %><%= t('copy') %>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-body modal-dialog-scrollable">
+        <div class="fs-5"><%= fa_icon('envelope', type: :regular, text: t('invitations.invite_by_email')) %></div>
+          <div class="pb-2 mb-3">
+            <br/>
+            <span class="text-warning">
+              <%= t('invitations.import_users_instructions')%>
+            </span>
+            <br/>
+          </div>
+
+        <!-- COPY - PASTE EMAILS -->
+        <%= form_tag(training_session_invitations_path(@training_session), id: "copy_paste_animators_form") do %>
+          <%= hidden_field_tag 'user_type', 'animators' %>
+          <%= text_area_tag :emails, "",
+              class: 'form-control'%>
+        <% end %>
+      </div>
+
+      <div class="modal-footer">
+        <%= button_tag t('invitations.send_invitations'),
+          class: "btn btn-primary rounded-pill",
+          form: "copy_paste_animators_form",
+          id: "copy_paste_animators_form_submit",
+          'data-disable-with' => "<i class='fa fa-spinner fa-spin'></i> #{t('invitations.batch_invitations')}...".html_safe %>
+      </div>
+    </div>
+  </div>
+</div>

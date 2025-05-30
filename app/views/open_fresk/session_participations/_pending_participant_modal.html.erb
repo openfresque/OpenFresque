@@ -1,0 +1,54 @@
+<!-- Modal -->
+<div class="modal fade" id="pendingparticipant_<%= participation.id %>_Modal" tabindex="-1" aria-labelledby="pendingparticipant_<%= participation.id %>_ModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg modal-fullscreen-lg-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t("participations.new_participation") %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-dialog-scrollable">
+
+        <%= form_with(model: [@training_session, @participation], url: create_last_minute_session_participation_path(@training_session), id: "participation_form_#{participation.id}", local: true) do |form| %>
+
+          <div class="mb-3">
+            <%= form.label :email, class: 'required' %>
+            <label for="exampleInputEmail1" class="form-control bg-light"><%= participation.user.email %></label>
+            <%= hidden_field_tag "participation[email]", participation.user.email %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label t('activerecord.attributes.user.firstname'), class: 'required' %>
+            <%= form.text_field :first_name, class: 'form-control', required: true %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label t('activerecord.attributes.user.lastname'), class: 'required' %>
+            <%= form.text_field :last_name, class: 'form-control', required: true %>
+          </div>
+
+          <div class="country mb-3">
+            <%= form.label t('activerecord.attributes.user.country'), class: "required h6" %>
+            <%= collection_select(:participation, :country_id, Country.all.order(:name), :id , :name, { selected: @training_session.country_id }, class: 'form-control', required: true ) %>
+          </div>
+
+          <!-- CGU-->
+          <div class="country mb-3">
+            <%= form.check_box :cgu,
+                                name: "participation[cgu]",
+                                class: "form-check-input",
+                                id: "cgu_#{participation.id}",
+                                required: true %>
+            <%= form.label t('participations.cgu_last_minute'), for: "cgu_#{participation.id}" %>
+            <%= t('participations.cgu_last_minute_link', url: cgu_path(language: set_view_language)).html_safe %>*
+          </div>
+        <% end %>
+
+      </div>
+      <div class="modal-footer">
+        <%= submit_tag t('participations.create_participation'),
+          class: "btn btn-primary btn-block rounded-pill",
+          form: "participation_form_#{participation.id}" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<%= render partial: "open_fresk/session_partials/participations_tabs" %>
+
+<div class="tab-content px-2" data-controller="search-participants">
+  <!-- PARTICIPANTS CARDS -->
+  <%= render partial: "open_fresk/session_participations/participations_participants", locals: { participations: @participations, training_session: @training_session} %>
+
+  <!-- ANIMATORS CARDS -->
+  <div class="tab-pane fade pt-3" id="animent">
+    <%#= render partial: "open_fresk/session_partials/animator_registration" %>
+    <%#= render partial: "open_fresk/session_partials/animators_top_actions" %>
+    <%#= render partial: "open_fresk/session_partials/animators_count" %>
+    <div class="mt-3">
+      <% @animators&.each do |animator| %>
+        <%#= render partial: "open_fresk/session_partials/animator_card",
+            locals: { training_session: @training_session, participation: animator} %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%#= render partial: "anonymous_participants_modal" %>
+<%#= render "last_minute_modal", anonymous_participant: anonymous_participants?(@training_session) %>
+<%#= render "layouts/toast", message: t('invitations.participants_present_emails_copied') %>
