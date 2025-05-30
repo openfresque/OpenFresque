@@ -1,0 +1,56 @@
+<!-- Modal -->
+<div class="modal fade" id="lastminuteModal" tabindex="-1" aria-labelledby="lastminuteModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg modal-fullscreen-lg-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= last_minute_title(anonymous_participant) %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-dialog-scrollable">
+        <%= form_with(model: [@training_session, Participation.new],
+                      url: create_last_minute_session_participation_path(@training_session),
+                      method: :post,
+                      id: 'participation_form', local: true) do |form| %>
+
+          <%= hidden_field_tag :anonymous_participant, anonymous_participant %>
+          <div class="mb-3">
+            <%= form.label :email, class: 'required' %>
+            <%= form.email_field :email, class: 'form-control', autofocus: true, required: true %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label t('activerecord.attributes.user.firstname'), class: 'required' %>
+            <%= form.text_field :first_name, class: 'form-control', required: true %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label t('activerecord.attributes.user.lastname'), class: 'required' %>
+            <%= form.text_field :last_name, class: 'form-control', required: true %>
+          </div>
+
+          <div class="country mb-3">
+            <%= form.label t('activerecord.attributes.user.country'), class: "required h6" %>
+            <%= collection_select(:participation, :country_id, Country.all.order(:name), :id , :name, { selected: @training_session.country_id }, class: 'form-control', required: true ) %>
+          </div>
+
+          <!-- CGU-->
+          <div class="country mb-3">
+            <%= form.check_box :cgu,
+                                name: "participation[cgu]",
+                                class: "form-check-input",
+                                id: "cgu",
+                                required: true %>
+            <%= form.label t('participations.cgu_last_minute'), for: "cgu" %>
+            <%= t('participations.cgu_last_minute_link', url: cgu_path(language: set_view_language)).html_safe %>*
+          </div>
+        <% end %>
+
+      </div>
+      <div class="modal-footer">
+        <%= submit_tag last_minute_submit_btn(anonymous_participant),
+          class: "btn btn-primary btn-block rounded-pill",
+          form: "participation_form" %>
+      </div>
+    </div>
+  </div>
+</div>

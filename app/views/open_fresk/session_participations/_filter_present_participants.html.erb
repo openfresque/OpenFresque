@@ -1,0 +1,21 @@
+<div class="btn-group" id="filter_present_participants">
+  <%= link_to("#",
+              class: "btn link-primary pt-0",
+              role: "button", data: {bs_toggle: "dropdown"},
+              aria_expanded: "false") do %>
+    <% if params[:filter] == "all_present_participants_count" %>
+      <%= t("participations.all_present_participants_count", count: @training_session.present_count) %>
+    <% else %>
+      <%= t("participations.my_present_participants_count", count: my_present_participants_count(@training_session, current_user)) %>
+    <% end %>
+    <%= fa_icon('chevron-down', class: "ms-2") %>
+  <% end %>
+  <div class="dropdown-menu">
+    <%= link_to(t("participations.all_present_participants_count", count: @training_session.present_count),
+                show_session_link(@training_session, "all_present_participants_count"),
+                class: "dropdown-item border-bottom-light link-secondary text-decoration-none") %>
+    <%= link_to(t("participations.my_present_participants_count", count: my_present_participants_count(@training_session, current_user)),
+                show_session_link(@training_session),
+                class: "dropdown-item link-secondary text-decoration-none") %>
+  </div>
+</div>

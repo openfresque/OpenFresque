@@ -1,0 +1,23 @@
+<!-- Modal -->
+<div class="modal fade" id="add_organiser_<%= participation.user.id %>_Modal" tabindex="-1" aria-labelledby="add_organiser_<%= participation.user.id %>_ModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg modal-fullscreen-lg-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+          <% case participation.edit_session_permission %>
+          <% when true %>
+            <%= t('invitations.remove_organiser_title', firstname: participation.user.firstname&.titleize_with_dashes) %>
+          <% when false %>
+            <%= t('invitations.add_organiser_title', firstname: participation.user.firstname&.titleize_with_dashes) %>
+          <% end %>
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <%= link_to participation.edit_session_permission ? t("invitations.remove_organiser") : t("invitations.add_organiser"),
+              participation_add_organiser_path(participation), data: {turbo_method: :patch},
+              class: "btn btn-primary rounded-pill" %>
+      </div>
+    </div>
+  </div>
+</div>

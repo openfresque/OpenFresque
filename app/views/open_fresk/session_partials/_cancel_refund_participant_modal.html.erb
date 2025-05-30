@@ -1,0 +1,24 @@
+<!-- Modal -->
+<div class="modal fade" id="cancel_refund_participant_<%= participation.user.id %>_Modal" tabindex="-1" aria-labelledby="cancel_refund_participant_<%= participation.user.id %>_ModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg modal-fullscreen-lg-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">
+            <%= t("invitations.cancel_refund_participant_title") %>
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <% if participation.charged? %>
+        <div class="modal-body modal-dialog-scrollable">
+          <%= t("invitations.cancel_refund_participant", price: participation.transactions.last&.after_tax_price&.format) %>
+        </div>
+      <% end %>
+      <div class="modal-footer">
+        <%= form_tag(cancel_refund_training_session_invitations_path(@training_session), method: :get) do %>
+          <%= hidden_field_tag :participation_id, participation.id %>
+          <%= submit_tag(t("invitations.cancel_refund_participant_confirmation"), class: "btn btn-primary rounded-pill") %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

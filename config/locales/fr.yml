@@ -58,6 +58,7 @@ fr:
     forgot_password_user_unknown: Cet e-mail ne correspond à aucun·e utilisateur·ice connu·e
     invalid_credentials: Identifiants incorrects
     log_in_email: Connexion E-mail
+    please_log_in: "Vous devez vous connecter"
     logged_out: Vous êtes déconnecté
     missing_password_digest: Mot de passe manquant, veuillez le réinitialiser
     new_password: Entrez un nouveau mot de passe
@@ -106,7 +107,7 @@ fr:
     ask_for_organisation_rights_html:
       Si tu veux créer une session grand public, contacte les référent·es de ton
       <a href="%{url}" target="_blank">groupe local</a> qui te donneront les droits.
-    atelier: Fresque du Climat
+    atelier: Atelier
     audience:
       association: Association
       audience: Audience
@@ -256,7 +257,7 @@ fr:
         address: Adresse de facturation
         organisation_name: Nom de l'organisation
         contact: Contact de facturation (facultatif)
-    places_available: Nombre de places
+    places_available: Nombre de participants
     present_participants:
       one: "%{count} participant·e"
       other: "%{count} participant·es"
@@ -365,12 +366,10 @@ fr:
     warning_good_balance:
       Pour le moment, il y a suffisament d’animateur·ices pour
       le nombre de participant·es inscrit·es
-    warning_lack_of_animator:
-      Pour le moment, il manque d’animateur·ices pour le
+    warning_lack_of_animator: Pour le moment, il manque d’animateur·ices pour le
       nombre de participant·es inscrit·es
     warning_recurrence:
       Les changements de timezone, date, heure et rôle ne s'appliqueront
       qu'à cette session
-    warning_too_many_animator:
-      Pour le moment, il y a trop d’animateur·ices pour
+    warning_too_many_animator: Pour le moment, il y a trop d’animateur·ices pour
       le nombre de participant·es inscrit·es

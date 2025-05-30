@@ -1,0 +1,70 @@
+<div class="collapse small link-light" id="collapse_<%= participation.id %>">
+  <div>
+    <span class="email"><%= participation.user&.email %></span><br>
+    <%= participation.user&.country&.name %>
+    <%= product_configuration_full_display(participation&.transactions&.includes([:product_configuration])) %>
+  </div>
+
+  <% if @training_session.organisator?(current_user) || participation.my_present?(current_user) || current_user.super_admin? || current_user.administrator? || @training_session.can_edit_session?(current_user) %>
+    <div class="d-flex justify-content-between mt-3">
+      <div class="flex-grow-1">
+        <div>
+          <% if (participation.pending? || participation.declined? || participation.confirmed?) %>
+          <%= link_to t("invitations.resend_invitation_dropdown"),
+                      "#resend_invitation_#{participation.user.id}_Modal",
+                      data: {bs_toggle: "modal", bs_target: "#resend_invitation_#{participation.user.id}_Modal"},
+                      class: "link-secondary me-3" %>
+        <% end %>
+        <% if !participation.pending? && !participation.declined? %>
+          <% if !@training_session.inter_company? || InvitationPolicy.new(current_user, @training_session).cancel_refund? %>
+            <%= link_to link_to cancel_refund_participant_text(participation),
+                                "#cancel_refund_participant_#{participation.user.id}_Modal",
+                                data: {bs_toggle: "modal", bs_target: "#cancel_refund_participant_#{participation.user.id}_Modal"},
+                                class: "link-secondary me-3" %>
+          <% end %>
+        <% end %>
+        <% if participation.charged? %>
+          <%= link_to t("my_participation.invoice"),
+                      transaction_invoices_path(participation.transactions.last, token: participation.user.token, format: :pdf),
+                      target: :_blank,
+                      class: "link-secondary me-3" %>
+        <% end %>
+        <%= link_to t("edit"),
+                    "#edit_participant_#{participation.user.id}_Modal",
+                    data: {bs_toggle: "modal", bs_target: "#edit_participant_#{participation.user.id}_Modal"},
+                    class: "link-secondary me-3" %>
+        </div>
+
+        <% if policy(:document).show_documents_btn? && (participation.training_session.pro? || participation.training_session.inter_company?) %>
+          <div class="d-flex align-items-center mt-2">
+            <%= link_to t("participation_documents.administrative_documents"),
+                        "#download_documents_#{participation.user.id}_Modal",
+                        data: {bs_toggle: "modal", bs_target: "#download_documents_#{participation.user.id}_Modal"},
+                        class: "link-secondary" %>
+            <% if policy(:document).show_signature_convention? && participation.training_session.qualiopi? %>
+              <div id="icon-location-collapse_<%= participation.id %>">
+                <% if participation.convention_signed? %>
+                  <%= render partial: "signature_conventions/signature_convention_icon" %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <div>
+        <% if SessionParticipationPolicy.new(current_user, @training_session).update? && participation.my_present?(current_user) %>
+          <%= link_to(fa_icon("user-minus"),
+                      session_participation_path(participation, training_session_id: @training_session.uuid),
+                      data: {turbo_method: :patch},
+                      class: "link-danger h5") %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= render "session_partials/resend_invitation_modal", participation: %>
+<%= render "session_partials/cancel_refund_participant_modal", participation: %>
+<%= render "session_partials/participant_edit_modal", user: participation.user %>
+<%= render "session_partials/download_documents_modal", participation: %>

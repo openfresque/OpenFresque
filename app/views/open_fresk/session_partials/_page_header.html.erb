@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-between align-items-center mb-2">
+  <div class="h3">
+    <%= "(#{t("training_sessions.past_1")})" if @training_session.passed? %>
+    <%= t("training_sessions.fdc_atelier") %>
+  </div>
+  <div class="d-flex">
+    <div><%= link_to fa_icon("edit"), edit_link_session_url(@training_session), class: "btn btn-light btn-square-40 rounded-3 me-2" %></div>
+  </div>
+</div>

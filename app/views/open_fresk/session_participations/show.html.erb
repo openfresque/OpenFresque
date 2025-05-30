@@ -1,0 +1,8 @@
+<div class="col-lg-6 mx-auto my-3">
+  <%= render 'open_fresk/session_partials/back_link', training_session: @training_session %>
+  <%= render partial: "open_fresk/session_partials/page_header" %>
+  <%= render partial: "open_fresk/session_partials/session_info" %>
+  <hr>
+  <%= render partial: "open_fresk/session_participations/participations" %>
+</div>
+<%#= render "layouts/toast", message: t("link_copied") %>

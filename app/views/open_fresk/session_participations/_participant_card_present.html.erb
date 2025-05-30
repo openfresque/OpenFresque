@@ -1,0 +1,34 @@
+<div class="border-bottom-light p-3"
+   data-participation-id="<%= participation.id %>">
+    <%= link_to "#collapse_#{participation.id}",
+          class: "d-block link-secondary text-decoration-none collapse_action d-flex justify-content-between align-items-top tooltips",
+          data: {bs_toggle: "collapse", bs_html: "true"},
+          title: (participation.my_present?(current_user) || @training_session.organisator?(current_user) || current_user.administrator? || current_user.super_admin?) ? "" : fa_icon('ban', text: t("participations.not_my_participant")) do %>
+      <div>
+        <div>
+          <%= render "session_partials/participant_card_info", participation: participation %>
+        </div>
+        <small><%= t('by') %>
+          <% if participation.coanimator %>
+            <%= participation.animator&.firstname&.first&.capitalize %>.
+            <%= participation.animator&.lastname&.titleize_with_dashes %>
+            <%= t('and') %>
+            <%= participation.coanimator&.firstname&.first&.capitalize %>.
+            <%= participation.coanimator&.lastname&.titleize_with_dashes %>
+          <% else %>
+            <%= participation.animator&.firstname&.first&.capitalize %>.
+            <%= participation.animator&.lastname&.titleize_with_dashes %>
+          <% end %>
+        </small>
+        <% if @training_session.formation? && participation.user.last_sign_in_at.nil? %>
+          <div class="small text-warning"><%= t('participations.account_not_activated', firstname: participation.user.firstname&.titleize_with_dashes) %></div>
+        <% elsif @training_session.formation? %>
+          <div class="small text-primary"><%= t('participations.account_activated') %></div>
+        <% end %>
+      </div>
+      <div><%= fa_icon("chevron-right", class: "link-light #{"do_not_rotate" if (!participation.my_present?(current_user) && !@training_session.organisator?(current_user))}") %></div>
+    <% end %>
+  <% if participation.my_present?(current_user) || @training_session.organisator?(current_user) || current_user.administrator? || current_user.super_admin? || @training_session.can_edit_session?(current_user) %>
+    <%= render "session_partials/participant_collapse", participation: participation %>
+  <% end %>
+</div>

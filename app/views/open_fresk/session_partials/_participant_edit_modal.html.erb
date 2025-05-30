@@ -1,0 +1,45 @@
+<!-- Modal -->
+<div class="modal fade" id="edit_participant_<%= user.id %>_Modal" tabindex="-1" aria-labelledby="edit_participant_<%= user.id %>_ModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg modal-fullscreen-lg-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t("to_update") %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-dialog-scrollable">
+
+        <%= form_tag(user_update_session_invitations_path, id: "edit_user_form_#{user.id}", local: true) do %>
+          <%= hidden_field_tag :id, @training_session.uuid %>
+          <%= hidden_field_tag "user[id]", user.id %>
+
+          <div class="mb-3">
+            <label class="required"><%= t('email') %></label>
+            <%= email_field_tag "user[email]", user.email, class: 'form-control', required: true %>
+          </div>
+
+          <div class="mb-3">
+            <label class="required"><%= t('activerecord.attributes.user.firstname') %></label>
+            <%= text_field_tag "user[firstname]", user.firstname, class: 'form-control', required: true %>
+          </div>
+
+          <div class="mb-3">
+            <label class="required"><%= t('activerecord.attributes.user.lastname') %></label>
+            <%= text_field_tag "user[lastname]", user.lastname, class: 'form-control', required: true %>
+          </div>
+
+          <div class="mb-3">
+            <label class="required"><%= t('activerecord.attributes.user.country') %></label>
+            <%= collection_select(:user, :country_id, Country.all.order(:name), :id , :name, { selected: user.country_id }, class: 'form-control', required: true ) %>
+          </div>
+
+        <% end %>
+
+      </div>
+      <div class="modal-footer">
+        <%= submit_tag t('save'),
+          class: "btn btn-primary btn-block rounded-pill",
+          form: "edit_user_form_#{user.id}" %>
+      </div>
+    </div>
+  </div>
+</div>

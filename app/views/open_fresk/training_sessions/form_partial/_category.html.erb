@@ -1,25 +1,24 @@
 <div class="mb-1">
-    <div class="row">
-      <%= form.label :category, class: "d-block required h5" %>
-      <div class="col-6 text-center">
-        <%= form.radio_button :category, TrainingSession::Atelier,
-            checked: params[:action] == "new" || @training_session.category == TrainingSession::Atelier,
-            id: "atelier", required: true, class:"btn-check checked_radio_button",
-            name:"[training_session]category", autocomplete:"off",
-            "data-action": "click->animate#click",
-            "data-animate-target": "workshop" %>
-        <%= form.label :training_sessions_atelier, t('training_sessions.atelier', count: 1), for: "atelier",
-            class: "btn btn-sm h-100 w-100" %>
-      </div>
-      <div class="col-6 text-center">
-        <%= form.radio_button :category, TrainingSession::Formation, id: "formation",
-            required: true, class:"btn-check checked_radio_button", name:"[training_session]category", autocomplete:"off",
-            "data-category-target": "formation",
-            "data-action": "click->animate#click",
-            "data-animate-target": "formation" %>
-        <%= form.label t('training_sessions.formation', count: 1), for: "formation",
-            class: "btn btn-sm h-100 w-100" %>
-      </div>
+  <div class="row">
+    <%= form.label :category, class: "d-block required h5" %>
+    <div class="col-6 text-center">
+      <%= form.radio_button :category, TrainingSession::Atelier,
+          checked: params[:action] == "new" || @training_session.category == TrainingSession::Atelier,
+          id: "atelier", required: true, class:"btn-check checked_radio_button",
+          name:"[training_session]category", autocomplete:"off",
+          "data-action": "click->animate#click",
+          "data-animate-target": "workshop" %>
+      <%= form.label :training_sessions_atelier, t('training_sessions.atelier', count: 1), for: "atelier",
+          class: "btn btn-sm h-100 w-100" %>
+    </div>
+    <div class="col-6 text-center">
+      <%= form.radio_button :category, TrainingSession::Formation, id: "formation",
+          required: true, class:"btn-check checked_radio_button", name:"[training_session]category", autocomplete:"off",
+          "data-category-target": "formation",
+          "data-action": "click->animate#click",
+          "data-animate-target": "formation" %>
+      <%= form.label t('training_sessions.formation', count: 1), for: "formation",
+          class: "btn btn-sm h-100 w-100" %>
     </div>
   </div>
 </div>
