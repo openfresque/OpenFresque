@@ -107,7 +107,7 @@ en:
     ask_for_organisation_rights_html:
       If you want to create a general public session, contact your
       <a href="%{url}" target="_blank">local group</a> coordinators, who will give you the rights.
-    atelier: workshop
+    atelier: Workshop
     audience:
       association: Association
       audience: Audience
