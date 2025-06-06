@@ -16,10 +16,11 @@
         </small>
       </div>
       <div class="mt-2">
+        <% nonprofit_name = (defined?(OpenFreskSetting) && OpenFreskSetting.first) ? OpenFreskSetting.first.non_profit_name : "" %>
         <% if training_session.atelier? %>
-          <%= t('training_sessions.fdc_atelier') %>
+          <%= t('training_sessions.fdc_atelier', nonprofit_name: nonprofit_name) %>
         <% else %>
-          <%= t('training_sessions.fdc_formation') %>
+          <%= t('training_sessions.fdc_formation', nonprofit_name: nonprofit_name) %>
         <% end %>
       </div>
       
