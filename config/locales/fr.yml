@@ -168,8 +168,8 @@ fr:
     edit: Modifier session
     end_date_after_start_date: L'heure de fin doit être supérieure à l'heure du début
     facilitator: Animateur·ices
-    fdc_atelier: Atelier La Fresque du Climat
-    fdc_formation: Formation à l'animation
+    fdc_atelier: "Atelier %{nonprofit_name}"
+    fdc_formation: "Formation %{nonprofit_name}"
     fdc_formation_opportunities: Formation à l’animation de la Fresque du Climat
     fill_counter: Remplir mon compteur
     format: Localisation
