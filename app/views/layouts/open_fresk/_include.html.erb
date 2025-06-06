@@ -3,8 +3,8 @@
 
 <% open_fresk_setting = (defined?(OpenFreskSetting) && OpenFreskSetting.first) %>
 <% if open_fresk_setting && open_fresk_setting&.favicon&.attached? %>
-  <%= favicon_link_tag url_for(open_fresk_setting.favicon), type: open_fresk_setting.favicon.content_type %>
-  <%= favicon_link_tag url_for(open_fresk_setting.favicon), rel: "apple-touch-icon", type: open_fresk_setting.favicon.content_type %>
+  <%= favicon_link_tag rails_blob_path(open_fresk_setting.favicon), type: open_fresk_setting.favicon.content_type %>
+  <%= favicon_link_tag rails_blob_path(open_fresk_setting.favicon), rel: "apple-touch-icon", type: open_fresk_setting.favicon.content_type %>
 <% else %>
   <%= favicon_link_tag    "open_fresk/favicon.png",           type: "image/png" %>
   <%= favicon_link_tag    "open_fresk/favicon.png", rel: "apple-touch-icon", type: "image/png" %>
