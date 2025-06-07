@@ -107,7 +107,7 @@ en:
     ask_for_organisation_rights_html:
       If you want to create a general public session, contact your
       <a href="%{url}" target="_blank">local group</a> coordinators, who will give you the rights.
-    atelier: workshop
+    atelier: Workshop
     audience:
       association: Association
       audience: Audience
@@ -168,8 +168,8 @@ en:
     edit: Edit session
     end_date_after_start_date: End time must be later than the start time
     facilitator: Facilitators
-    fdc_atelier: Climate Fresk workshop
-    fdc_formation: Climate Fresk facilitation training
+    fdc_atelier: "%{nonprofit_name} workshop"
+    fdc_formation: "%{nonprofit_name} facilitation training"
     fdc_formation_opportunities: Climate Fresk facilitation training
     fill_counter: Fill my counter
     format: Location

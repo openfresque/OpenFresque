@@ -5,10 +5,12 @@ export default class extends Controller {
   static targets = ["onsite", "online", "onsiteButton", "onlineButton", "address", "url"]
 
   connect() {
+    console.log("TrainingSessionsFormatController connected")
     this.update()
   }
 
   click() {
+    console.log("TrainingSessionsFormatController clicked")
     this.update()
   }
 
