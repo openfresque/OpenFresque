@@ -7,15 +7,13 @@ module OpenFresk
     end
 
     def new
-      @training_session = TrainingSession.new
+      @training_session = ::TrainingSession.new
     end
 
     def edit
-      def edit
-        @facilitation_language = @training_session.language_id
-        @start_time = @training_session.local_start_time.strftime("%H:%M")
-        @end_time = @training_session.local_end_time.strftime("%H:%M")
-      end
+      @facilitation_language = @training_session.language_id
+      @start_time = @training_session.local_start_time.strftime("%H:%M")
+      @end_time = @training_session.local_end_time.strftime("%H:%M")
     end
 
     def update
@@ -94,12 +92,12 @@ module OpenFresk
       end
 
       def public_opportunities
-        training_sessions = TrainingSession.futur
+        training_sessions = ::TrainingSession.futur
         @my_training_sessions = training_sessions.my_sessions(current_user)
       end
 
       def set_training_session
-        @training_session = TrainingSession.find(params[:id])
+        @training_session = ::TrainingSession.find(params[:id])
       end
   end
 end

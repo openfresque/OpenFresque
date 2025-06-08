@@ -4,9 +4,9 @@ class Product < ApplicationRecord
 
   validates :identifier, :category, :audience, presence: true
 
-  scope :category, ->(category) { where(category:) }
+  scope :category, ->(category) { where(category: category) }
   scope :charged, -> { where(charged: true) }
-  scope :audience, ->(audience) { where(audience:) }
+  scope :audience, ->(audience) { where(audience: audience) }
   string_enum category: %i[atelier formation].freeze
   string_enum audience: %i[personal general_public education public_sector company association inter_company].freeze
 
