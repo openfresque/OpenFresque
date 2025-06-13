@@ -17,13 +17,10 @@ module OpenFresk
     end
 
     def show_public_session_url(session, current_user)
-      language = Languages::SetLanguage.new(params, current_user).call
+      #language = Languages::SetLanguage.new(params, current_user).call
       show_public_training_session_url(
-        session.uuid,
+        session.id,
         host: ENV["HOST"],
-        subdomain: Tenant.current.subdomain,
-        tenant_token: Tenant.current.token,
-        language:
       )
     end
 

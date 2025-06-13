@@ -373,3 +373,70 @@ fr:
       qu'à cette session
     warning_too_many_animator: Pour le moment, il y a trop d’animateur·ices pour
       le nombre de participant·es inscrit·es
+  invoice:
+    email: 'e-mail : adv@fresqueduclimat.org'
+    including: dont
+    invoice_date: 'Date de facture : %{invoice_date}'
+    invoice_number: 'N° facture : %{invoice_number}'
+    payment_method: 'Méthode de paiement : carte bancaire'
+    price: Prix
+    product: Produit
+    quantity: Quantité
+    total: Total
+    vat: TVA
+    vat_included: TTC
+  participations:
+    account_activated: Compte activé
+    account_not_activated: "%{firstname} n’a pas encore activé son compte"
+    actions_reserved_organisator: Action réservée à l’organisateur·ice
+    add: Ajouter
+    add_instruction: Enregistrez les présences depuis les invité·es/inscrit·es ou en ajoutant des nouveaux·elles participant·es
+    all_present_participants_count: "Tous·tes (%{count})"
+    already_registered: Vous êtes déjà inscrit·es à cette session.
+    anonymous_participant: Anonyme
+    anonymous_participants_add: Ajouter des participant·es anonymes
+    anonymous_participants_title: Combien de participant·e·s souhaitez-vous ajouter ?
+    billing_organisation: Ajouter les informations d'une société
+    cgu: J’accepte les Conditions Générales d’Utilisation
+    cgu_last_minute: Je certifie que ce contact importé accepte les
+    cgu_last_minute_link: <a href="%{url}" target='_blank'>CGU</a>
+    cgv_inter_company: J’accepte les Conditions Générales de Vente
+    confirm?: Participer
+    confirmation_email_sent: Un e-mail de confirmation vous a été envoyé à l'adresse %{email}
+    confirmed: Votre participation est confirmée.
+    create_participation: Créer une nouvelle participation
+    create_public_participation: Confirmer ma participation
+    decline?: Me désincrire
+    declined: Vous ne participez pas
+    edit_anonymous: Informations
+    error_belt: Vous ne pouvez pas choisir ce rôle d'animation, vous n'avez pas le niveau de ceinture requis.
+    error_role_not_open: Vous ne pouvez pas choisir ce rôle d'animation, il n'y a pas assez de places ouvertes pour ce rôle
+    inscription: Inscription
+    invite: Inviter
+    invite_animators: Inviter des animateur·ices
+    invite_participants: Ajouter des participant·es
+    invoicing_details: Mes informations de facturation sont différentes de mes coordonées personnelles
+    has_already_activate_his_account: Ce compte est déjà activé, vous ne pouvez pas modifier ses infos
+    last_minute: Nouveau
+    manage_animators: Gérer les animateur·ices
+    manage_participants: Gérer les participant·es
+    my_participants: Mes participant·es
+    my_present_participants_count: "Mes participant·es (%{count})"
+    my_registration: Mon inscription
+    new_participation: Nouvelle participation
+    not_in_whitelist_domains: L'adresse e-mail %{email} n'est pas dans la liste des domaines autorisés.
+    not_my_participant: Ce·tte participant·e n'était pas à votre table
+    participation_registered: Votre réponse a été enregistrée
+    participants_warning: Vous ne pouvez pas voir les participant·es car vous n’êtes pas inscrit·e pour animer cette session
+    pending: En attente de confirmation.
+    present: Enregistré
+    register_as_animator: M'inscrire
+    registration: Enregistrer les présences
+    registration_closed_warning: La période d’enregistrement des présences est terminée.
+    registration_open: Vous avez jusqu'à 1 semaine après la fin de la session pour enregistrer les présences.
+    registration_waiting: Vous pourrez enregistrer les présences dans
+    remove: Retirer
+    search: E-mail d'inscription
+    subtitle: Les participant·es que j’anime personnellement.
+    unavailable: indisponible
+  next: Suivant

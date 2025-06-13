@@ -374,3 +374,71 @@ en:
     warning_too_many_animator:
       For now, there are too many facilitators for the number
       of registered participants.
+  invoice:
+    email: 'email: adv@climatefresk.org'
+    including: including
+    invoice_date: 'Invoice date : %{invoice_date}'
+    invoice_number: 'Invoice number : %{invoice_number}'
+    payment_method: 'Payment method : credit card'
+    price: Price
+    product: Product
+    quantity: Quantity
+    total: Total
+    vat: VAT
+    vat_included: VAT incl.
+  participations:
+    account_activated: Account activated
+    account_not_activated: "%{firstname} has not yet activated their account"
+    actions_reserved_organisator: Actions reserved to the organizer
+    add: Add
+    add_instruction: Record attendees from invited/registered participants or by adding new participants
+    all_present_participants_count: "All (%{count})"
+    already_registered: You are already registered to this session.
+    anonymous_participant: Anonymous
+    anonymous_participants_add: Add anonymous participants
+    anonymous_participants_title: How many participants do you want to add?
+    billing_organisation: Add company information
+    cgu: I accept the Terms and Conditions of Use
+    cgu_last_minute: I certify that this imported contact accepts
+    cgu_last_minute_link: <a href="%{url}" target='_blank'>the terms and conditions</a>
+    cgv_inter_company: I accept the Terms and Conditions of Sale
+    confirm?: I participate
+    confirmation_email_sent: "An email confirmation has been sent to your email address : %{email}"
+    confirmed: Your registration is confirmed.
+    create_participation: Create a new registration
+    create_public_participation: Confirm my registration
+    decline?: I decline
+    declined: Your registration is declined
+    edit_anonymous: Infos
+    error_belt: You cannot choose this facilitation role, you don't have the required belt level
+    error_role_not_open: You cannot choose this facilitation role, there are not enough places open for this role
+    has_already_activate_his_account: This account has already been activated, so you cannot change its details
+    inscription: Inscription
+    invite: Invite
+    invite_animators: Invite facilitators
+    invite_participants: Invite participants
+    invoicing_details: My billing information is different from my personal information
+    last_minute: New
+    manage_animators: Manage facilitators
+    manage_participants: Manage participants
+    my_participants: My participants
+    my_present_participants_count: "My participants (%{count})"
+    my_registration: My registration
+    new_participation: New registration
+    not_in_whitelist_domains: The email address %{email} is not in the list of authorized domains.
+    not_my_participant: This participant was not at your table
+    participation_registered: Your response has been registered
+    participants_warning: You cannot see the participants because you are not registered to facilitate this session
+    pending: Pending confirmation.
+    present: Registered
+    register_as_animator: Register
+    registration: Register the presence
+    registration_closed_warning: The registration period is over.
+    registration_open: You have up to 1 week after the end of the session to register attendees.
+    registration_waiting: You can record attendees in
+    remove: Remove
+    search: Inscription email
+    subtitle: The participants that I personally lead.
+    title: My participants
+    unavailable: unavailable
+  next: Next
