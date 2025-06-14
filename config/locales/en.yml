@@ -41,9 +41,6 @@ en:
       title: "OpenFresk"
       site_name: "OpenFresk"
       description: "OpenFresk - Climate Fresk Workshop Platform"
-  email: "Email"
-  password: "Password"
-  show_password: "Show password"
   reset_password:
     subject: Reset your password
     content_01: Hello,
@@ -441,4 +438,99 @@ en:
     subtitle: The participants that I personally lead.
     title: My participants
     unavailable: unavailable
+  my_participation:
+    already_registered_participants_html: You have already registered %{count} participants<br> So you cannot change your role of facilitation.
+    already_confirmed: Your registration is already confirmed.
+    animator_role_html: Your are a facilitator for this  session. <br>
+      You can manage your registration on this session by clicking <a href="%{url}">here</a>.
+    cancel: Cancel my registration
+    cancel_confirmation: Yes, cancel
+    cancel_confirmation_text: Are you sure you want to cancel your registration ?
+    cancel_confirmation_title: Cancellation of my registration
+    cancel_description: Warning ! You will not receive a refund because the event is in less than 24 hours
+    cancel_description_inter: Warning ! You will not receive a refund because the event is in less than 5 days
+    cancelable_ticket_title: Do you want to cancel your registration?
+    cancelled: Your cancellation request has been taken into account
+    confirmed: "Your registration is confirmed. A confirmation has been sent at %{email}."
+    confirmed_no_email: "Your registration is confirmed."
+    invoice: Invoice
+    payment_failed: Your payment has failed.
+    refundable_ticket_text: You will receive a refund of %{amount}
+    refund_failed: Your refund has failed because your payment was not successful.
+    refunded: Your cancellation request has been taken into account and you have been refunded
+    ticket_choice: Your registration is pending the choice of the ticket
+    title: Manage my registration
+    certificate_title_short: Training completion certificate
+    waiting_for_payment: Your registration is pending payment.
+  animators: Facilitators
+  and: and
+  atelier:
+    one: Workshop
+    other: Workshops
+    zero: Workshop
+  back: Back
+  by: By
+  cancel: Cancel
+  close: Close
+  confirm: Confirm
+  copied: Copied
+  copy: Copy
+  create: Create
+  destroy: Delete
+  edit: Edit
+  email: Email
+  error_message:
+    one: "Please correct the following error"
+    other: "Please correct the following %{count} errors"
+  filter: Filter
+  formation:
+    one: Training
+    other: Trainings
+    zero: Training
+  freskers: Freskers
+  fresque: Climate Fresk
+  from: "From:"
+  from_to: From %{from} to %{to}
+  hello: Hello
+  hello_name: Hello %{name}!
+  link_copied: Link copied
+  meta_description: The Climate Fresk is a collaborative workshop that allows you to understand the essential climate issues to take action.
+  meta_title: Climate Fresk Workshop
   next: Next
+  none: None
+  now: Now
+  optional: Optional
+  or: or
+  participants: Participants
+  password: Password
+  please_select: Select an option in the list
+  previous: Previous
+  previous_arrow: "< Previous"
+  recurring: Recurring Sessions
+  result:
+    zero: "%{count} result"
+    one: "%{count} result"
+    other: "%{count} results"
+  rights: All Rights Reserved
+  save: Save
+  save_error: Sorry, an error occurred while saving
+  search: Search
+  see_less: See less
+  see_more: See more
+  send: Send
+  show: Show
+  show_password: Show password
+  something_went_wrong: Sorry, an error occurred
+  time_of: "%{time_zone} time"
+  to: "To:"
+  tomorrow: Tomorrow
+  add_recurrences: Add recurrences
+  to_update: Update
+  validate: Validate
+  warning_info: "An incomplete profile may prevent you from registering for events and using certain services. Please update your profile. "
+  warning_info_link: Click here to complete your infos.
+  warning_info_start: "Warning, your profile is incomplete. "
+  word_date: Date
+  word_no: "No"
+  "yes": "Yes"
+  

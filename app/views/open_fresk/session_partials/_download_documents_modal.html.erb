@@ -8,68 +8,6 @@
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body modal-dialog-scrollable d-flex flex-column my-3 gap-4">
-        <% if participation.training_session.pro? %>
-          <div class="d-flex justify-content-between align-items-center mx-3">
-            <%= t("participation_documents.invitation") %>
-            <%= link_to fa_icon("download"), participation_participation_invitations_path(participation, format: :pdf), class: "text-primary", target: :_blank %>
-          </div>
-        <% end %>
-
-        <% if participation.training_session.qualiopi? && participation.present? %>
-          <div class="d-flex justify-content-between align-items-center mx-3">
-            <%= t("participation_documents.participation_certificate") %>
-            <%= link_to fa_icon("download"), participation_participation_certificates_url(participation, host: ENV["HOST"], subdomain: "association", format: :pdf), class: "text-primary", target: :_blank %>
-          </div>
-        <% end %>
-
-        <% if participation.training_session.qualiopi? %>
-          <div>
-            <div class="d-flex justify-content-between align-items-center mx-3">
-              <div class="d-flex align-items-center" aria-live="polite">
-                <%= t("participation_documents.convention") %>
-                <% if policy(:document).show_signature_convention? %>
-                  <div id="icon-location-modal_<%= participation.id %>">
-                    <% if participation.convention_signed? %>
-                      <%= render partial: "signature_conventions/signature_convention_icon" %>
-                    <% end %>
-                  </div>
-                <% end %>
-              </div>
-
-              <% I18n.with_locale("fr") do %>
-                <%= link_to fa_icon("download"), participation_conventions_path(participation, format: :pdf), class: "text-primary", target: :_blank %>
-              <% end %>
-            </div>
-            <% if policy(:document).show_signature_convention? %>
-              <div id="convention_signed_button_<%= participation.id %>">
-                <%= render partial: "signature_conventions/signature_convention_button", locals: {participation:} %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-
-        <% if participation.training_session.pro? && participation.present? %>
-          <div class="d-flex justify-content-between align-items-center mx-3">
-            <%= t("participation_documents.satisfaction_survey") %>
-            <div data-controller="clipboard">
-              <span id="source" data-clipboard-target="source" style="display:none;"><%= welcome_survey_url(participation.survey.uuid,
-                                                                                                            participation.id,
-                                                                                                            host: ENV["HOST"],
-                                                                                                            subdomain: "association") %></span>
-              <button
-                class="btn text-primary toast_btn p-0"
-                title="<%= t("participation_documents.link_copied") %>"
-                data-action="clipboard#copy"
-                data-clipboard-target="#source"
-              >
-                <%= fa_icon("copy", type: :regular) %>
-              </button>
-              <%= render "layouts/toast", message: t("participation_documents.link_copied") %>
-            </div>
-          </div>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>

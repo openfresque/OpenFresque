@@ -10,9 +10,9 @@ module OpenFresk
 
     def show_session_url(session)
       if SessionParticipationPolicy.new(current_user, session).show?
-        session_participation_url(session.uuid, host: ENV["HOST"], subdomain: Tenant.current.subdomain, anchor: "animent")
+        session_participation_url(session.uuid, host: ENV["HOST"], anchor: "animent")
       else
-        session_invitation_url(session.uuid, host: ENV["HOST"], subdomain: Tenant.current.subdomain, anchor: "animent")
+        session_invitation_url(session.uuid, host: ENV["HOST"], anchor: "animent")
       end
     end
 
@@ -116,8 +116,7 @@ module OpenFresk
       if session.participant_capacity_full?
         ""
       else
-        show_public_training_session_path(session,
-                                          tenant_token: Tenant.current.token, language:, user_token:)
+        show_public_training_session_path(session, language: language, user_token: user_token)
       end
     end
 
@@ -131,15 +130,13 @@ module OpenFresk
         participation_url(
           participation.id,
           host: ENV["HOST"],
-          subdomain: Tenant.current.subdomain,
           token: participation.user.token,
-          language:
+          language: language
         )
       elsif participation.training_session.participant_capacity_full?
         "#"
       else
-        ticket_choice_training_session_public_participations_path(participation.training_session,
-                                                                  tenant_token: params[:tenant_token], user_token: participation.user&.token, language:)
+        ticket_choice_training_session_public_participations_path(participation.training_session, user_token: participation.user&.token, language: language)
       end
     end
 
