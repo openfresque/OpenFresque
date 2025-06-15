@@ -6,13 +6,13 @@ module TrainingSessions
 
     def participants_per_table
       if atelier? && onsite?
-        Constants::ParticipantsPerTable::ATELIER_ONSITE
+        OpenFresk::Constants::ParticipantsPerTable::ATELIER_ONSITE
       elsif atelier? && online?
-        Constants::ParticipantsPerTable::ATELIER_ONLINE
+        OpenFresk::Constants::ParticipantsPerTable::ATELIER_ONLINE
       elsif formation? && onsite?
-        Constants::ParticipantsPerTable::FORMATION_ONSITE
+        OpenFresk::Constants::ParticipantsPerTable::FORMATION_ONSITE
       elsif formation? && online?
-        Constants::ParticipantsPerTable::FORMATION_ONLINE
+        OpenFresk::Constants::ParticipantsPerTable::FORMATION_ONLINE
       end
     end
 

@@ -1,0 +1,33 @@
+<div class="col-lg-6 mx-auto my-3" id="ticket_choice">
+  <h3>
+    <%= t("training_sessions.ticket_choice.title") %>
+  </h3>
+  <%= form_tag(personal_informations_training_session_public_participations_path(language: @language), data: {turbo: false}) do %>
+    <%= hidden_field_tag :user_token, params[:user_token] %>
+    <%= hidden_field_tag :language, @language %>
+
+    <% @product_configurations.each do |product_configuration| %>
+      <div class="d-flex align-items-center px-3 py-2 mb-3 rounded-3 product_configuration" id="<%= product_configuration.id %>">
+        <input type="radio" name="product_configuration_id" class="radio_button" id="product_configuration_id_<%= product_configuration.id %>" required value="<%= product_configuration.id %>" price_modifiable="<%= product_configuration.product.price_modifiable? %>">
+        <div class="d-flex flex-grow-1 justify-content-between align-items-center ms-2">
+          <div>
+            <%= label_tag product_configuration.display_name, nil, for: "product_configuration_id_#{product_configuration.id}" %>
+            <% if product_configuration.description %>
+              <br>
+              <%= label_tag product_configuration.description, nil, for: "product_configuration_id_#{product_configuration.id}", class: "small text-secondary" %>
+            <% end %>
+            <span class="<%= "d-none" if !product_configuration.product.charged? || product_configuration.price_modifiable? %>">
+              <%= product_configuration.after_tax_price.format %>  <%= t("invoice.vat_included") %>
+            </span>
+          </div>
+          <% if product_configuration.price_modifiable? %>
+              <%= number_field_tag :custom_price, nil, placeholder: "#{product_configuration.after_tax_price.format} #{t("invoice.vat_included")}", min: 1, required: true %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <div class="d-flex justify-content-end">
+      <%= submit_tag t('next'), class: "btn btn-primary rounded-pill px-3" %>
+    </div>
+  <% end %>
+</div>

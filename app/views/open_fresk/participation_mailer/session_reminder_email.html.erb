@@ -1,0 +1,11 @@
+<!-- WELCOME -->
+<p><%= t("hello_name", name: @user.firstname&.titleize_with_dashes) %></p>
+<p><b><%= t("participation.session_reminder.session_title", session_title: @training_session.title) %></b></p>
+<!-- BODY -->
+<% if @participation.participant? %>
+  <%= render "participation_mailer/pre_session/participant_confirmation", training_session: @training_session, invitation_url: @invitation_url, invoice_url: @invoice_url, knowledge_test_url: @knowledge_test_url, reset_password_url: @reset_password_url, language: @language %>
+<% else %>
+  <%= render "participation_mailer/pre_session/animator_confirmation", training_session: @training_session, session_url: @session_url %>
+  <!-- REGISTRATION REMINDER -->
+  <%= render "participation_mailer/email_content/registration_reminder", training_session: @training_session %>
+<% end %>

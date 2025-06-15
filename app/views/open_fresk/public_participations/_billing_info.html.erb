@@ -1,0 +1,81 @@
+<div class="col-lg-6 mx-auto my-3">
+
+  <h3 class="required">
+    <%= t("training_sessions.personal_informations.billing.address") %>
+  </h3>
+
+  <div class="mb-3">
+    <% form.label t("activerecord.attributes.user.invoicing_street"), id: "invoicing_street_label", class: "required" %>
+    <%= form.text_field :invoicing_street, value: params.dig(:participation, :invoicing_street), placeholder: t("activerecord.attributes.user.invoicing_street"), class: "form-control", id: "invoicing_street_input", required: true %>
+  </div>
+
+  <div class="d-flex justify-content-between mb-3 gap-2 flex-wrap">
+    <div class="flex-fill">
+      <% form.label t("activerecord.attributes.user.invoicing_city"), id: "invoicing_city_label", class: "required" %>
+      <%= form.text_field :invoicing_city, value: params.dig(:participation, :invoicing_city), placeholder: t("activerecord.attributes.user.invoicing_city"), class: "form-control", id: "invoicing_city_input", required: true %>
+    </div>
+    <div class="flex-fill">
+      <% form.label t("activerecord.attributes.user.invoicing_zip"), id: "invoicing_zip_label", class: "required" %>
+      <%= form.text_field :invoicing_zip, value: params.dig(:participation, :invoicing_zip), placeholder: t("activerecord.attributes.user.invoicing_zip"), class: "form-control", id: "invoicing_zip_input", required: true %>
+    </div>
+  </div>
+
+  <div class="country mb-3">
+    <% form.label t("activerecord.attributes.user.country"), class: "required" %>
+    <%= select_tag "participation[country_id]",
+                   options_for_select(Country.all.map { [_1.name, _1.id, {data: {country_code: _1.code}}] }, params.dig(:participation, :country_id) || @training_session.country_id),
+                   {
+                     class: "form-control",
+                     required: true,
+                     data: {organisation_country_selection_target: "countrySelect", action: "organisation-country-selection#changeInputFields billing-info#handleCompanyFields"}
+                   } %>
+  </div>
+
+  <div class="mb-2" data-billing-info-target="invoicingToggle">
+    <div class="d-flex justify-content-between">
+      <span class="my-auto"><%= t("participations.billing_organisation") %></span>
+      <%= render(OptinComponent.new(name: "checkbox_invoicing_details", id: "checkbox_invoicing_details", checked: params[:checkbox_invoicing_details], dynamic_label: true, checked_label: t("yes"), unchecked_label: t("word_no"), data: {action: "billing-info#handleCompanyFields", billing_info_target: "invoicingDetailsCheckbox"})) %>
+    </div>
+  </div>
+
+  <div class="my-3 <%= "d-none" if params[:checkbox_invoicing_details] %>" id="invoicing_details" data-billing-info-target="invoicingDetailsDiv" data-action="organisation-country-selection:organisationInputFieldsChange@window->billing-info#handleCompanyFields">
+    <h3 class="required"><%= t("training_sessions.personal_informations.billing.organisation") %></h3>
+    <div class="mb-3">
+      <%= text_field_tag "billing_info[organisation][name]",
+                         params.dig(:billing_info, :organisation, :name),
+                         placeholder: t("activerecord.attributes.user.invoicing_company_name"),
+                         class: "form-control",
+                         id: "invoicing_company_name_input",
+                         data: {billing_info_target: "companyName"} %>
+    </div>
+    <div class="mb-3">
+          <%= text_field_tag "billing_info[organisation][identifier]",
+                             params.dig(:billing_info, :organisation, :identifier),
+                             id: :identifier,
+                             placeholder: t("activerecord.attributes.organisation.identifier"),
+                             class: "form-control required",
+                             data: {organisation_country_selection_target: "identifier", billing_info_target: "identifier"} %>
+    </div>
+    <div>
+      <%= text_field_tag "billing_info[organisation][vatin]",
+                         params.dig(:billing_info, :organisation, :vatin), id: :vatin,
+                                                                           placeholder: t("activerecord.attributes.organisation.vatin"),
+                                                                           class: "form-control required d-none",
+                                                                           data: {organisation_country_selection_target: "vatin", billing_info_target: "vatin"} %>
+    </div>
+
+    <h3 class="mt-3"><%= t("training_sessions.personal_informations.billing.contact") %></h3>
+
+    <div class="d-flex justify-content-between mb-3 gap-2 flex-wrap">
+      <div class="flex-fill">
+        <%= text_field_tag "billing_info[contact][firstname]", params.dig(:billing_info, :contact, :firstname), placeholder: t("activerecord.attributes.user.firstname"), class: "form-control", data: {billing_info_target: "firstNameField", action: "billing-info#checkEmailFieldRequirement"} %>
+      </div>
+      <div class="flex-fill">
+        <%= text_field_tag "billing_info[contact][lastname]", params.dig(:billing_info, :contact, :lastname), placeholder: t("activerecord.attributes.user.lastname"), class: "form-control", data: {billing_info_target: "lastNameField", action: "billing-info#checkEmailFieldRequirement"} %>
+      </div>
+    </div>
+    <div class="mb-3">
+        <%= email_field_tag "billing_info[contact][email]", params.dig(:billing_info, :contact, :email), placeholder: t("email"), class: "form-control", data: {billing_info_target: "emailField", action: "billing-info#checkEmailFieldRequirement"} %>
+    </div>
+  </div>
+</div>

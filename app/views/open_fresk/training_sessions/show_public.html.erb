@@ -1,0 +1,132 @@
+<div class="col-lg-6 mx-auto my-3">
+  <% if @training_session.participant_capacity_full? && !@participation.confirmed? %>
+      <div class="alert alert-warning" role="alert">
+        <%= t('training_sessions.participants_full') %>
+      </div>
+  <% end %>
+
+  <h3>
+    <% nonprofit_name = (defined?(OpenFreskSetting) && OpenFreskSetting.first) ? OpenFreskSetting.first.non_profit_name : "" %>
+    <% if @training_session.atelier? %>
+      <%= t("training_sessions.atelier", nonprofit_name: nonprofit_name) %>
+    <% else %>
+      <%= t("training_sessions.formation", nonprofit_name: nonprofit_name) %>
+    <% end %>
+  </h3>
+
+  <% if @participation.pending? && !@participation.id.nil? %>
+      <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert">
+      <%= t('participations.pending') %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+
+  <div class="d-flex align-items-center justify-content-center border-top border-bottom py-3 mb-3">
+    <div class="flex-column align-items-center me-3 text-center">
+      <%= link_to(
+            public_session_participation_link(@participation),
+            class: "btn #{public_session_participation_style(@participation)}"
+          )do %>
+            <% if @participation.confirmed? %>
+              <%= fa_icon("user main", class: "fs-5 square-50 bg-secondary rounded-circle bg-white border-primary text-primary") %>
+            <% elsif @training_session.participant_capacity_full?%>
+              <%= fa_icon("user", class: "fs-5 square-50 bg-secondary rounded-circle bg-white border-warning text-warning") %>
+            <% else %>
+              <%= fa_icon("user", class: "fs-5 square-50 bg-primary text-white shadow rounded-circle") %>
+            <% end %>
+      <% end %>
+        <% if @participation.confirmed? %>
+          <div class="text-center link-primary">
+            <%= t('training_sessions.i_take_part').capitalize %>
+          </div>
+        <% elsif @training_session.participant_capacity_full?%>
+          <div class="text-center text-warning">
+            <%= t("training_sessions.full") %>
+          </div>
+        <% else %>
+          <div class="text-center link-primary">
+            <%= t('training_sessions.take_part').capitalize %>
+          </div>
+        <% end %>
+    </div>
+    <!-- COPY LINK -->
+    <div class="flex-column align-items-center">
+      <button class="toast_btn btn copy-to-clipboard link-secondary" data-text="<%= show_public_session_url(@training_session, current_user) %>" title="copy to url clipboard" >
+          <%= fa_icon("share-alt", class: "fs-5 square-50 bg-secondary rounded-circle bg-opacity-25") %>
+      </button>
+      <div class="text-center text-secondary">
+        <%= t('training_sessions.share') %>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFOS -->
+  <div class="mb-2">
+    <%= fa_icon("clock", style: 'width: 30px') %>
+    <%= l(@training_session.date, format: :long) %>,
+    <%= t('from_to',
+        from: l(@training_session.local_start_time, format: :short),
+        to: l(@training_session.local_end_time, format: :short)).downcase %>
+    (<%= t('time_of', time_zone: @training_session.time_zone ) %>)
+  </div>
+
+  <div class="mb-2">
+    <% if @training_session.online? %>
+        <%= fa_icon("video", style: 'width: 30px') %>
+        <%= t('training_sessions.online') %>
+      <% else %>
+        <%= fa_icon("map-pin", style: 'width: 30px') %>
+        <%= @training_session.room&.capitalize %>
+        <% unless @training_session.room&.strip&.empty? %>
+          ,
+        <% end %>
+        <%= @training_session.street %>
+    <% end %>
+  </div>
+
+  <% if @participation.confirmed?%>
+    <div class="mb-2">
+      <strong><%= t('training_sessions.session_info') %></strong>
+      <% if @training_session.session_info&.empty? %>
+        <p><%= t('training_sessions.no_message_session_info') %></p>
+      <% else %>
+        <p><%= @training_session.session_info %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <!-- LANGUAGE -->
+  <div class="mb-3">
+    <%= fa_icon("globe", text: t("languages.#{@training_session.language.iso3}"), style: 'width: 30px') %>
+  </div>
+
+  <!-- Ticket price -->
+  <div class="mb-2">
+    <%= fa_icon("ticket-alt", text: t("training_sessions.tickets_available"), style: 'width: 30px') %>
+    <ul class="ms-3">
+      <% @products.each do |product| %>
+        <li>
+          <%= product.product_configuration&.display_name %>
+          <%= "(#{product.product_configuration&.after_tax_price&.format} #{t("invoice.vat_included")})" unless product.product_configuration&.after_tax_price&.zero? %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <!-- PARTICIPANTS CARD -->
+  <div class="d-flex align-items-center mt-3 mb-3">
+    <%= fa_icon("users", style: 'width: 25px', class: "text-primary fs-5") %>
+    <div class="flex-grow-1 ms-3 text-primary">
+      <%= t('training_sessions.free_seats', count: @training_session.seats_free)  %>
+      <%= seats_booked_progress_bar(@training_session) %>
+    </div>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <div class="mb-2">
+    <strong><%= t('training_sessions.description') %></strong>
+    <%= training_session_description_text(@training_session) %>
+  </div>
+
+</div>
+<%= render "layouts/toast", message: t('link_copied') %>

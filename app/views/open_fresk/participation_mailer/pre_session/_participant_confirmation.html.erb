@@ -1,0 +1,10 @@
+<!-- PARTICIPANTS REGISTRATION MANAGEMENT -->
+<%= render "participation_mailer/email_content/manage_registration", invoice_url: %>
+<!-- INVITATION -->
+<!-- SESSION ADRESS/LINK -->
+<%= render "participation_mailer/email_content/session_date_location", training_session: %>
+<!-- SESSION INFO -->
+<%= render "participation_mailer/email_content/session_info", training_session: %>
+<% if training_session.formation? %>
+  <%= render "participation_mailer/email_content/reset_password", reset_password_url: %>
+<% end %>

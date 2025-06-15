@@ -1,0 +1,63 @@
+<%= form_with(model: @participation, url: training_session_public_participations_path(@training_session),
+              data: {turbo: false,
+                     controller: "participation-personnal-information",
+                     action: "submit->participation-personnal-information#checkRole",
+                     participation_personnal_information_target: "form"}) do |form| %>
+  <%= hidden_field_tag :custom_price, @custom_price %>
+  <%= hidden_field_tag :coupon_code, @coupon_code %>
+  <%= hidden_field_tag :product_configuration_id, @product_configuration_id %>
+  <%= hidden_field_tag :language, params[:language].present? ? params[:language] : "en" %>
+
+  <% if @participation&.errors&.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@participation.errors.count, "error") %> prohibited this participation from being saved:</h2>
+      <% @participation.errors.full_messages.each do |message| %>
+        <div class="rounded bg-danger text-white px-3 py-1"><%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="col-lg-6 mx-auto my-3">
+    <h3>
+      <%= t("training_sessions.personal_informations.title") %>
+    </h3>
+
+    <div class="d-flex justify-content-between mb-3 gap-2 flex-wrap">
+      <div class="flex-fill">
+        <% form.label t("activerecord.attributes.user.firstname"), class: "required" %>
+        <%= form.text_field :first_name, value: params.dig(:participation, :first_name) || current_user&.firstname || @participation&.user&.firstname, placeholder: t("activerecord.attributes.user.firstname"), class: "form-control", required: true %>
+      </div>
+      <div class="flex-fill">
+        <% form.label t("activerecord.attributes.user.lastname"), class: "required" %>
+        <%= form.text_field :last_name, value: params.dig(:participation, :last_name) || current_user&.lastname || @participation&.user&.lastname, class: "form-control", placeholder: t("activerecord.attributes.user.lastname"), required: true %>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <% form.label :email, t("email"), class: "required" %>
+      <% email_param = @participation.nil? ? "participation[email]" : :email %>
+      <%= form.email_field email_param, class: "form-control",
+                                        placeholder: t("email"),
+                                        required: true,
+                                        value: params.dig(:participation, :email) || current_user&.email || @participation&.user&.email,
+                                        readonly: (current_user&.email || @participation&.user&.email).present?,
+                                        data: { participation_personnal_information_target: "email"} %>
+    </div>
+    <div class="d-none" data-participation-personnal-information-target="hiddenDiv">
+      <div class="text-warning">
+        <%= t("public_participations.facilitator_registering_as_participant_html", url: training_session_path(@training_session, anchor: "animent")) %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-lg-6 mx-auto my-3">
+    <% if @training_session.formation? %>
+        <%= render partial: "workshop_done_checkbox", locals: {form:} %>
+    <% end %>
+  </div>
+
+  <div class="col-lg-6 mx-auto my-3">
+    <%= submit_tag t("participations.create_public_participation"), class: "btn btn-primary btn-block rounded-pill" %>
+  </div>
+<% end %>

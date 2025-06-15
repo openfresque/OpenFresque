@@ -1,6 +1,10 @@
-class ProductConfigurationSession < ApplicationRecord
-  belongs_to :product_configuration
-  belongs_to :training_session
+module OpenFresk
+  class ProductConfigurationSession < ApplicationRecord
+    self.table_name = 'product_configuration_sessions'
 
-  validates_uniqueness_of :product_configuration, scope: [:training_session]
+    belongs_to :product_configuration
+    belongs_to :training_session
+
+    validates_uniqueness_of :product_configuration, scope: [:training_session]
+  end
 end

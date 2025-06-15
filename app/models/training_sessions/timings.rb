@@ -39,7 +39,7 @@ module TrainingSessions
         time_zone
       )
       end_time_delta_t = ((DateTime.now - endtime) * 24 * 60).to_i
-      end_time_delta_t > Constants::TrainingSession::END_TIME_DELTA_T
+      end_time_delta_t > OpenFresk::Constants::TrainingSession::END_TIME_DELTA_T
     end
 
     def started?
@@ -54,11 +54,11 @@ module TrainingSessions
         time_zone
       )
       start_time_delta_t = ((starttime - now) * 24 * 60).to_i
-      start_time_delta_t < Constants::TrainingSession::START_TIME_DELTA_T
+      start_time_delta_t < OpenFresk::Constants::TrainingSession::START_TIME_DELTA_T
     end
 
     def can_emarged?
-      start_time.in_time_zone(time_zone) - Constants::TrainingSession::START_TIME_DELTA_T.minutes < DateTime.now.in_time_zone(time_zone)
+      start_time.in_time_zone(time_zone) - OpenFresk::Constants::TrainingSession::START_TIME_DELTA_T.minutes < DateTime.now.in_time_zone(time_zone)
     end
 
     def has_started?
