@@ -41,9 +41,6 @@ fr:
       title: "OpenFresk"
       site_name: "OpenFresk"
       description: "OpenFresk - Plateforme d'Ateliers de la Fresque du Climat"
-  email: "Email"
-  password: "Mot de passe"
-  show_password: "Afficher le mot de passe"
   reset_password:
     subject: Réinitialisation du mot de passe
     content_01: Bonjour,
@@ -373,3 +370,164 @@ fr:
       qu'à cette session
     warning_too_many_animator: Pour le moment, il y a trop d’animateur·ices pour
       le nombre de participant·es inscrit·es
+  invoice:
+    email: 'e-mail : adv@fresqueduclimat.org'
+    including: dont
+    invoice_date: 'Date de facture : %{invoice_date}'
+    invoice_number: 'N° facture : %{invoice_number}'
+    payment_method: 'Méthode de paiement : carte bancaire'
+    price: Prix
+    product: Produit
+    quantity: Quantité
+    total: Total
+    vat: TVA
+    vat_included: TTC
+  participations:
+    account_activated: Compte activé
+    account_not_activated: "%{firstname} n’a pas encore activé son compte"
+    actions_reserved_organisator: Action réservée à l’organisateur·ice
+    add: Ajouter
+    add_instruction: Enregistrez les présences depuis les invité·es/inscrit·es ou en ajoutant des nouveaux·elles participant·es
+    all_present_participants_count: "Tous·tes (%{count})"
+    already_registered: Vous êtes déjà inscrit·es à cette session.
+    anonymous_participant: Anonyme
+    anonymous_participants_add: Ajouter des participant·es anonymes
+    anonymous_participants_title: Combien de participant·e·s souhaitez-vous ajouter ?
+    billing_organisation: Ajouter les informations d'une société
+    cgu: J’accepte les Conditions Générales d’Utilisation
+    cgu_last_minute: Je certifie que ce contact importé accepte les
+    cgu_last_minute_link: <a href="%{url}" target='_blank'>CGU</a>
+    cgv_inter_company: J’accepte les Conditions Générales de Vente
+    confirm?: Participer
+    confirmation_email_sent: Un e-mail de confirmation vous a été envoyé à l'adresse %{email}
+    confirmed: Votre participation est confirmée.
+    create_participation: Créer une nouvelle participation
+    create_public_participation: Confirmer ma participation
+    decline?: Me désincrire
+    declined: Vous ne participez pas
+    edit_anonymous: Informations
+    error_belt: Vous ne pouvez pas choisir ce rôle d'animation, vous n'avez pas le niveau de ceinture requis.
+    error_role_not_open: Vous ne pouvez pas choisir ce rôle d'animation, il n'y a pas assez de places ouvertes pour ce rôle
+    inscription: Inscription
+    invite: Inviter
+    invite_animators: Inviter des animateur·ices
+    invite_participants: Ajouter des participant·es
+    invoicing_details: Mes informations de facturation sont différentes de mes coordonées personnelles
+    has_already_activate_his_account: Ce compte est déjà activé, vous ne pouvez pas modifier ses infos
+    last_minute: Nouveau
+    manage_animators: Gérer les animateur·ices
+    manage_participants: Gérer les participant·es
+    my_participants: Mes participant·es
+    my_present_participants_count: "Mes participant·es (%{count})"
+    my_registration: Mon inscription
+    new_participation: Nouvelle participation
+    not_in_whitelist_domains: L'adresse e-mail %{email} n'est pas dans la liste des domaines autorisés.
+    not_my_participant: Ce·tte participant·e n'était pas à votre table
+    participation_registered: Votre réponse a été enregistrée
+    participants_warning: Vous ne pouvez pas voir les participant·es car vous n’êtes pas inscrit·e pour animer cette session
+    pending: En attente de confirmation.
+    present: Enregistré
+    register_as_animator: M'inscrire
+    registration: Enregistrer les présences
+    registration_closed_warning: La période d’enregistrement des présences est terminée.
+    registration_open: Vous avez jusqu'à 1 semaine après la fin de la session pour enregistrer les présences.
+    registration_waiting: Vous pourrez enregistrer les présences dans
+    remove: Retirer
+    search: E-mail d'inscription
+    subtitle: Les participant·es que j’anime personnellement.
+    unavailable: indisponible
+  my_participation:
+    already_registered_participants_html: Vous avez déjà enregistré %{count} participant·es<br> Vous ne pouvez donc pas changer de role d'animation.
+    already_confirmed: Votre inscription est déjà confirmée.
+    animator_role_html: Vous êtes inscrit·e en tant qu'animateur·ice pour cette session. <br>
+      Vous pouvez gérer votre inscription à cette session en cliquant <a href="%{url}">ici</a>.
+    cancel: Annuler mon inscription
+    cancel_confirmation: Oui, annuler
+    cancel_confirmation_text: Êtes-vous sûr·e de vouloir annuler votre inscription ?
+    cancel_confirmation_title: Annulation de ma participation
+    cancel_description: Attention ! Vous ne recevrez pas de remboursement car l’événement est dans moins de 24h
+    cancel_description_inter: Attention ! Vous ne recevrez pas de remboursement car l’événement est dans moins de 5 jours
+    cancelable_ticket_title: Souhaitez-vous annuler votre inscription ?
+    cancelled: Votre demande d'annulation a bien été prise en compte
+    confirmed: Votre inscription est confirmée. Une confirmation a été envoyée à %{email}.
+    confirmed_no_email: Votre inscription est confirmée.
+    invoice: Facture
+    payment_failed: Votre paiement a échoué.
+    refundable_ticket_text: Vous recevrez un remboursement de %{amount}
+    refund_failed: Votre remboursement a échoué car votre paiement n'a pas été effectué avec succès.
+    refunded: Votre demande d'annulation a bien été prise en compte et vous avez été remboursé
+    ticket_choice: Votre inscription est en attente du choix du ticket
+    title: Gérer mon inscription
+    certificate_title_short: Attestation de fin de formation
+    waiting_for_payment: Votre inscription est en attente de paiement.
+  animators: Animateur·ices
+  and: et
+  atelier:
+    one: Atelier
+    other: Ateliers
+    zero: Atelier
+  back: Retour
+  by: Par
+  cancel: Annuler
+  close: Fermer
+  confirm: Confirmer
+  copied: Copié
+  copy: Copier
+  create: Créer
+  destroy: Supprimer
+  edit: Modifier
+  email: E-mail
+  error_message:
+    one: "Veuillez corriger l'erreur suivante :"
+    other: "Veuillez corriger les %{count} erreurs suivantes :"
+  filter: Filtrer
+  formation:
+    one: Formation
+    other: Formations
+    zero: Formation
+  freskers: Fresqueur·euses
+  fresque: Fresque du Climat
+  from: "À partir de :"
+  from_to: De %{from} à %{to}
+  hello: "Bonjour"
+  hello_name: Bonjour %{name} !
+  link_copied: Lien copié
+  meta_description: La Fresque du Climat est un atelier collaboratif qui permet de comprendre l’essentiel des enjeux climatiques pour passer à l’action.
+  meta_title: Atelier de la Fresque du Climat
+  next: Suivant
+  none: Aucun
+  now: Maintenant
+  optional: Facultatif
+  or: ou
+  participants: Participant·es
+  password: Mot de passe
+  please_select: Sélectionnez un élément dans la liste
+  previous: Précédent
+  previous_arrow: "< Précédent"
+  recurring: Session récurrente
+  result:
+    zero: "%{count} résultat"
+    one: "%{count} résultat"
+    other: "%{count} résultats"
+  rights: Tous droits réservés
+  save: Enregistrer
+  save_error: Désolé, une erreur est survenue lors de l'enregistrement
+  search: Rechercher
+  see_less: Voir moins
+  see_more: Voir plus
+  send: Envoyer
+  show: Aperçu
+  show_password: Afficher le mot de passe
+  something_went_wrong: Désolé, une erreur est survenue
+  time_of: heure de %{time_zone}
+  to: "Jusqu'au :"
+  tomorrow: Demain
+  add_recurrences: Ajouter des récurrences
+  to_update: Mettre à jour
+  validate: Valider
+  warning_info: "Un profil incomplet peut vous empêcher de vous inscrire à certaines opportunités et d'utiliser certains services. Merci de compléter votre profil. "
+  warning_info_link: Cliquer ici pour compléter vos informations
+  warning_info_start: "Attention, votre profil est incomplet. "
+  word_date: Date
+  word_no: Non
+  "yes": Oui
