@@ -1,0 +1,21 @@
+<!-- Modal -->
+<div class="modal fade" id="cancelParticipationModal" tabindex="-1" aria-labelledby="cancelParticipationModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg modal-fullscreen-lg-down">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('my_participation.cancel_confirmation_title') %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body modal-dialog-scrollable">
+        <%= t('my_participation.cancel_confirmation_text') %>
+      </div>
+
+      <div class="modal-footer">
+        <%= link_to( t('cancel'),
+          decline_path,
+          class: "btn btn-primary rounded-pill") %>
+      </div>
+    </div>
+  </div>
+</div>

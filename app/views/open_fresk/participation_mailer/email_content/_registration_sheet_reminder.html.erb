@@ -1,0 +1,22 @@
+<% if training_session.inter_company? %>
+  <p><%= t("participation.session_reminder.qualiopi_infos_inter") %></p>
+
+  <p><%= t("participation.session_reminder.registration_sheet_reminder_inter_html") %></p>
+<% else %>
+  <p><%= t("participation.session_reminder.qualiopi_infos", organisation: training_session.organisation, mission_number: training_session.mission.airtable_id) %></p>
+
+  <p><%= t("participation.session_reminder.registration_sheet_reminder_html", coordinator_email: training_session.mission.lead.email) %></p>
+<% end %>
+
+<div style="padding: 1rem 0;">
+  <p style="<%= Constants::SendInBlue::STYLE_CENTER %>">
+    <%= link_to(t("registration_form_pdf.download"),
+                training_session_registrations_form_url(
+                  @training_session.id,
+                  host: ENV["HOST"],
+                  format: :pdf,
+                  user_uuid: @user.id
+                ),
+                style: Constants::SendInBlue::STYLE_CALL_TO_ACTION_BTN) %>
+  </p>
+</div>

@@ -17,7 +17,11 @@ module OpenFresk
   
       subject = I18n.t("reset_password.subject")
   
-      ResetPasswordMailer.reset_password(user:, reset_url:, forgot_password_url:, subject:).deliver_now
+      ResetPasswordMailer.reset_password(
+        user: user,
+        reset_url: reset_url,
+        forgot_password_url: forgot_password_url,
+        subject: subject).deliver_now
     end
   end  
 end

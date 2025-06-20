@@ -1,0 +1,34 @@
+<% if training_session.qualiopi? %>
+  <p>
+    <%= t("participation.session_reminder.registration_reminder_qualiopi_html") %>
+  </p>
+  <p>
+    <%= t("participation.session_reminder.liability_animator_html", link: Constants::Urls::ANIMATOR_LIABILITY) %>
+  </p>
+  <% unless training_session.inter_company? %>
+    <p>
+      <%= t("participation.session_reminder.liability_lead_html", link: Constants::Urls::LEAD_LIABILITY) %>
+    </p>
+  <% end %>
+  <p>
+    <%= t("participation.session_reminder.survey") %>
+  </p>
+  <div style="padding: 1rem 0;">
+    <p style="<%= Constants::SendInBlue::STYLE_CENTER %>">
+      <%= link_to(t("satisfaction_survey.email_content_04"), Constants::Urls::MISSION_SURVEY, style: Constants::SendInBlue::STYLE_CALL_TO_ACTION_BTN) %>
+    </p>
+  </div>
+    <p>
+    <%= t("participation.session_reminder.thanks") %>
+  </p>
+    <p>
+    <%= t("participation.session_reminder.climate_fresk") %>
+  </p>
+<% else %>
+  <p>
+    <%= t("participation.registration_reminder") %>
+  </p>
+  <p>
+    <%= t("participation.registration_reminder_devices") %>
+  </p>
+<% end %>

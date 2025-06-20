@@ -1,5 +1,10 @@
 <%= link_to root_path(language: params[:language]), class: "navbar-brand" do %>
   <div class="d-flex fs-6 fw-bold lh-sm">
-    <%= image_tag "open_fresk/logos/logo.png" %>
+    <% open_fresk_setting = OpenFreskSetting.first %>
+    <% if open_fresk_setting&.logo&.attached? %>
+      <%= image_tag main_app.url_for(open_fresk_setting.logo), style: "max-width: 220px; max-height: 85px;" %>
+    <% else %>
+      <%= image_tag "open_fresk/logos/logo.png", style: "max-width: 220px; max-height: 85px;" %>
+    <% end %>
   </div>
 <% end %>

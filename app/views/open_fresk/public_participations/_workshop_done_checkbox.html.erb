@@ -1,0 +1,8 @@
+<div class="form-check mb-2">
+  <%= check_box_tag :workshop_done, true, false, class: "form-check-input", required: true %>
+  <%= label_tag :workshop_done, class: "form-check-label" do %>
+    <%= t("participations.workshop_done.text") %><br>
+    <%= t("participations.workshop_done.signup_prefix") %>
+    <%= link_to t("participations.workshop_done.signup_link_text"), training_registration_workshop_url, target: :_blank, class: "link-secondary" %>
+  <% end %>
+</div>

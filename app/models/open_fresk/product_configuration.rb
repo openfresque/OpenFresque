@@ -1,27 +1,31 @@
-class ProductConfiguration < ApplicationRecord
-  belongs_to :product, optional: false
-  belongs_to :country, optional: false
-  has_many :product_configuration_sessions, dependent: :destroy
+module OpenFresk
+  class ProductConfiguration < ApplicationRecord
+    self.table_name = 'product_configurations'
 
-  monetize :before_tax_price_cents,
-           :after_tax_price_cents,
-           :tax_cents,
-           with_model_currency: :currency
+    belongs_to :product, optional: false
+    belongs_to :country, optional: false
+    has_many :product_configuration_sessions, dependent: :destroy
 
-  validates :display_name,
-            presence: true
+    monetize :before_tax_price_cents,
+             :after_tax_price_cents,
+             :tax_cents,
+             with_model_currency: :currency
 
-  before_save :set_currency, unless: :currency
+    validates :display_name,
+              presence: true
 
-  delegate :price_modifiable?, to: :product
+    before_save :set_currency, unless: :currency
 
-  def coupon?
-    product.identifier == "COUPON"
-  end
+    delegate :price_modifiable?, to: :product
 
-  private
+    def coupon?
+      product.identifier == "COUPON"
+    end
 
-  def set_currency
-    self.currency = country.currency_code
+    private
+
+      def set_currency
+        self.currency = country.currency_code
+      end
   end
 end

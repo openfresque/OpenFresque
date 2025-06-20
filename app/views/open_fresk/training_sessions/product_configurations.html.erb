@@ -1,0 +1,29 @@
+<div class="col-lg-6 mx-auto my-3">
+  <%= link_to fa_icon("chevron-left", text: t('training_sessions.my_session')), training_session_path(@training_session), class: "btn btn-lg p-0" %>
+
+  <%= form_tag(set_product_configurations_training_session_path(@training_session)) do %>
+    <!-- ProductConfiguration -->
+    <div class="mt-3 mb-3">
+      <div class="required fs-4 mb-2"><%= t("training_sessions.tickets_available") %></div>
+      <div class="text-secondary mb-3"><%= t("training_sessions.tickets_available_subtitle") %></div>
+        <% @product_configurations.each do |product_configuration| %>
+          <% next if product_configuration.product.identifier == "COUPON" %>
+          <div class="form-check mb-3">
+            <%= product_configuration_checkbox(@training_session, product_configuration) %>
+            <div><label class="ms-2 form-check-label" for=<%= product_configuration.id %>><%= product_configuration.display_name %></label>
+              <% unless product_configuration.after_tax_price.zero? || product_configuration.product.price_modifiable? %>
+                <label class="ms-2 form-check-label" for=<%= product_configuration.id %>>
+                  (<%= product_configuration.after_tax_price.format %> <%= t("invoice.vat_included") %>)
+                </label>
+              <% end %>
+            </div>
+            <% if product_configuration.description.present? %>
+              <div><label class="ms-2 form-check-label text-secondary" for=<%= product_configuration.id %>><%= product_configuration.description %></label></div>
+            <% end %>
+          </div>
+        <% end %>
+    </div>
+
+    <%= button_tag( t('training_sessions.submit_product_configurations'), {class: "btn btn-primary btn-block rounded-pill", id: "product_configurations_commit"}) %>
+  <% end %>
+</div>

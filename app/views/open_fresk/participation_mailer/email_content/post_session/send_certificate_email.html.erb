@@ -1,0 +1,21 @@
+<div style="padding: 1rem 0;">
+  <p><%= t("participation_mailer.send_certificate_email.greeting", firstname: @user.firstname&.titleize_with_dashes) %></p>
+  <p><%= t("participation_mailer.send_certificate_email.workshop_done") %></p>
+  <p><%= t("participation_mailer.send_certificate_email.download_certificate_html", participation_certificate_url: @participation_certificate_url)%></p>
+  <p><%= t("participation_mailer.send_certificate_email.climate_test") %></p>
+  <p style="<%= Constants::SendInBlue::STYLE_CENTER %>; padding-bottom: 1rem;">
+    <%= link_to(
+          t("participation_mailer.send_certificate_email.climate_test_link"),
+          Constants::Urls::CLIMATE_KNOWLEDGE_TEST_FR,
+          style: Constants::SendInBlue::STYLE_CALL_TO_ACTION_BTN
+        ) %>
+  </p>
+  <p><%= t("participation_mailer.send_certificate_email.training_for_animate") %></p>
+  <p style="<%= Constants::SendInBlue::STYLE_CENTER %>">
+    <%= link_to(
+          t("participation_mailer.send_certificate_email.suscribe"),
+          @training_registration_facilitator_url,
+          style: Constants::SendInBlue::STYLE_CALL_TO_ACTION_BTN
+    ) %>
+  </p>
+</div>

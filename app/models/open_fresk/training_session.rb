@@ -1,5 +1,7 @@
 module OpenFresk
   class TrainingSession < ApplicationRecord
+    include Decorable
+
     self.table_name = 'training_sessions'
 
     include ::TrainingSessions::Timings
@@ -7,6 +9,9 @@ module OpenFresk
 
     belongs_to :language
     belongs_to :country
+    has_many :product_configuration_sessions, dependent: :destroy
+    has_many :product_configurations, through: :product_configuration_sessions
+    has_many :participations, dependent: :destroy, inverse_of: :training_session
 
     string_enum category: %i[atelier formation].freeze
     string_enum format: %i[onsite online].freeze
