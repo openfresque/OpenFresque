@@ -5,6 +5,8 @@ module OpenFresk
     belongs_to :participation
     belongs_to :product_configuration
 
+    has_one :billing_info, dependent: :destroy
+
     string_enum status: %i[pending success failure refund].freeze
 
     monetize :before_tax_price_cents,
