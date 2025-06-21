@@ -3,8 +3,8 @@ module OpenFresk
     def show_session_link(session, filter = nil)
       TrainingSessions::Redirection.new(
         training_session: session,
-        current_user:,
-        filter:
+        current_user: current_user,
+        filter: filter
       ).call
     end
 

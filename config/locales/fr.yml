@@ -531,3 +531,104 @@ fr:
   word_date: Date
   word_no: Non
   "yes": Oui
+  invitations:
+    add_organiser: Ajouter comme organisateur·ice
+    add_organiser_title: "Ajouter %{firstname} comme organisateur·ice"
+    add_participants: Ajouter des participant·es
+    all_animators: Tous·tes les animateur·ices
+    all_participants: Tous·tes les participant·es
+    all_participants_count: "Tous·tes (%{count})"
+    animate:
+      one: Anime
+      other: Animent
+      zero: Anime
+    animator_unkown: "%{email} ne correspond à aucun·e animateur·ice"
+    animators_emails_copied: Les e-mails des animateur·ices ont été copiés
+    animators_sharing_link: Les animateur·ices pourront s’inscrire avec ce lien
+    anime: Anime seul·e
+    batch_invitations: Envoi en cours
+    cancel_participant_dropdown_text: Annuler l’inscription
+    cancel_refund_participant: Un remboursement de %{price} sera émis.
+    cancel_refund_participant_confirmation: Annuler l’inscription
+    cancel_refund_participant_dropdown_text: Annuler et rembourser
+    cancel_refund_participant_title: Souhaitez-vous annuler cette inscription ?
+    canceled: Annulé
+    canceled_refunded: Annulé et remboursé
+    coach: Mentore
+    coanimate:
+      one: Coanime
+      other: Coaniment
+      zero: Coanime
+    coanime: Coanime
+    confirmed:
+      one: Inscrit·e
+      other: Inscrit·es
+      zero: Inscrit·e
+    confirmed_count: "Inscrit·es (%{count})"
+    confirmed_participants: Tous·tes les participant·es étant inscrit·es
+    copy_emails: Copier les e-mails
+    declined:
+      one: Annulé
+      other: Annulés
+      zero: Annulé
+    declined_count: "Annulé (%{count})"
+    follow_invitations: Suivez leur statut dans la liste des participant·es.
+    get_link: Partager le lien
+    header_email: Envoyer un e-mail
+    import_users_instructions: Copiez/collez les adresses e-mail de vos invité·es séparées par des virgules.
+    import_users_instructions_warning: Ne pas utiliser cette fonctionnalité pour inviter des animateur·ices.
+    invitation_canceled: "L’invitation a été annulée pour :"
+    invitation_canceled_failed: Vous ne pouvez pas annuler cette participation.
+    invitation_destroyed: "La participation a été annulée pour :"
+    invitation_destroyed_failed: "Vous ne pouvez pas annuler cette participation :"
+    invitation_sent: "L’invitation a été renvoyée pour :"
+    invitations: Invitations
+    invitations_sent: Les invitations ont été envoyées.
+    invite_by_email: Inviter par e-mail
+    invited:
+      one: Invité·e
+      other: Invité·es
+      zero: Invité·e
+    observe:
+      one: Observe
+      other: Observent
+      zero: Observe
+    observe: "Observe"
+    organise: organise
+    participants_emails_copied: Les e-mails des participant·es ont été copiés
+    participants_present_emails_copied: Les e-mails des participant·es présent·es ont été copiés
+    participants_sharing_link: Les participant·es pourront s’inscrire avec ce lien
+    participent: Participent
+    pending: Invité·e
+    pending_count: "Invité·es (%{count})"
+    present:
+      one: Présent·e
+      other: Présent·es
+      zero: Présent·e
+    present_count: "Présent·es (%{count})"
+    present_animators: Tous·tes les animateur·ices présent·es
+    present_participants: Tous·tes les participant·es présent·es
+    radio_button_text: En faisant un copier/coller des adresses e-mail (pas plus de 20 personnes à la fois)
+    register_live: Inscrire en direct
+    register_live_text: Les participant·es vont renseigner elles·eux-mêmes leurs informations personnelles et seront compté·es directement comme “Présent·es”.
+    register_present: Inscrire les présent·es
+    register_present_qr: Partagez ce QR code pendant votre session.
+    register_present_text: Les participant·es vont renseigner elles·eux-mêmes leurs informations personnelles et seront compté·es directement comme “Présent·es”.
+    refund_participant_dropdown_text: Rembourser
+    refunded: Remboursé·e
+    refunded_participant: Un remboursement de %{price} a été émis.
+    remove_animator: "%{firstname} sera désinscrit·e de cette session."
+    remove_animator_confirmation: Désinscrire
+    remove_organiser: Retirer comme organisateur·ice
+    remove_organiser_title: "Retirer %{firstname} comme organisateur·ice"
+    remove_animator_title: Souhaitez-vous annuler la participation de cet animateur·ice ?
+    resend_invitation: Renvoyer l’invitation
+    resend_invitation_confirmation: Envoyer
+    resend_invitation_dropdown: Renvoyer l’invitation
+    resend_invitation_title: Souhaitez-vous renvoyer une invitation ?
+    resend_invitation_with_email: Renvoyer l’invitation à %{email}
+    send_invitations: Envoyer les invitations
+    share_link_animator: "Lien de partage pour les animateur·ices :"
+    share_link_participant: "Lien de partage pour les participant·es :"
+    text_email: Cet e-mail sera envoyé à l’ensemble des personnes qui participent à la session
+    waiting: En attente

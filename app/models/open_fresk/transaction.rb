@@ -22,6 +22,9 @@ module OpenFresk
     def charged?
       product_configuration&.product&.charged?
     end
+    def refunded?
+      status == Transaction::Refund
+    end
 
     def invoice_number
       "B#{updated_at.year}-#{id.to_s.rjust(6, '0')}"

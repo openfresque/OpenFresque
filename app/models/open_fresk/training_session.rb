@@ -52,5 +52,14 @@ module OpenFresk
     def created_by_user
       User.find(created_by_user_id)
     end
+
+    def facilitator_participation(user)
+      # Uncomment when we implement roles
+      # participations.where(animator_role: [Participation::Animator, Participation::Coanimator]).find_by(
+      #   "animator_id = ?", user.id
+      # )
+
+      participations.find_by("animator_id = ?", user.id)
+    end
   end
 end
