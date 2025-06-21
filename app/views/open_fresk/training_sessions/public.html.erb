@@ -1,0 +1,13 @@
+<div class="col-lg-6 mx-auto my-3">
+  <h2><%= t('training_sessions.future_session') %></h2>
+  <div class="my-3">
+    <% if @training_sessions.any? %>
+      <% @training_sessions&.each do |training_session| %>
+        <%= render 'card_public', training_session: training_session, target: :_blank %>
+      <% end %>
+    <% else %>
+      <p class="text-center fw-bold"><%= t('training_sessions.no_session_found') %></p>
+      <p><%= t('training_sessions.no_session_found_text_html') %></p>
+    <% end %>
+  </div>
+</div>

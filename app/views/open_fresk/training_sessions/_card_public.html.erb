@@ -1,0 +1,35 @@
+<%= link_to show_public_training_session_path(training_session, user_token: current_user&.token), class: "link-dark text-decoration-none", target: target do %>
+  <div class="d-flex shadow-sm border border-light rounded-3 my-3 py-2 px-3 card-hover cursor-pointer">
+    <div class="flex-grow-1">
+      <div class="d-flex justify-content-between" >
+        <small class="text-secondary">
+          <%= l(training_session.date, format: :long) %>
+          <span>&#183;</span>
+          <%= l(training_session.local_start_time, format: :short) %> - <%= l(training_session.local_end_time, format: :short) %>
+          (<%= t('time_of', time_zone: training_session.time_zone ) %>)
+          <span>&#183;</span>
+          <%= training_session.online? ? t('training_sessions.online') : "#{training_session.room} (#{training_session.city})" %>
+        </small>
+      </div>
+      <div>
+        <% nonprofit_name = (defined?(OpenFreskSetting) && OpenFreskSetting.first) ? OpenFreskSetting.first.non_profit_name : "" %>
+        <%= t("training_sessions.fdc_atelier", nonprofit_name: nonprofit_name) %>
+        (<%= Language.find(training_session.language_id).name %>)
+      </div>
+      <small class="text-secondary">
+        <%= t('training_sessions.free_seats', count: training_session.seats_free)  %> /
+        <%= training_session.capacity %>
+      </small>
+      <div class="d-flex align-items-center my-2 me-3">
+        <%= fa_icon("users", class: "text-secondary", style: 'width: 30px') %>
+        <%= seats_booked_progress_bar(training_session) %>
+      </div>
+      <div class="text-end me-3">
+        <%= participant_capacity_full_badge(training_session) %>
+      </div>
+    </div>
+    <div class="d-flex align-items-center text-secondary" >
+      <%= fa_icon("chevron-right") %>
+    </div>
+  </div>
+<% end %>

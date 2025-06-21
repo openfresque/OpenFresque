@@ -2,6 +2,13 @@ module OpenFresk
   class TrainingSessionsController < ApplicationController
     before_action :set_training_session,
                   only: %i[edit update destroy product_configurations set_product_configurations show_public]
+    skip_before_action :authenticate_user!, only: %i[public show_public]
+
+    def public
+      @training_sessions = TrainingSession.
+                           futur.
+                           order(start_time: :asc)
+    end
 
     def index
       public_opportunities
