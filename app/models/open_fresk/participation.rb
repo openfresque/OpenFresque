@@ -29,7 +29,7 @@ module OpenFresk
     scope :animator, -> { where("animator_id = user_id").includes(:user) }
 
     scope :my_presents, lambda { |user|
-      where(status: Participation::Present).where("animator_id = ?", user&.id, user&.id).where.not(user_id: user&.id).includes(:user)
+      where(status: Participation::Present).where("animator_id = ?", user&.id).where.not(user_id: user&.id).includes(:user)
     }
     scope :animators, -> { where(animator_role: [Participation::Animator]).includes(:user) }
 
