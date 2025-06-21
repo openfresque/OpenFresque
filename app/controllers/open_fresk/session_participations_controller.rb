@@ -16,16 +16,7 @@ module OpenFresk
 
       def set_participations
         @participations = @training_session.participations
-        @animators = @participations.animator
-        command = ::Participations::FilterParticipations.new(
-          participations: @participations,
-          params_filter: params[:filter]
-        ).call
-        @participations = command.result
-
-        my_present_participations = @training_session.participations.my_presents(current_user)
-        @present_participations = params[:filter] == "all_present_participants_count" ? @participations.presents : my_present_participations
+        @present_participations = @participations.confirmed
       end
-
   end
 end

@@ -533,4 +533,102 @@ en:
   word_date: Date
   word_no: "No"
   "yes": "Yes"
-  
+  invitations:
+    add_organiser: Add as an organiser
+    add_organiser_title: "Add %{firstname} as an organiser"
+    add_participants: Add participants
+    all_animators: All facilitators
+    all_participants: All  participants
+    all_participants_count: "All (%{count})"
+    animate:
+      one: Facilitate
+      other: Facilitate
+      zero: Facilitate
+    animator_unkown: "%{email} does not correspond to any facilitator"
+    animators_emails_copied: Emails of facilitators have been copied
+    animators_sharing_link: Facilitators can register with this link
+    anime: Facilitate alone
+    batch_invitations: Sending invitations
+    cancel_participant_dropdown_text: Cancel registration
+    cancel_refund_participant: A refund of %{price} will be issued.
+    cancel_refund_participant_confirmation: Cancel registration
+    cancel_refund_participant_dropdown_text: Cancel and refund
+    cancel_refund_participant_title: Do you want to cancel the registration?
+    canceled: Canceled
+    canceled_refunded: Canceled and refunded
+    coach: Mentor
+    coanimate:
+      one: Cofacilitate
+      other: Cofacilitate
+      zero: Cofacilitate
+    coanime: Cofacilitate
+    confirmed:
+      one: Registered
+      other: Registered
+      zero: Registered
+    confirmed_count: "Registered (%{count})"
+    confirmed_participants: All registered participants
+    copy_emails: Copy emails
+    declined:
+      one: Canceled
+      other: Canceled
+      zero: Canceled
+    declined_count: "Canceled (%{count})"
+    follow_invitations: Follow their status in the participants list.
+    get_link: Share the link
+    header_email: Send an email
+    import_users_instructions: Copy/paste your guests email addresses separated by commas.
+    import_users_instructions_warning: Do not use this function to invite facilitators.
+    invitation_canceled: "Invitation has been canceled for:"
+    invitation_canceled_failed: You cannot cancel this registration.
+    invitation_destroyed: "The registration has been canceled for:"
+    invitation_destroyed_failed: "You cannot cancel this registration:"
+    invitation_sent: "Invitations have been resent for:"
+    invitations: Invitations
+    invitations_sent: Invitations have been sent.
+    invite_by_email: Invite by email
+    invited:
+      one: Invited
+      other: Invited
+      zero: Invited
+    observe:
+      one: Observe
+      other: Observe
+      zero: Observe
+    observe: "Observe"
+    organise: organises
+    participants_emails_copied: Emails of participants have been copied
+    participants_present_emails_copied: Emails of present participants have been copied
+    participants_sharing_link: Participants can register with this link
+    participent: Participent
+    pending: Invited
+    pending_count: "Invited (%{count})"
+    present:
+      one: Present
+      other: Presents
+      zero: Present
+    present_count: "Presents (%{count})"
+    present_animators: All present facilitators
+    present_participants: All present participants
+    radio_button_text: Paste emails (no more than 20 people at a time)
+    register_present: Register those present
+    register_present_qr: Share this QR code during your session.
+    register_present_text: Participants will provide their personal information themselves and will be counted directly as “Presents”.
+    refund_participant_dropdown_text: Refund
+    refunded: Refunded
+    refunded_participant: A refund of %{price} has been issued.
+    remove_animator: Remove %{firstname} as facilitator
+    remove_animator_confirmation: Cancel
+    remove_animator_title: Do you want to remove the facilitator?
+    remove_organiser: Remove as an organiser
+    remove_organiser_title: "Remove %{firstname} as an organiser"
+    resend_invitation: Resend the invitation
+    resend_invitation_confirmation: Send
+    resend_invitation_dropdown: Resend the invitation
+    resend_invitation_title: Do you want to resend the invitation?
+    resend_invitation_with_email: Resend the invitation to %{email}
+    send_invitations: Send invitations
+    share_link_animator: "Share link for facilitators:"
+    share_link_participant: "Share link for participants:"
+    text_email: This email will be sent to session participants
+    waiting: Waiting response

@@ -6,7 +6,6 @@
       <div class="d-flex align-items-center">
         <div class="link-secondary">
           <b><%= participation.user&.fullname %></b> -
-          <%= render(Belt::BeltComponent.new(belt: participation.user.belt, classes: "small")) %>
           <span class="small text-secondary">
             <div class="d-flex">
               <% if @training_session.organisator?(User.find(participation.user_id)) || participation.edit_session_permission %>
