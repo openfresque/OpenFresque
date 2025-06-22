@@ -1,4 +1,10 @@
 fr:
+  date:
+    formats:
+      long: "%A %d %B %Y"
+  time:
+    formats:
+      short: "%H:%M"
   activerecord:
     attributes:
       user:

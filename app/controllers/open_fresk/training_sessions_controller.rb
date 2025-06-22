@@ -36,7 +36,7 @@ module OpenFresk
       command.call
 
       if @training_session.errors.blank?
-        redirect_to training_sessions_path, notice: t("training_sessions.updated")
+        redirect_to product_configurations_training_session_path(@training_session), notice: t("training_sessions.updated")
       else
         render :edit
       end
@@ -76,7 +76,7 @@ module OpenFresk
 
       if product_configurations.blank?
         redirect_to product_configurations_training_session_path(@training_session),
-                    notice: "training_sessions.no_product_selected"
+                    notice: t("training_sessions.no_product_selected")
         return
       end
 

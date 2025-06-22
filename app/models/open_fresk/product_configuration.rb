@@ -14,6 +14,8 @@ module OpenFresk
     validates :display_name,
               presence: true
 
+    validates_uniqueness_of :country_id, scope: :product_id
+
     before_save :set_currency, unless: :currency
 
     delegate :price_modifiable?, to: :product
