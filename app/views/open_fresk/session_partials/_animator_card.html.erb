@@ -19,9 +19,6 @@
         </div>
       </div>
       <div>
-        <% if @coanimator == participation.user %>
-          <span class="link-primary me-3"><%= fa_icon("handshake") %></span>
-        <% end %>
         <span class="link-light"><%= fa_icon("chevron-right") %></span>
       </div>
     </div>
@@ -30,13 +27,13 @@
       <%= user_email_link_or_text(participation) %>
       <div class="text-primary"><%= fa_icon("user-check", text: my_present_participants_count(@training_session, participation.animator), right: true) %></div>
       <div class="d-flex justify-content-start mt-2">
-        <%= render "session_partials/animator_card_actions", participation: participation, training_session: @training_session %>
+        <%= render "open_fresk/session_partials/animator_card_actions", participation: participation, training_session: @training_session %>
       </div>
     </div>
   </div>
 <% end %>
 
-<%= render "session_partials/destroy_coanimation_modal", participation: participation %>
-<%= render "session_partials/animator_remove_modal", participation: participation %>
-<%= render "session_partials/create_coanimation_modal", participation: participation %>
-<%= render "session_partials/animator_add_organiser_modal", participation: participation %>
+<%= render "open_fresk/session_partials/destroy_coanimation_modal", participation: participation %>
+<%= render "open_fresk/session_partials/animator_remove_modal", participation: participation %>
+<%= render "open_fresk/session_partials/create_coanimation_modal", participation: participation %>
+<%= render "open_fresk/session_partials/animator_add_organiser_modal", participation: participation %>
