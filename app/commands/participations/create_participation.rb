@@ -14,7 +14,7 @@ module Participations
       command = Users::CreateUser.new(
         user_params: create_user_params,
         country_params: participation_params,
-        current_user:,
+        current_user: current_user,
         language: @training_session.language&.code
       )
 
@@ -46,15 +46,15 @@ module Participations
         firstname: participation_params[:first_name],
         lastname: participation_params[:last_name],
         email: participation_params[:email].strip.downcase,
-        country_id: participation_params[:country_id],
-        cgu: participation_params[:cgu],
+        #country_id: participation_params[:country_id],
+        #cgu: participation_params[:cgu],
         password: SecureRandom.hex(8) + "A!",
-        invoicing_company_name: participation_params[:invoicing_company_name],
-        invoicing_firstname: participation_params[:invoicing_firstname],
-        invoicing_lastname: participation_params[:invoicing_lastname],
-        invoicing_street: participation_params[:invoicing_street],
-        invoicing_zip: participation_params[:invoicing_zip],
-        invoicing_city: participation_params[:invoicing_city]
+        # invoicing_company_name: participation_params[:invoicing_company_name],
+        # invoicing_firstname: participation_params[:invoicing_firstname],
+        # invoicing_lastname: participation_params[:invoicing_lastname],
+        # invoicing_street: participation_params[:invoicing_street],
+        # invoicing_zip: participation_params[:invoicing_zip],
+        # invoicing_city: participation_params[:invoicing_city]
       }
     end
 

@@ -13,7 +13,7 @@ module Users
       @user = User.new(user_params)
       @user.token = SecureRandom.uuid
       @user.refresh_token = SecureRandom.uuid
-      @user.country_id = country_params[:country_id].to_i
+      #@user.country_id = country_params[:country_id].to_i
       @user.save
 
       return @user if @user.errors.present?
