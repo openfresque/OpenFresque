@@ -1,0 +1,23 @@
+<!-- Modal -->
+<div class="modal fade" id="languageModal" tabindex="-1" aria-labelledby="languageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('header.language_choice') %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body modal-dialog-scrollable">
+        <% ["fr", "en"].each do |locale| %>
+          <div class="mb-3">
+            <%= link_to url_for(language: locale), class: "language_modal_url me-2 ms-2 text-decoration-none" do %>
+              <%= language_name(locale) %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal"><%= t('close') %></button>
+      </div>
+    </div>
+  </div>
+</div>
