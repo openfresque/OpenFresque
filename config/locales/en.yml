@@ -2,10 +2,63 @@ en:
   date:
     formats:
       long: "%A, %B %d, %Y"
+    day_names:
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    abbr_day_names:
+      - Sun
+      - Mon
+      - Tue
+      - Wed
+      - Thu
+      - Fri
+      - Sat
+    month_names:
+      - ~
+      - January
+      - February
+      - March
+      - April
+      - May
+      - June
+      - July
+      - August
+      - September
+      - October
+      - November
+      - December
+    abbr_month_names:
+      - ~
+      - Jan
+      - Feb
+      - Mar
+      - Apr
+      - May
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Oct
+      - Nov
+      - Dec
   time:
     formats:
       short: "%I:%M %p"
+  languages:
+    eng: English
+    fra: Français
   activerecord:
+    errors:
+      models:
+        product_configuration:
+          attributes:
+            country_id:
+              taken: "Only one product_configuration per country per product. Create a new product for this product"
     attributes:
       user:
         accounts: Accounts
