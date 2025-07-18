@@ -53,6 +53,12 @@ fr:
     eng: English
     fra: Français
   activerecord:
+    errors:
+      models:
+        product_configuration:
+          attributes:
+            country_id:
+              taken: "1 seul product_configuration par pays par product. Créer un nouveau produit pour ce produit"
     attributes:
       user:
         accounts: Comptes
