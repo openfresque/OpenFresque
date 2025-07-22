@@ -6,10 +6,6 @@
     <div class="mb-3">
       <%= password_field_tag :password, nil, placeholder: t("password"), class: "form-control", data: { signin_target: "passwordInput" }, required: true %>
     </div>
-    <label>
-      <%= check_box_tag :show_password, 1, false, data: { action: "click->signin#togglePasswordVisibility" } %>
-      <%= t("show_password") %>
-    </label>
     <%= submit_tag t("sessions.signin"), id: "new_session_commit", class: "mt-3 w-100 btn btn-lg btn-primary rounded-pill" %>
     <%= link_to(t("sessions.forgot"), new_forgot_password_path(language: @language), class: "w-100 btn btn-link") %>
   </div>

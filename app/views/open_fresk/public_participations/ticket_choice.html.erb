@@ -1,4 +1,4 @@
-<div class="col-lg-6 mx-auto my-3" id="ticket_choice">
+<div class="col-lg-6 mx-auto my-3" id="ticket_choice" data-controller="ticket-choice">
   <h3>
     <%= t("training_sessions.ticket_choice.title") %>
   </h3>
@@ -8,7 +8,7 @@
 
     <% @product_configurations.each do |product_configuration| %>
       <div class="d-flex align-items-center px-3 py-2 mb-3 rounded-3 product_configuration" id="<%= product_configuration.id %>">
-        <input type="radio" name="product_configuration_id" class="radio_button" id="product_configuration_id_<%= product_configuration.id %>" required value="<%= product_configuration.id %>" price_modifiable="<%= product_configuration.product.price_modifiable? %>">
+        <input type="radio" name="product_configuration_id" class="radio_button" id="product_configuration_id_<%= product_configuration.id %>" required value="<%= product_configuration.id %>" price_modifiable="<%= product_configuration.product.price_modifiable? %>" data-action="change->ticket-choice#handleRadioChange">
         <div class="d-flex flex-grow-1 justify-content-between align-items-center ms-2">
           <div>
             <%= label_tag product_configuration.display_name, nil, for: "product_configuration_id_#{product_configuration.id}" %>
@@ -21,7 +21,7 @@
             </span>
           </div>
           <% if product_configuration.price_modifiable? %>
-              <%= number_field_tag :custom_price, nil, placeholder: "#{product_configuration.after_tax_price.format} #{t("invoice.vat_included")}", min: 1, required: true %>
+              <%= number_field_tag :custom_price, nil, placeholder: "#{product_configuration.after_tax_price.format} #{t("invoice.vat_included")}", min: 1, data: { "ticket-choice-target": "customPrice" } %>
           <% end %>
         </div>
       </div>

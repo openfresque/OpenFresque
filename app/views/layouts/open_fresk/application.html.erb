@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>OpenFresk</title>
+  <% nonprofit_name = (defined?(OpenFreskSetting) && OpenFreskSetting.first) ? OpenFreskSetting.first.non_profit_name : "OpenFresk" %>
+  <title><%= nonprofit_name %></title>
   <%= render "layouts/open_fresk/include" %>
   <%= render "layouts/open_fresk/meta" %>
 
