@@ -3,6 +3,7 @@ module OpenFresk
     include OpenFresk::Authentication
 
     before_action :set_unsigned_language
+    before_action :set_signed_language
 
     def language
       params[:language]
