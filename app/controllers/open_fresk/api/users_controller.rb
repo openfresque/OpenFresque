@@ -1,8 +1,8 @@
 module OpenFresk
   module Api
     class UsersController < BaseController
-      skip_before_action :verify_authenticity_token
-      skip_before_action :authenticate_user!
+      # skip_before_action :verify_authenticity_token
+      # skip_before_action :authenticate_user!
       before_action :set_user, only: %i[show update destroy]
 
       def index
