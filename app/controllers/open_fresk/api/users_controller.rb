@@ -15,7 +15,10 @@ module OpenFresk
       end
 
       def create
-        @user = User.new(user_params)
+        user_attributes = user_params.to_h
+        user_attributes[:password] = create_password if user_attributes[:password].blank?
+
+        @user = User.new(user_attributes)
         if @user.save
           render json: @user, status: :created
         else
@@ -43,7 +46,11 @@ module OpenFresk
       end
 
       def user_params
-        params.require(:user).permit(:firstname, :lastname, :email, :password, :user_role)
+        params.require(:user).permit(:firstname, :lastname, :email, :password, :user_role, :admin)
+      end
+
+      def create_password
+        SecureRandom.hex(8)
       end
     end
   end
