@@ -1,5 +1,5 @@
 OpenFresk::Engine.routes.draw do
-  root to: "sessions#new"
+  root to: 'sessions#new'
 
   resources :sessions, only: %i[new create]
   resource  :recover_password, only: %i[new create]
@@ -26,4 +26,8 @@ OpenFresk::Engine.routes.draw do
   end
 
   resources :session_participations, only: %i[show]
+
+  namespace :api do
+    resources :users
+  end
 end
