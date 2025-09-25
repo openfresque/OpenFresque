@@ -51,10 +51,10 @@
     </div>
     <!-- COPY LINK -->
     <div class="flex-column align-items-center">
-      <button class="toast_btn btn copy-to-clipboard link-secondary" data-text="<%= show_public_session_url(@training_session, current_user) %>" title="copy to url clipboard" >
-          <%= fa_icon("share-alt", class: "fs-5 square-50 bg-secondary rounded-circle bg-opacity-25") %>
+      <button class="toast_btn btn copy-to-clipboard link-primary" data-text="<%= show_public_session_url(@training_session, current_user) %>" title="copy to url clipboard" >
+          <%= fa_icon("share-alt", class: "fs-5 square-50 border border-primary rounded-circle bg-opacity-25") %>
       </button>
-      <div class="text-center text-secondary">
+      <div class="text-center text-primary">
         <%= t('training_sessions.share') %>
       </div>
     </div>

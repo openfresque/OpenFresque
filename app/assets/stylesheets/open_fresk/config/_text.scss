@@ -1,6 +1,9 @@
 .text-secondary,
 .link-secondary {
-  color: var(--secondary-color) !important;
+  color: $secondary !important;
+}
+.link-secondary:hover {
+  cursor: pointer;
 }
 .text-light,
 .link-light {
@@ -21,4 +24,13 @@
 .text-transparent,
 .link-transparent  {
     color: rgba(255, 255, 255, 0) !important;
+}
+.text-primary,
+.link-primary {
+  color: var(--primary-color) !important;
+}
+.link-primary:hover {
+  color: var(--primary-color) !important;
+  filter: brightness(70%);
+  cursor: pointer;
 }

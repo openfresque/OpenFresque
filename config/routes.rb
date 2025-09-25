@@ -19,6 +19,7 @@ OpenFresk::Engine.routes.draw do
     resources :public_participations, only: %i[create] do
       collection do
         get :ticket_choice
+        get :personal_informations
         post :personal_informations
         patch :update
       end

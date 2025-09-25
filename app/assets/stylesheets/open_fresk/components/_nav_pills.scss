@@ -15,12 +15,12 @@
     .nav-link:not(.active) {
       margin: 0px 5px;
       background-color: #fff;
-      color: rgba(var(--secondary-color), 0.8) !important;
-      border-bottom: 2px solid rgba(var(--secondary-color), 0.8);
+      color: rgba($secondary, 0.8) !important;
+      border-bottom: 2px solid rgba($secondary, 0.8);
       border-radius: 0px !important;
     }
     .nav-link:not(.active):hover {
-      background-color: rgba(var(--secondary-color), 0.2) !important;
-      color: var(--secondary-color) !important;
+      background-color: rgba($secondary, 0.2) !important;
+      color: $secondary !important;
     }
   }

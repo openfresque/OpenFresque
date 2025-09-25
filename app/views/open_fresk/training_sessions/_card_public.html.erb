@@ -21,14 +21,14 @@
         <%= training_session.capacity %>
       </small>
       <div class="d-flex align-items-center my-2 me-3">
-        <%= fa_icon("users", class: "text-secondary", style: 'width: 30px') %>
+        <%= fa_icon("users", class: "text-primary", style: 'width: 30px') %>
         <%= seats_booked_progress_bar(training_session) %>
       </div>
       <div class="text-end me-3">
         <%= participant_capacity_full_badge(training_session) %>
       </div>
     </div>
-    <div class="d-flex align-items-center text-secondary" >
+    <div class="d-flex align-items-center text-primary" >
       <%= fa_icon("chevron-right") %>
     </div>
   </div>

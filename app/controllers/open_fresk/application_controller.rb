@@ -15,9 +15,9 @@ module OpenFresk
       if %w[fr en].include?(language)
         I18n.locale = language
       elsif language.include?('\u0026')
-        redirect_to request.original_url.gsub('\\u0026', '&')
+        params[:language] = language.gsub('\u0026', '&')
       else
-        redirect_to request.original_url.gsub('language=en')
+        params[:language] ||= 'en'
       end
     end
 

@@ -32,12 +32,12 @@
             </small>
         </div>
         <div>
-          <div class="d-flex justify-content-between align-items-center mt-2 me-3 text-secondary">
+          <div class="d-flex justify-content-between align-items-center mt-2 me-3 text-primary">
             <%= fa_icon("users", style: 'width: 30px') %>
             <%= seats_booked_progress_bar(training_session) %>
             <small class="ms-1"><%= "#{training_session.confirmed_present_count}/#{training_session.capacity}" %></small>
           </div>
-          <div class="my-2 me-3 text-secondary d-flex align-items-center">
+          <div class="my-2 me-3 text-primary d-flex align-items-center">
             <%= fa_icon("user-graduate", style: 'width: 30px') %>
           </div>
         </div>
@@ -45,7 +45,7 @@
       </div>
       
     </div>
-    <div class="d-flex align-items-center text-secondary" >
+    <div class="d-flex align-items-center text-primary" >
       <%= fa_icon("chevron-right") %>
     </div>
   </div>
