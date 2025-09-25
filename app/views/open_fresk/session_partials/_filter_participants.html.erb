@@ -17,13 +17,13 @@
   <div class="dropdown-menu">
     <%= link_to(t("invitations.all_participants_count", count: @training_session.all_participants_count),
                 show_session_link(@training_session),
-                class: "dropdown-item border-bottom-light link-secondary text-decoration-none") %>
+                class: "dropdown-item border-bottom-secondary link-secondary text-decoration-none") %>
     <%= link_to(t("invitations.confirmed_count", count: @training_session.confirmed_count),
                 show_session_link(@training_session, "confirmed"),
-                class: "dropdown-item border-bottom-light link-secondary text-decoration-none") %>
+                class: "dropdown-item border-bottom-secondary link-secondary text-decoration-none") %>
     <%= link_to(t("invitations.pending_count", count: @training_session.pending_count),
                 show_session_link(@training_session, "pending"),
-                class: "dropdown-item border-bottom-light link-secondary text-decoration-none") %>
+                class: "dropdown-item border-bottom-secondary link-secondary text-decoration-none") %>
     <%= link_to(t("invitations.declined_count", count: @training_session.declined_count),
                 show_session_link(@training_session, "declined"),
                 class: "dropdown-item link-secondary text-decoration-none") %>

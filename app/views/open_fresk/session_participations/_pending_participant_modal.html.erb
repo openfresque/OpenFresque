@@ -12,7 +12,7 @@
 
           <div class="mb-3">
             <%= form.label :email, class: 'required' %>
-            <label for="exampleInputEmail1" class="form-control bg-light"><%= participation.user.email %></label>
+            <label for="exampleInputEmail1" class="form-control bg-secondary"><%= participation.user.email %></label>
             <%= hidden_field_tag "participation[email]", participation.user.email %>
           </div>
 

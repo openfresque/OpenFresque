@@ -2,8 +2,8 @@ select.select_custom {
   /* Reset styles, including removing the default dropdown arrow */
   background-color: transparent;
   border: none;
-  outline-color: var(--secondary-color);
-  color: var(--secondary-color);
+  outline-color: $secondary;
+  color: $secondary;
   cursor: pointer;
   padding: 5px;
 }

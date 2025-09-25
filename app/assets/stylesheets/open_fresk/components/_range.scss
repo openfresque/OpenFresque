@@ -233,7 +233,7 @@ input[type=range].styled-slider.slider-progress:active::-ms-fill-lower {
 }
 
 .scale {
-  color: var(--secondary-color);
+  color: $secondary;
   padding: 4px 12px;
   position: absolute;
   border-radius: 100%;
@@ -241,13 +241,3 @@ input[type=range].styled-slider.slider-progress:active::-ms-fill-lower {
   bottom: 20px;
   transform: translateX(-50%);
 }
-// .scale::after {
-//   content: "";
-//   position: absolute;
-//   width: 2px;
-//   height: 10px;
-//   background: var(--secondary-color);
-//   bottom: -5px;
-//   left: 50%;
-//   z-index: -1;
-// }

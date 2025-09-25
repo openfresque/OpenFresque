@@ -1,0 +1,9 @@
+.copy-to-clipboard i {
+    color: var(--primary-color) !important;
+  }
+  
+  .copy-to-clipboard:active i,
+  .copy-to-clipboard:focus i,
+  .copy-to-clipboard:hover i {
+    color: var(--primary-color) !important;
+  }

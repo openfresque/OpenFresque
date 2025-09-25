@@ -13,7 +13,7 @@
   <div class="dropdown-menu">
     <%= link_to(t("participations.all_present_participants_count", count: @training_session.present_count),
                 show_session_link(@training_session, "all_present_participants_count"),
-                class: "dropdown-item border-bottom-light link-secondary text-decoration-none") %>
+                class: "dropdown-item border-bottom-secondary link-secondary text-decoration-none") %>
     <%= link_to(t("participations.my_present_participants_count", count: my_present_participants_count(@training_session, current_user)),
                 show_session_link(@training_session),
                 class: "dropdown-item link-secondary text-decoration-none") %>

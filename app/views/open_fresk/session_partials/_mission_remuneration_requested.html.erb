@@ -1,6 +1,6 @@
 <div class="d-flex flex-row">
   <% if @training_session.mission.present? && @training_session.ended? %>
-      <span class="rounded-3 small px-2 py-1 <%= @training_session.already_payed? ? 'bg-success text-white' : 'bg-light text-dark' %>">
+      <span class="rounded-3 small px-2 py-1 <%= @training_session.already_payed? ? 'bg-success text-white' : 'bg-secondary text-dark' %>">
         <%= t("training_sessions.missions.#{@training_session.already_payed? ? 'remuneration_requested' : 'remuneration_pending'}") %>
       </span>
       <%= render(TooltipComponent.new(name: "remuneration_requested")) do %>

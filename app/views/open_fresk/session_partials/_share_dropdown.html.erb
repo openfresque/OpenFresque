@@ -1,12 +1,12 @@
 <div class="btn-group dropstart">
   <%= link_to("#",
-      class: "btn btn-light btn-square-40 rounded-3",
+      class: "btn btn-secondary btn-square-40 rounded-3",
       role: "button", data: {bs_toggle: "dropdown"}, aria_expanded: "false") do %>
     <%= fa_icon('share-alt', class: "text-secondary") %>
   <% end %>
 
   <ul class="dropdown-menu dropdown-menu-start">
-    <li class="dropdown-item border-bottom-light">
+    <li class="dropdown-item border-bottom-secondary">
       <%= button_tag(
           class: "toast_btn d-flex align-items-center text-start btn p-0 copy-to-clipboard link-secondary",
           data: {text: show_session_url(@training_session)}) do %>

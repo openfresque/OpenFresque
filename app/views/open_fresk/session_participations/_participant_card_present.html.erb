@@ -1,4 +1,4 @@
-<div class="border-bottom-light p-3"
+<div class="border-bottom-secondary p-3"
    data-participation-id="<%= participation.id %>">
     <%= link_to "#collapse_#{participation.id}",
           class: "d-block link-secondary text-decoration-none collapse_action d-flex justify-content-between align-items-top tooltips",
@@ -17,7 +17,7 @@
           <div class="small text-primary"><%= t('participations.account_activated') %></div>
         <% end %>
       </div>
-      <div><%= fa_icon("chevron-right", class: "link-light #{"do_not_rotate" if (!participation.my_present?(current_user))}") %></div>
+      <div><%= fa_icon("chevron-right", class: "link-secondary #{"do_not_rotate" if (!participation.my_present?(current_user))}") %></div>
     <% end %>
     <%= render "open_fresk/session_partials/participant_collapse", participation: participation %>
 </div>

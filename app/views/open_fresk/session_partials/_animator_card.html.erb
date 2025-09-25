@@ -1,7 +1,7 @@
 <%= link_to("#collapse_#{participation.id}",
             class: "d-block text-secondary text-decoration-none",
             data: {bs_toggle: "collapse"}) do %>
-  <div class="border-bottom-light p-3 collapse_action">
+  <div class="border-bottom-secondary p-3 collapse_action">
     <div class="d-flex justify-content-between align-items-center">
       <div class="d-flex align-items-center">
         <div class="link-secondary">
@@ -19,11 +19,11 @@
         </div>
       </div>
       <div>
-        <span class="link-light"><%= fa_icon("chevron-right") %></span>
+        <span class="link-secondary"><%= fa_icon("chevron-right") %></span>
       </div>
     </div>
 
-    <div class="collapse small link-light" id="collapse_<%= participation.id %>">
+    <div class="collapse small link-secondary" id="collapse_<%= participation.id %>">
       <%= user_email_link_or_text(participation) %>
       <div class="text-primary"><%= fa_icon("user-check", text: my_present_participants_count(@training_session, participation.animator), right: true) %></div>
       <div class="d-flex justify-content-start mt-2">

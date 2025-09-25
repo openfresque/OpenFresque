@@ -30,3 +30,22 @@
   border: none;
   text-decoration: none;
 }
+
+.btn-link {
+  color: var(--primary-color);
+}
+.btn-link:hover {
+  color: var(--primary-color);
+  filter: brightness(70%);
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}

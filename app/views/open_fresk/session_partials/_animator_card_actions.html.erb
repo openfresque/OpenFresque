@@ -14,7 +14,7 @@
     </button>
   <% elsif !@coanimator && current_user != participation.user && (@training_session.animator?(current_user) || @training_session.coanimator?(current_user)) %>
     <% if participation.coanimator_id %>
-      <div class="small text-secondary bg-light p-2 me-3 rounded-3"><%= t("coanimation.coanimate_already") %></div>
+      <div class="small text-secondary bg-secondary p-2 me-3 rounded-3"><%= t("coanimation.coanimate_already") %></div>
     <% else %>
       <button class= "btn btn-sm btn-primary me-3 rounded-3 d-block w-30" id="<%= "#createCoanimation_#{participation.id}_Modal" %>" data-bs-toggle="modal" data-bs-target="<%= "#createCoanimation_#{participation.id}_Modal" %>">
         <%= t("coanimation.coanimate") %>

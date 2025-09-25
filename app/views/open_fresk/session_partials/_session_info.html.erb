@@ -2,10 +2,10 @@
 <%#= training_session_recurrence(@training_session) %>
 <%= training_session_location(@training_session) %>
 <%= link_to("#collapse_details",
-            class: "link-secondary text-decoration-none",
+            class: "link-primary text-decoration-none",
             id: "see_more_btn",
             data: {bs_toggle: "collapse"}) do %>
-    <div class="d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-center align-items-center text-primary">
       <%= t("see_more") %>
       <%= fa_icon("chevron-down", class: "ms-3") %>
     </div>
