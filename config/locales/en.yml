@@ -1,6 +1,7 @@
 en:
   date:
     formats:
+      default: "%m/%d/%Y"
       long: "%A, %B %d, %Y"
     day_names:
       - Sunday

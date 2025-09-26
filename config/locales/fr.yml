@@ -1,6 +1,7 @@
 fr:
   date:
     formats:
+      default: "%d/%m/%Y"
       long: "%A %d %B %Y"
     day_names:
       - dimanche
