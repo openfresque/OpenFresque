@@ -88,7 +88,7 @@ module OpenFresk
           product_configuration: product_configuration
         )
       end
-      redirect_to edit_training_session_path(@training_session),
+      redirect_to training_session_path(@training_session),
                   notice: t("training_sessions.updated")
     end
 

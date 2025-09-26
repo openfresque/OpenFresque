@@ -12,6 +12,11 @@ module OpenFresk
              with_model_currency: :currency
 
     validates :display_name,
+              :before_tax_price_cents,
+              :after_tax_price_cents,
+              :tax_cents,
+              :tax_rate,
+              :currency,
               presence: true
 
     validates_uniqueness_of :country_id, scope: :product_id
