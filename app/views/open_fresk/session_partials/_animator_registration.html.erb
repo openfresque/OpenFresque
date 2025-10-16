@@ -1,35 +1,31 @@
 <div class="d-flex justify-content-between align-items-center">
-  <div class="justify-content-start">
-    <% unless @training_session.mission&.volunteering? %>
-      <%= render partial: "open_fresk/session_partials/mission_remuneration_requested" %>
-    <% end %>
-  </div>
   <div class="justify-content-end">
-    <% if current_user.animator? %>
-      <% if @training_session.animation_full? && !@training_session.organisator?(current_user) && !@training_session.facilitator?(current_user)%>
-          <%= render(Button::LinkButtonComponent.new(type: :secondary, label: t("participations.register_as_animator"),
+    <% if current_user.facilitator? %>
+      <%# if @training_session.animation_full? && !@training_session.organisator?(current_user) && !@training_session.facilitator?(current_user)%>
+          <%#= render(Button::LinkButtonComponent.new(type: :secondary, label: t("participations.register_as_animator"),
               outline: true, classes: "tooltips", title: t("coanimation.roles_closed"), rounded: nil)) %>
-      <% else %>
+      <%# else %>
         <%= link_to("#animatorRegistrationModal",
             class: "text-decoration-none",
             id: "animator_registration",
             data: { bs_toggle: "modal", bs_target: "#animatorRegistrationModal"}) do %>
-          <% if @training_session.facilitator?(current_user) ||
+          <%# if @training_session.facilitator?(current_user) ||
                 @training_session.observer?(current_user) ||
                 @training_session.coach?(current_user) %>
-            <div class="btn btn-outline-primary ">
-              <%= fa_icon("cog", class: "me-2") %>
-              <%= t("participations.my_registration") %>
-            </div>
-          <% else %>
+<!--            <div class="btn btn-outline-primary ">-->
+              <%#= fa_icon("cog", class: "me-2") %>
+              <%#= t("participations.my_registration") %>
+<!--            </div>-->
+          <%# else %>
             <div class="btn btn-primary ">
               <%= fa_icon("user-graduate", class: "me-2") %>
               <%= t("participations.register_as_animator") %>
             </div>
           <% end %>
-        <% end %>
-      <% end %>
+        <%# end %>
+      <%# end %>
     <% end %>
   </div>
 </div>
-<%= render partial: "open_fresk/session_partials/animator_registration_modal" unless @training_session.animation_full? && !@training_session.organisator?(current_user) && !@training_session.facilitator?(current_user) %>
+<%= render partial: "open_fresk/session_partials/animator_registration_modal" %>
+<%#= render partial: "open_fresk/session_partials/animator_registration_modal" unless @training_session.animation_full? && !@training_session.organisator?(current_user) && !@training_session.facilitator?(current_user) %>

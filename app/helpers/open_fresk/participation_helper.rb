@@ -1,15 +1,15 @@
 module OpenFresk
   module ParticipationHelper
-    #include InvitationHelper
-    #include TrainingSessions::TrainingSessionRegisterAnimatorHelper
-    #include Participations::AnonymousParticipantsHelper
+    # include InvitationHelper
+    # include TrainingSessions::TrainingSessionRegisterAnimatorHelper
+    # include Participations::AnonymousParticipantsHelper
 
     def participants_emails(participations)
-      participations.where.not(status: Participation::Declined).map(&:user).map(&:email).join(";")
+      participations.where.not(status: Participation::Declined).map(&:user).map(&:email).join(';')
     end
 
     def animators_emails(session)
-      session.participations.animator.map(&:user).map(&:email).join(";")
+      session.participations.animator.map(&:user).map(&:email).join(';')
     end
 
     def participant_name(participation)

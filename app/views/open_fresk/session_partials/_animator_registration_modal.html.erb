@@ -8,50 +8,52 @@
       </div>
       <div class="modal-body modal-dialog-scrollable">
 
-        <% if already_registered_participants?(@training_session, current_user) %>
-            <%= t('my_participation.already_registered_participants_html', count: my_present_participants_count(@training_session, current_user)) %>
-        <% elsif @training_session.already_payed? %>
-            <%= t('missions.already_payed_registered_participants', count: my_present_participants_count(@training_session, current_user)) %>
-        <% else %>
-          <%= form_tag(animator_registration_session_participation_path(@training_session),
-                      id: "animator_register_form") do %>
-            <div class="form-group mb-3 animator_register_form">
-              <% if can_register_as_observer?(@training_session, current_user) %>
-                <div class="mb-3 d-flex">
-                  <%= radio_button_tag :animation, "#{Participation::Observer}", @training_session.observer?(current_user), class:"btn-check checked_radio_button align-middle", name:"animation", id:"observe", autocomplete:"off", required: true %>
-                  <%= label_tag "animation_observe", t('coanimation.observe'), class: "btn h-100 w-100", for:"observe" %>
-                  <a tabindex="0" class="btn" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
+        <%# if already_registered_participants?(@training_session, current_user) %>
+            <%#= t('my_participation.already_registered_participants_html', count: my_present_participants_count(@training_session, current_user)) %>
+        <%# elsif @training_session.already_payed? %>
+            <%#= t('missions.already_payed_registered_participants', count: my_present_participants_count(@training_session, current_user)) %>
+        <%# else %>
+          <%= form_tag(facilitator_registration_session_participation_path(@training_session), id: "animator_register_form") do %>
+<!--            <div class="form-group mb-3 animator_register_form">-->
+              <%# if can_register_as_observer?(@training_session, current_user) %>
+<!--                <div class="mb-3 d-flex">-->
+                  <%#= radio_button_tag :animation, "#{Participation::Observer}", false, class:"btn-check checked_radio_button align-middle", name:"animation", id:"observe", autocomplete:"off", required: true %>
+                  <%#= radio_button_tag :animation, "#{Participation::Observer}", @training_session.observer?(current_user), class:"btn-check checked_radio_button align-middle", name:"animation", id:"observe", autocomplete:"off", required: true %>
+                  <%#= label_tag "animation_observe", t('training_sessions.i_observe'), class: "btn h-100 w-100", for:"observe" %>
+<!--                  <a tabindex="0" class="btn" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
                       data-html="true"
                       data-bs-content-id="role_observer">
-                    <%= fa_icon("question-circle", class: "text-secondary") %>
-                  </a>
+                    <%#= fa_icon("question-circle", class: "text-secondary") %>-->
+<!--                  </a>
                   <div id="role_observer" class="d-none">
-                    <%= t('training_sessions.roles_helper.observer_html') %>
-                  </div>
-                </div>
-              <% else %>
-                <div class="text-secondary mb-3 text-center"><%= t('coanimation.observe') %> (<%= t('participations.unavailable') %>)</div>
-              <% end %>
-              <% if can_register_as_coanimator?(@training_session, current_user) %>
-                <div class="d-flex mb-3">
-                  <%= radio_button_tag :animation, "#{Participation::Coanimator}", @training_session.coanimator?(current_user), class:"btn-check checked_radio_button align-middle", name:"animation", id:"coanimate", autocomplete:"off", required: true %>
-                  <%= label_tag "animation_coanimate", t('coanimation.coanimate'), class: "btn h-100 w-100", for:"coanimate" %>
-                  <a tabindex="0" class="btn" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
+                    <%#= t('training_sessions.roles_helper.observer_html') %>-->
+<!--                  </div>
+                </div>-->
+              <%# else %>
+<!--                <div class="text-secondary mb-3 text-center"><%#= t('coanimation.observe') %> (<%= t('participations.unavailable') %>)</div>-->
+              <%# end %>
+              <%# if can_register_as_coanimator?(@training_session, current_user) %>
+<!--                <div class="d-flex mb-3">-->
+                  <%#= radio_button_tag :animation, "#{Participation::Coanimator}", false, class:"btn-check checked_radio_button align-middle", name:"animation", id:"coanimate", autocomplete:"off", required: true %>
+                  <%#= radio_button_tag :animation, "#{Participation::Coanimator}", @training_session.coanimator?(current_user), class:"btn-check checked_radio_button align-middle", name:"animation", id:"coanimate", autocomplete:"off", required: true %>
+                  <%#= label_tag "animation_coanimate", t('training_sessions.i_coanimate'), class: "btn h-100 w-100", for:"coanimate" %>
+<!--                  <a tabindex="0" class="btn" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
                       data-html="true"
                       data-bs-content-id="role_coanimator">
-                    <%= fa_icon("question-circle", class: "text-secondary") %>
-                  </a>
+                    <%#= fa_icon("question-circle", class: "text-secondary") %>-->
+<!--                  </a>
                   <div id="role_coanimator" class="d-none">
-                    <%= t('training_sessions.roles_helper.coanimator_html') %>
-                  </div>
-                </div>
-              <% else %>
-                <div class="text-secondary mb-3 text-center"><%= t('coanimation.coanimate') %> (<%= t('participations.unavailable') %>)</div>
-              <% end %>
-              <% if can_register_as_animator?(@training_session, current_user) %>
+                    <%#= t('training_sessions.roles_helper.coanimator_html') %>-->
+<!--                  </div>
+                </div>-->
+              <%# else %>
+<!--                <div class="text-secondary mb-3 text-center"><%#= t('coanimation.coanimate') %> (<%= t('participations.unavailable') %>)</div>-->
+              <%# end %>
+              <%# if can_register_as_animator?(@training_session, current_user) %>
                 <div class="d-flex mb-3">
-                  <%= radio_button_tag :animation, "#{Participation::Animator}", @training_session.animator?(current_user), class:"btn-check checked_radio_button align-middle", name:"animation", id:"animate", autocomplete:"off", required: true %>
-                  <%= label_tag "animation_animate", t('coanimation.animate_alone'), class: "btn h-100 w-100", for:"animate" %>
+                  <%= radio_button_tag :animation, "#{Participation::Facilitator}", @training_session.facilitator?(current_user), class:"btn-check checked_radio_button align-middle", name:"animation", id:"animate", autocomplete:"off", required: true %>
+                  <%#= radio_button_tag :animation, "#{Participation::Animator}", @training_session.animator?(current_user), class:"btn-check checked_radio_button align-middle", name:"animation", id:"animate", autocomplete:"off", required: true %>
+                  <%= label_tag "animation_animate", t('training_sessions.i_animate'), class: "btn h-100 w-100", for:"animate" %>
                   <a tabindex="0" class="btn" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
                       data-html="true"
                       data-bs-content-id="role_animator">
@@ -61,49 +63,50 @@
                       <%= t('training_sessions.roles_helper.animator_html') %>
                   </div>
                 </div>
-              <% else %>
-                <div class="text-secondary mb-3 text-center"><%= t('coanimation.animate_alone') %> (<%= t('participations.unavailable') %>)</div>
-              <% end %>
-                <% unless @training_session.formation? %>
-                    <% if can_register_as_coach?(@training_session, current_user) %>
-                      <div class="d-flex mb-3">
-                        <%= radio_button_tag :coach, "#{Participation::Coach}", @training_session.coach?(current_user), class:"btn-check checked_radio_button align-middle", name:"animation", id:"coach", autocomplete:"off", required: true %>
-                          <%= label_tag "animation_animate", t('coanimation.coach'), class: "btn h-100 w-100", for:"coach" %>
-                        <a tabindex="0" class="btn" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
+              <%# else %>
+<!--                <div class="text-secondary mb-3 text-center"><%#= t('coanimation.animate_alone') %> (<%= t('participations.unavailable') %>)</div>-->
+              <%# end %>
+                <%# unless @training_session.formation? %>
+                    <%# if can_register_as_coach?(@training_session, current_user) %>
+<!--                      <div class="d-flex mb-3">-->
+                        <%#= radio_button_tag :coach, "#{Participation::Coach}", false, class:"btn-check checked_radio_button align-middle", name:"animation", id:"coach", autocomplete:"off", required: true %>
+                        <%#= radio_button_tag :coach, "#{Participation::Coach}", @training_session.coach?(current_user), class:"btn-check checked_radio_button align-middle", name:"animation", id:"coach", autocomplete:"off", required: true %>
+                          <%#= label_tag "animation_animate", t('training_sessions.i_coach'), class: "btn h-100 w-100", for:"coach" %>
+<!--                        <a tabindex="0" class="btn" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
                             data-html="true"
                             data-bs-content-id="role_coach">
-                          <%= fa_icon("question-circle", class: "text-secondary") %>
-                        </a>
+                          <%#= fa_icon("question-circle", class: "text-secondary") %>-->
+<!--                        </a>
                         <div id="role_coach" class="d-none">
-                          <%= t('training_sessions.roles_helper.coach_html') %>
-                        </div>
-                      </div>
-                    <% else %>
-                      <div class="text-secondary mb-3 text-center"><%= t('coanimation.coach') %> (<%= t('participations.unavailable') %>)</div>
-                    <% end %>
-                <% end %>
-            </div>
-          <% end %>
+                          <%#= t('training_sessions.roles_helper.coach_html') %>-->
+<!--                        </div>
+                      </div>-->
+                    <%# else %>
+<!--                      <div class="text-secondary mb-3 text-center"><%#= t('coanimation.coach') %> (<%= t('participations.unavailable') %>)</div>-->
+                    <%# end %>
+                <%# end %>
+<!--            </div>-->
+          <%# end %>
         <% end %>
       </div>
       <div class="modal-footer">
-        <% if (@training_session.animator?(current_user) || @training_session.coanimator?(current_user) || @training_session.observer?(current_user) || @training_session.coach?(current_user)) && !already_registered_participants?(@training_session, current_user) && !@training_session.already_payed? %>
-          <%= form_tag animator_registration_session_participation_path(@training_session) do %>
+        <%# if (@training_session.animator?(current_user) || @training_session.coanimator?(current_user) || @training_session.observer?(current_user) || @training_session.coach?(current_user)) && !already_registered_participants?(@training_session, current_user) && !@training_session.already_payed? %>
+          <%= form_tag facilitator_registration_session_participation_path(@training_session) do %>
             <%= hidden_field_tag 'animation', "unregistered" %>
-            <%= submit_tag t('coanimation.unregister'), class: "btn btn-link link-secondary" %>
+            <%= submit_tag t('training_sessions.unregister'), class: "btn btn-link link-secondary" %>
           <% end %>
-        <% end %>
+        <%# end %>
 
-        <% if already_registered_participants?(@training_session, current_user) || @training_session.already_payed? %>
-          <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">
-            <%= t('close') %>
-          </button>
-        <% else %>
+        <%# if already_registered_participants?(@training_session, current_user) || @training_session.already_payed? %>
+<!--          <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">-->
+            <%#= t('close') %>
+<!--          </button>-->
+        <%# else %>
           <%= submit_tag t('save'),
             class: "btn btn-primary rounded-pill",
             id: "animator_registration_commit",
             form: "animator_register_form" %>
-        <% end %>
+        <%# end %>
       </div>
     </div>
   </div>

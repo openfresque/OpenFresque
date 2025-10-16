@@ -249,6 +249,7 @@ fr:
     menu_end_date: Heure de fin
     menu_start_date: Heure de début
     menu_time_zone: Fuseau horaire
+    unregister: Me désinscrire
     missions:
       audience_error: L'audience de la session ne correspond pas à celle de la mission
       organisation_error:

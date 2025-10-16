@@ -22,7 +22,7 @@ module OpenFresk
 
     delegate :future?, to: :end_time
 
-    #TODO: remove me when timezones are implemented
+    # TODO: remove me when timezones are implemented
     def local_start_time
       start_time
     end
@@ -42,7 +42,7 @@ module OpenFresk
       1
     end
 
-    #TODO: implement when participations are implemented
+    # TODO: implement when participations are implemented
     def destroyable?
       true
       # participations.where(status: Participation::Confirmed).none? &&
@@ -59,7 +59,11 @@ module OpenFresk
       #   "animator_id = ?", user.id
       # )
 
-      participations.find_by("animator_id = ?", user.id)
+      participations.find_by('animator_id = ?', user.id)
+    end
+
+    def facilitator?(user)
+      participations&.find_by(user_id: user.id)&.facilitator_role == Participation::Facilitator
     end
   end
 end

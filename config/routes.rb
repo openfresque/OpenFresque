@@ -26,7 +26,11 @@ OpenFresk::Engine.routes.draw do
     end
   end
 
-  resources :session_participations, only: %i[show]
+  resources :session_participations, only: %i[show] do
+    member do
+      post :facilitator_registration
+    end
+  end
 
   namespace :api do
     resources :users

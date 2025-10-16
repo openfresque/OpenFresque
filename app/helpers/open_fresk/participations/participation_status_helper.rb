@@ -24,13 +24,13 @@ module OpenFresk
                     class: 'small text-success')
       end
 
-      def animator_status(participation)
-        case participation.animator_role
+      def facilitator_status(participation)
+        case participation.facilitator_role
         when Participation::Observer
           content_tag(:div, t('invitations.observe'))
         when Participation::Coanimator
           content_tag(:div, t('invitations.coanime'))
-        when Participation::Animator
+        when Participation::Facilitator
           content_tag(:div, t('invitations.anime'))
         when Participation::Coach
           content_tag(:div, t('invitations.coach'))

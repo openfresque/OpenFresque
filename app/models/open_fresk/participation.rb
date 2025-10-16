@@ -1,35 +1,36 @@
 module OpenFresk
   class Participation < ApplicationRecord
-    self.table_name = "participations"
+    self.table_name = 'participations'
     include Decorable
 
     belongs_to :user
     belongs_to :training_session, inverse_of: :participations
-    belongs_to :animator, class_name: "User", foreign_key: "animator_id"
+    belongs_to :animator, class_name: 'User', foreign_key: 'animator_id'
     has_many :transactions, dependent: :destroy
 
     string_enum status: %i[waiting_for_payment pending confirmed declined present].freeze
+    string_enum facilitator_role: %i[observer coanimator facilitator coach].freeze
 
-    scope :participant, -> { where("animator_id != user_id OR animator_id IS NULL").includes(:user) }
+    scope :participant, -> { where('animator_id != user_id OR animator_id IS NULL').includes(:user) }
     scope :present, lambda {
-      where(status: Participation::Present).where("animator_id != user_id OR animator_id IS NULL").includes(:user)
+      where(status: Participation::Present).where('animator_id != user_id OR animator_id IS NULL').includes(:user)
     }
     scope :confirmed, lambda {
-      where(status: Participation::Confirmed).where("animator_id != user_id OR animator_id IS NULL").includes(:user)
+      where(status: Participation::Confirmed).where('animator_id != user_id OR animator_id IS NULL').includes(:user)
     }
     scope :waiting_for_payment, lambda {
-      where(status: Participation::WaitingForPayment).where("animator_id != user_id OR animator_id IS NULL").includes(:user)
+      where(status: Participation::WaitingForPayment).where('animator_id != user_id OR animator_id IS NULL').includes(:user)
     }
     scope :pending, lambda {
-      where(status: Participation::Pending).where("animator_id != user_id OR animator_id IS NULL").includes(:user)
+      where(status: Participation::Pending).where('animator_id != user_id OR animator_id IS NULL').includes(:user)
     }
     scope :declined, lambda {
-      where(status: Participation::Declined).where("animator_id != user_id OR animator_id IS NULL").includes(:user)
+      where(status: Participation::Declined).where('animator_id != user_id OR animator_id IS NULL').includes(:user)
     }
-    scope :animator, -> { where("animator_id = user_id").includes(:user) }
+    scope :animator, -> { where('animator_id = user_id').includes(:user) }
 
     scope :my_presents, lambda { |user|
-      where(status: Participation::Present).where("animator_id = ?", user&.id).where.not(user_id: user&.id).includes(:user)
+      where(status: Participation::Present).where('animator_id = ?', user&.id).where.not(user_id: user&.id).includes(:user)
     }
     scope :animators, -> { where(animator_role: [Participation::Animator]).includes(:user) }
 

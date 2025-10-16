@@ -5,9 +5,9 @@ module OpenFresk
     skip_before_action :authenticate_user!, only: %i[public show_public]
 
     def public
-      @training_sessions = TrainingSession.
-                           futur.
-                           order(start_time: :asc)
+      @training_sessions = TrainingSession
+                           .futur
+                           .order(start_time: :asc)
     end
 
     def index
@@ -20,8 +20,8 @@ module OpenFresk
 
     def edit
       @facilitation_language = @training_session.language_id
-      @start_time = @training_session.local_start_time.strftime("%H:%M")
-      @end_time = @training_session.local_end_time.strftime("%H:%M")
+      @start_time = @training_session.local_start_time.strftime('%H:%M')
+      @end_time = @training_session.local_end_time.strftime('%H:%M')
     end
 
     def update
@@ -36,7 +36,8 @@ module OpenFresk
       command.call
 
       if @training_session.errors.blank?
-        redirect_to product_configurations_training_session_path(@training_session), notice: t("training_sessions.updated")
+        redirect_to product_configurations_training_session_path(@training_session),
+                    notice: t('training_sessions.updated')
       else
         render :edit
       end
@@ -54,7 +55,7 @@ module OpenFresk
 
       if @training_session.errors.blank?
         redirect_to product_configurations_training_session_path(@training_session),
-                    notice: t("training_sessions.created")
+                    notice: t('training_sessions.created')
       else
         render :new
       end
@@ -65,8 +66,8 @@ module OpenFresk
                                 .country
                                 .product_configurations
                                 .joins(:product)
-                                .where(product: {category: @training_session.category})
-                                .where.not(product: {identifier: "COUPON"})
+                                .where(product: { category: @training_session.category })
+                                .where.not(product: { identifier: 'COUPON' })
                                 .order(:before_tax_price_cents)
                                 .includes([:product])
     end
@@ -76,7 +77,7 @@ module OpenFresk
 
       if product_configurations.blank?
         redirect_to product_configurations_training_session_path(@training_session),
-                    notice: t("training_sessions.no_product_selected")
+                    notice: t('training_sessions.no_product_selected')
         return
       end
 
@@ -88,8 +89,8 @@ module OpenFresk
           product_configuration: product_configuration
         )
       end
-      redirect_to training_session_path(@training_session),
-                  notice: t("training_sessions.updated")
+      redirect_to session_participation_path(@training_session),
+                  notice: t('training_sessions.updated')
     end
 
     def show_public
@@ -99,15 +100,16 @@ module OpenFresk
 
     def destroy
       if @training_session.destroy!
-        redirect_to root_path, notice: t("training_sessions.destroy_session_notice")
+        redirect_to root_path, notice: t('training_sessions.destroy_session_notice')
       else
         render :edit
       end
     end
 
     private
-      def training_session_params
-        params
+
+    def training_session_params
+      params
         .require(:training_session)
         .permit(
           :description,
@@ -130,26 +132,26 @@ module OpenFresk
           :latitude,
           :longitude
         )
-      end
+    end
 
-      def sessions_lists
-        public_opportunities
-      end
+    def sessions_lists
+      public_opportunities
+    end
 
-      def public_opportunities
-        training_sessions = ::TrainingSession.futur
-        @my_training_sessions = training_sessions.my_sessions(current_user)
-      end
+    def public_opportunities
+      training_sessions = ::TrainingSession.futur
+      @my_training_sessions = training_sessions.my_sessions(current_user)
+    end
 
-      def set_training_session
-        @training_session = ::TrainingSession.find(params[:id])
-      end
+    def set_training_session
+      @training_session = ::TrainingSession.find(params[:id])
+    end
 
-      def training_session_products
-        @products = @training_session
-                    .product_configuration_sessions
-                    .includes(:product_configuration)
-                    .order("product_configurations.before_tax_price_cents")
-      end
+    def training_session_products
+      @products = @training_session
+                  .product_configuration_sessions
+                  .includes(:product_configuration)
+                  .order('product_configurations.before_tax_price_cents')
+    end
   end
 end

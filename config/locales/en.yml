@@ -249,6 +249,7 @@ en:
     menu_end_date: End hour
     menu_start_date: Starting hour
     menu_time_zone: Timezone
+    unregister: Unsubscribe
     missions:
       audience_error: Training session's audience does not match mission's audience
       organisation_error:
