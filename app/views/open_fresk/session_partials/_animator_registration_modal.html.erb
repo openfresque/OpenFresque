@@ -54,11 +54,11 @@
                   <%= radio_button_tag :animation, "#{Participation::Facilitator}", @training_session.facilitator?(current_user), class:"btn-check checked_radio_button align-middle", name:"animation", id:"animate", autocomplete:"off", required: true %>
                   <%#= radio_button_tag :animation, "#{Participation::Animator}", @training_session.animator?(current_user), class:"btn-check checked_radio_button align-middle", name:"animation", id:"animate", autocomplete:"off", required: true %>
                   <%= label_tag "animation_animate", t('training_sessions.i_animate'), class: "btn h-100 w-100", for:"animate" %>
-                  <a tabindex="0" class="btn" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
+<!--                  <a tabindex="0" class="btn" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
                       data-html="true"
                       data-bs-content-id="role_animator">
-                    <%= fa_icon("question-circle", class: "text-secondary") %>
-                  </a>
+                    <%#= fa_icon("question-circle", class: "text-secondary") %>-->
+<!--                  </a>-->
                   <div id="role_animator" class="d-none">
                       <%= t('training_sessions.roles_helper.animator_html') %>
                   </div>
@@ -90,12 +90,13 @@
         <% end %>
       </div>
       <div class="modal-footer">
+        <% if @training_session.facilitator?(current_user) %>
         <%# if (@training_session.animator?(current_user) || @training_session.coanimator?(current_user) || @training_session.observer?(current_user) || @training_session.coach?(current_user)) && !already_registered_participants?(@training_session, current_user) && !@training_session.already_payed? %>
           <%= form_tag facilitator_registration_session_participation_path(@training_session) do %>
             <%= hidden_field_tag 'animation', "unregistered" %>
             <%= submit_tag t('training_sessions.unregister'), class: "btn btn-link link-secondary" %>
           <% end %>
-        <%# end %>
+        <% end %>
 
         <%# if already_registered_participants?(@training_session, current_user) || @training_session.already_payed? %>
 <!--          <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">-->

@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between align-items-center">
   <div class="justify-content-end">
-    <% if current_user.facilitator? %>
+    <%# if current_user.facilitator? %>
       <%# if @training_session.animation_full? && !@training_session.organisator?(current_user) && !@training_session.facilitator?(current_user)%>
           <%#= render(Button::LinkButtonComponent.new(type: :secondary, label: t("participations.register_as_animator"),
               outline: true, classes: "tooltips", title: t("coanimation.roles_closed"), rounded: nil)) %>
@@ -19,12 +19,12 @@
           <%# else %>
             <div class="btn btn-primary ">
               <%= fa_icon("user-graduate", class: "me-2") %>
-              <%= t("participations.register_as_animator") %>
+              <%= @training_session.facilitator?(@current_user) ? t("participations.my_registration") : t("participations.register_as_animator") %>
             </div>
           <% end %>
         <%# end %>
       <%# end %>
-    <% end %>
+    <%# end %>
   </div>
 </div>
 <%= render partial: "open_fresk/session_partials/animator_registration_modal" %>
