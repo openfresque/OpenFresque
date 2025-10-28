@@ -1,18 +1,13 @@
 module OpenFresk
   class User < ApplicationRecord
-    USER_ROLES = %w[user facilitator advanced_facilitator].freeze
-
     self.table_name = 'users'
     has_secure_password
 
     has_many :participations, dependent: :destroy
 
-    validates :user_role, presence: true, inclusion: { in: USER_ROLES }
+    string_enum user_role: UserRole.all.map { |user_role| user_role.name }
 
-    USER_ROLES.each do |role|
-      define_method("#{role}?") { user_role == role }
-      scope role, -> { where(user_role: role) }
-    end
+    validates :user_role, presence: true
 
     def country
       Country.find_by(name: 'France')
